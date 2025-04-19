@@ -43,13 +43,7 @@ services:
                -c " 
                     airflow db init &&
 
-                    airflow users create \
-                    --username **** \
-                    --firstname **** \
-                    --lastname **** \
-                    --role Admin \
-                    --email **** \
-                    --password ****
+                    airflow users create --username **** --firstname **** --lastname **** --role Admin --email ****@**** --password ****
                   "
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
@@ -59,7 +53,6 @@ services:
     depends_on:
       - db
 
-
   db:
     image: mysql
     restart: always
@@ -67,7 +60,7 @@ services:
       - MYSQL_ROOT_PASSWORD=airfwDB9090
       - MYSQL_DATABASE=airflow
     ports:
-      - '3306:3306' # <-- Para se precisarmos acessar o banco do airflow mais tarde
+      - '9191:9191' # <-- Para se precisarmos acessar o banco do airflow mais tarde
     volumes:
       - mysql_data:/var/lib/mysql
 
