@@ -4,6 +4,9 @@ import subprocess as sub
 def init():
     #Ta dando errado 
     print("Iniciando banco de dados e criando administrador\n")
+    db = sub.run(args=["docker", "compose", "run", "--rm", "db"], capture_output=True, text=True)
+
+    print(db)
     #Talvez colocar o path para ele saber onde tem que trabalhar???
     ini = sub.run(args=["docker", "compose", "run", "--rm", "airflow-init"], capture_output=True, text=True)
 

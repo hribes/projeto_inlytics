@@ -43,7 +43,7 @@ services:
                -c " 
                     airflow db init &&
 
-                    airflow users create --username **** --firstname **** --lastname **** --role Admin --email ****@**** --password ****
+                    airflow users create --username gabz --firstname Gabriel --lastname Ferreira --role Admin --email gabs.ferr08@gmail.com --password GA96biel
                   "
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
