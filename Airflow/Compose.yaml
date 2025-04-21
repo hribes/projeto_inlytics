@@ -60,7 +60,7 @@ services:
       - MYSQL_ROOT_PASSWORD=airfwDB9090
       - MYSQL_DATABASE=airflow
     ports:
-      - '9191:9191' # <-- Para se precisarmos acessar o banco do airflow mais tarde
+      - '9191:3306' # <-- Para se precisarmos acessar o banco do airflow mais tarde
     volumes:
       - mysql_data:/var/lib/mysql
 

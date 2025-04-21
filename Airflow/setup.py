@@ -1,12 +1,33 @@
-import os, socket
+import time, socket
 import subprocess as sub
+
+def db_init():
+    print("Iniciando banco de dados\n")
+
+    db = sub.run(args=["docker", "compose", "up", "-d", "db"], capture_output=True, text=True)
+
+    if db.returncode == 0 and db_check("localhost", 9191):
+        print("Banco de dados criado com sucesso\n")
+        return True
+    else:
+        return False
+
+def db_check(host: str, port: int, timeout: int = 60):
+    t_ini = time.time()
+    while time.time() - t_ini < timeout:
+        try:
+            with socket.create_connection((host, port), timeout = 2):
+                return True
+        except (socket.timeout, ConnectionRefusedError):
+            time.sleep(2)
+
+    print("Banco de dados com problemas de conexão")
+    return False
 
 def init():
     #Ta dando errado 
-    print("Iniciando banco de dados e criando administrador\n")
-    db = sub.run(args=["docker", "compose", "run", "--rm", "db"], capture_output=True, text=True)
+    print("Criando administrador\n")
 
-    print(db)
     #Talvez colocar o path para ele saber onde tem que trabalhar???
     ini = sub.run(args=["docker", "compose", "run", "--rm", "airflow-init"], capture_output=True, text=True)
 
@@ -18,7 +39,6 @@ def init():
     #Continua dando errado, mas agora tem uns passos a mais
 
     print(ini)
-    #os.system("docker compose run --rm airflow-init")
 
 def comp():
     #Ta dando errado 2
@@ -35,9 +55,12 @@ def main():
     doc = sub.run(args=["docker", "info"], capture_output=True)
 
     if doc.returncode == 0:
+        
+        if db_init():
+            
+            '''
         if init():
 
-            '''
             #Ver se o init deu certo tbm antes de vir pra cá
             #Inicia a interface do Airflow
             comp()
