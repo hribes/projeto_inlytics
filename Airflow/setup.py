@@ -16,16 +16,31 @@ def db_init():
     else:
         return erro(db.stderr)
 
-def db_check(host = "localhost", port = 9191, timeout = 60):
+def db_check(host = "localhost", port = 9191, timeout = 90):
+        
     t_inicio = time.time()
     while time.time() - t_inicio < timeout:
         try:
             with socket.create_connection((host, port), timeout = 2):
-                return True
+                break
+
         except (socket.timeout, ConnectionRefusedError):
             time.sleep(2)
 
-    print("Banco de dados com problemas de conexão")
+    else:
+        print("Banco de dados com problemas de conexão")
+        return False
+
+    t_inicio = time.time()
+    while time.time() - t_inicio < timeout:
+        db_funf = comando(["docker", "inspect", "-f", "{{.State.Health.Status}}", "airflow-db"])
+
+        if db_funf.returncode == 0 and "healthy" in db_funf.stdout.strip():
+            return True
+        
+        time.sleep(2)
+
+    print("O banco de dados não iniciou a tempo, reinicie o setup")
     return False
 
 def init():

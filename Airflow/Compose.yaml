@@ -56,11 +56,17 @@ services:
   db:
     image: mysql
     restart: always
+    container_name: airflow-db
     environment:
       - MYSQL_ROOT_PASSWORD=airfwDB9090
       - MYSQL_DATABASE=airflow
     ports:
       - '9191:3306' # <-- Para se precisarmos acessar o banco do airflow mais tarde
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pairfwDB9090"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
     volumes:
       - mysql_data:/var/lib/mysql
 
