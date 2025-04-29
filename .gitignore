@@ -1,4 +1,4 @@
 /ambiente_inlytics/
 /.env
 criar_banco.py
-teste.py
+teste_dados.py
