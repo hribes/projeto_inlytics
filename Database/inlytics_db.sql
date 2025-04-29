@@ -20,7 +20,7 @@
 -- Table structure for table `churn`
 --
 
-DROP TABLE IF EXISTS `churn`;
+--DROP TABLE IF EXISTS `churn`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `churn` (
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 -- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `customer`;
+--DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
@@ -84,7 +84,7 @@ UNLOCK TABLES;
 -- Table structure for table `enterprise`
 --
 
-DROP TABLE IF EXISTS `enterprise`;
+--DROP TABLE IF EXISTS `enterprise`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `enterprise` (
@@ -114,7 +114,7 @@ UNLOCK TABLES;
 -- Table structure for table `inlytic_user`
 --
 
-DROP TABLE IF EXISTS `inlytic_user`;
+--DROP TABLE IF EXISTS `inlytic_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inlytic_user` (
@@ -143,7 +143,7 @@ UNLOCK TABLES;
 -- Table structure for table `plan_type`
 --
 
-DROP TABLE IF EXISTS `plan_type`;
+--DROP TABLE IF EXISTS `plan_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `plan_type` (
@@ -168,7 +168,7 @@ UNLOCK TABLES;
 -- Table structure for table `rfm`
 --
 
-DROP TABLE IF EXISTS `rfm`;
+--DROP TABLE IF EXISTS `rfm`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rfm` (
@@ -200,7 +200,7 @@ UNLOCK TABLES;
 -- Table structure for table `seasonality`
 --
 
-DROP TABLE IF EXISTS `seasonality`;
+--DROP TABLE IF EXISTS `seasonality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seasonality` (
@@ -229,7 +229,7 @@ UNLOCK TABLES;
 -- Table structure for table `sold_products`
 --
 
-DROP TABLE IF EXISTS `sold_products`;
+--DROP TABLE IF EXISTS `sold_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sold_products` (
