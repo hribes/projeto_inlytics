@@ -1,4 +1,4 @@
-from Dataset.db.conexao_bd import conn
+from conexao_bd import conectar_db 
 
 def list_all_customers():
     cursor = conn.cursor()
