@@ -1,5 +1,6 @@
 /ambiente_inlytics/
 /.env
+/dados_temporarios_rfm_csv
 criar_banco.py
 teste_dados.py
 teste.py
