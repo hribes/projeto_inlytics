@@ -1,13 +1,9 @@
 from flask import Flask, render_template
-import Database 
+from Routes.api import clientes
 
 
 app = Flask(__name__)
-
-@app.route("/")
-def home():
-    customers = Database.list_all_customers()
-    return str(customers)
+app.register_blueprint(clientes)
 
 
 if __name__ == "__main__":
