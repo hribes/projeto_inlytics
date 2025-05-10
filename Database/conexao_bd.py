@@ -1,4 +1,8 @@
 from mysql.connector import connect, errorcode, Error
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def conectar_db():
 		conn = None
@@ -6,10 +10,10 @@ def conectar_db():
 		# faz a conexão mais a checagem pra ver se está conectado
 		try:
 			conn = connect(
-				user= "",
-				password= "",
-				database= "",
-				host= ""
+				user= os.getenv("USER"),
+				password= os.getenv("PASSWORD"),
+				database= os.getenv("DATABASE"),
+				host= os.getenv("HOST")
 			)
 		except Error as err:
 			if(err.errno == errorcode.ER_ACCESS_DENIED_ERROR):
