@@ -2,7 +2,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17850.0,1,4.0,Mobile Phone,Debit Card,Female,3.0,2,Single,1,1.0,Srta. Amanda Sousa
 13047.0,1,,Phone,UPI,Male,4.0,3,Single,1,0.0,Joaquim Câmara
 12583.0,1,,Phone,Debit Card,Male,4.0,3,Single,1,0.0,Cauã Rocha
-13748.0,1,0.0,Phone,Debit Card,Male,4.0,589314,Single,0,0.0,Sr. Otávio Andrade
+13748.0,1,0.0,Phone,Debit Card,Male,4.0,5,Single,0,0.0,Sr. Otávio Andrade
 15100.0,1,0.0,Phone,CC,Male,3.0,5,Single,0,1.0,Caleb Cunha
 15291.0,1,0.0,Computer,Debit Card,Female,5.0,5,Single,1,4.0,Sofia Pereira
 14688.0,1,,Phone,Cash on Delivery,Male,3.0,2,Divorced,0,0.0,Gael Henrique Silva
@@ -22,7 +22,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13408.0,1,0.0,Phone,Credit Card,Female,3.0,5,Single,0,1.0,Mirella Porto
 13767.0,0,,Phone,E wallet,Male,3.0,3,Divorced,1,0.0,Enrico Freitas
 17924.0,0,18.0,Phone,Debit Card,Male,3.0,4,Married,0,1.0,Gustavo Henrique Rios
-13448.0,0,0.0,Mobile Phone,Credit Card,Male,4.0,589314,Divorced,0,1.0,Brayan Pereira
+13448.0,0,0.0,Mobile Phone,Credit Card,Male,4.0,5,Divorced,0,1.0,Brayan Pereira
 15862.0,0,30.0,Phone,CC,Female,4.0,4,Divorced,1,1.0,Srta. Yasmin Siqueira
 15513.0,0,,Computer,E wallet,Female,3.0,3,,0,1.0,Elisa Martins
 12791.0,0,0.0,Phone,CC,Male,3.0,2,Divorced,0,0.0,João Gabriel Porto
@@ -56,7 +56,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12662.0,0,11.0,Mobile Phone,COD,Male,3.0,2,Divorced,0,0.0,Samuel Almeida
 15525.0,0,22.0,Computer,Debit Card,Male,3.0,2,Married,1,0.0,Luiz Miguel das Neves
 14237.0,0,7.0,Computer,Credit Card,Male,3.0,3,Married,1,2.0,Benjamin da Costa
-17905.0,0,13.0,Phone,CC,Male,,589314,Divorced,1,1.0,Bruno Barros
+17905.0,0,13.0,Phone,CC,Male,,5,Divorced,1,1.0,Bruno Barros
 15485.0,0,0.0,Phone,Debit Card,Male,2.0,4,Married,1,0.0,Dr. Bernardo Teixeira
 12433.0,0,,Computer,CC,Female,3.0,2,Single,0,1.0,Carolina Cardoso
 16955.0,0,13.0,Computer,Debit Card,Male,4.0,2,Divorced,0,1.0,Dr. Yan Cavalcante
@@ -97,7 +97,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15235.0,0,15.0,Phone,CC,Female,4.0,5,Married,1,4.0,Laís Cunha
 13576.0,0,24.0,Phone,Debit Card,Male,3.0,2,Divorced,0,1.0,Vitor Hugo Araújo
 18011.0,1,0.0,Computer,CC,Male,4.0,4,Single,0,1.0,Dr. Benjamin Aragão
-13090.0,0,11.0,Computer,Debit Card,Male,4.0,589314,Divorced,0,6.0,Rhavi Montenegro
+13090.0,0,11.0,Computer,Debit Card,Male,4.0,5,Divorced,0,6.0,Rhavi Montenegro
 15694.0,0,,Phone,Cash on Delivery,Male,4.0,5,,0,0.0,Emanuel Araújo
 14741.0,0,19.0,Mobile Phone,Cash on Delivery,Female,5.0,4,Divorced,1,,Anna Liz Cirino
 13715.0,1,0.0,Phone,Debit Card,Male,3.0,3,Single,0,1.0,Bernardo Rocha
@@ -162,7 +162,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13138.0,0,3.0,Mobile Phone,E wallet,Female,4.0,3,Married,0,0.0,Zoe Rodrigues
 15823.0,0,0.0,Mobile Phone,E wallet,Female,3.0,4,,0,0.0,Dra. Fernanda Fonseca
 17567.0,0,10.0,Mobile Phone,Credit Card,Male,3.0,2,Married,0,0.0,Bernardo Rios
-15061.0,0,11.0,Mobile Phone,Debit Card,Male,4.0,589314,Married,1,1.0,Levi Ribeiro
+15061.0,0,11.0,Mobile Phone,Debit Card,Male,4.0,5,Married,1,1.0,Levi Ribeiro
 16203.0,0,4.0,Mobile Phone,Credit Card,Female,3.0,2,Single,1,2.0,Letícia Montenegro
 15640.0,0,2.0,Mobile Phone,E wallet,Female,4.0,4,Married,1,0.0,Maria Luísa Duarte
 15574.0,0,0.0,Phone,Debit Card,Male,3.0,2,Married,0,1.0,Juan Novaes
@@ -346,7 +346,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13497.0,0,25.0,Phone,Debit Card,Female,3.0,3,Divorced,0,1.0,Ana Lívia da Mota
 15860.0,0,23.0,Mobile Phone,Credit Card,Male,3.0,3,Divorced,0,,Luigi Viana
 14189.0,1,0.0,Phone,Debit Card,Female,4.0,5,Divorced,1,0.0,Juliana Abreu
-15304.0,1,0.0,Mobile Phone,,Female,3.0,589314,Single,0,1.0,Letícia Pastor
+15304.0,1,0.0,Mobile Phone,,Female,3.0,5,Single,0,1.0,Letícia Pastor
 14867.0,0,20.0,Mobile Phone,UPI,Female,3.0,2,Divorced,1,,Rebeca Cassiano
 14344.0,0,2.0,Phone,Debit Card,Male,1.0,3,Divorced,0,1.0,Vitor Gabriel Mendes
 12474.0,1,20.0,Mobile Phone,Debit Card,Male,3.0,4,Single,1,5.0,Lucas Gabriel Novaes
@@ -387,7 +387,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16861.0,0,11.0,Phone,E wallet,Male,4.0,4,Divorced,0,0.0,Gael Henrique Gomes
 16138.0,0,15.0,Mobile Phone,Debit Card,Female,1.0,2,Divorced,1,0.0,Bianca da Costa
 13481.0,0,4.0,Phone,Debit Card,Male,3.0,2,,1,1.0,Luiz Henrique Oliveira
-13495.0,1,0.0,Phone,CC,Female,4.0,589314,Married,1,0.0,Laís Almeida
+13495.0,1,0.0,Phone,CC,Female,4.0,5,Married,1,0.0,Laís Almeida
 17519.0,0,26.0,Mobile Phone,E wallet,Male,3.0,2,Divorced,0,0.0,Dr. João Guilherme Albuquerque
 17218.0,0,8.0,Mobile Phone,Cash on Delivery,Male,4.0,4,Divorced,0,3.0,Benicio Pereira
 17812.0,0,10.0,Computer,CC,Female,3.0,2,Divorced,0,1.0,Sra. Laura Vasconcelos
@@ -401,7 +401,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14850.0,1,20.0,Computer,Debit Card,Male,4.0,2,Married,1,0.0,Erick Costa
 15021.0,0,16.0,Phone,Debit Card,Female,3.0,4,Married,0,1.0,Ágatha Fonseca
 13963.0,1,,Phone,CC,Female,4.0,3,Single,0,0.0,Sarah da Mata
-17450.0,0,9.0,Mobile Phone,Debit Card,Male,3.0,589314,Divorced,1,4.0,José Miguel Mendes
+17450.0,0,9.0,Mobile Phone,Debit Card,Male,3.0,5,Divorced,1,4.0,José Miguel Mendes
 17091.0,0,20.0,Phone,Debit Card,Female,4.0,2,Single,1,1.0,Maitê Camargo
 17470.0,1,0.0,Phone,Debit Card,Female,3.0,3,Divorced,1,1.0,Ana Vitória Casa Grande
 17616.0,1,4.0,Phone,Debit Card,Female,5.0,2,Married,1,0.0,Maria Laura Novais
@@ -476,7 +476,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17706.0,0,7.0,0,E wallet,Male,1.0,2,Married,0,1.0,Danilo Teixeira
 16081.0,0,-10000.0,Phone,CC,Male,3.0,4,Single,0,0.0,Henry Gabriel Lima
 16525.0,0,26.0,Computer,E wallet,Female,4.0,4,Divorced,0,0.0,Amanda Pereira
-14952.0,1,0.0,Phone,UPI,Male,3.0,589314,Married,0,0.0,Dr. Arthur Cirino
+14952.0,1,0.0,Phone,UPI,Male,3.0,5,Married,0,0.0,Dr. Arthur Cirino
 17975.0,1,,Computer,Debit Card,Male,3.0,5,Divorced,1,1.0,Leonardo Fernandes
 16122.0,0,,Phone,Debit Card,Female,3.0,3,Divorced,1,0.0,Alana Cirino
 13126.0,0,1.0,Mobile Phone,Credit Card,Male,3.0,4,Divorced,0,1.0,Murilo Azevedo
@@ -514,7 +514,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12870.0,0,18.0,Computer,Debit Card,Female,4.0,3,Divorced,0,0.0,Maria Laura das Neves
 15005.0,0,11.0,Mobile Phone,E wallet,Male,4.0,3,Married,1,2.0,Dr. Henry Farias
 15581.0,0,-10000.0,Mobile Phone,Credit Card,Female,3.0,4,Married,0,0.0,Ana Vitória Moraes
-15680.0,0,19.0,Mobile Phone,E wallet,Male,3.0,589314,Divorced,0,,Sr. Vinícius Moraes
+15680.0,0,19.0,Mobile Phone,E wallet,Male,3.0,5,Divorced,0,,Sr. Vinícius Moraes
 13649.0,0,11.0,Mobile Phone,E wallet,Male,3.0,4,Single,0,1.0,Luiz Fernando Ferreira
 17894.0,0,16.0,Computer,Debit Card,Female,3.0,5,,0,0.0,Dra. Clara da Costa
 13270.0,1,2.0,Computer,Debit Card,Male,3.0,2,Married,0,7.0,Diogo da Cunha
@@ -550,20 +550,20 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12721.0,0,2.0,Phone,,Female,3.0,2,Divorced,0,0.0,Maria Júlia Cardoso
 12621.0,0,0.0,Phone,Debit Card,Male,3.0,5,Single,0,0.0,Bryan das Neves
 18071.0,0,-10000.0,Phone,Credit Card,Female,3.0,3,Divorced,1,1.0,Maria Flor Ramos
-12683.0,1,7.0,Phone,Debit Card,Male,3.0,589314,Single,1,1.0,Davi Lucas Rios
+12683.0,1,7.0,Phone,Debit Card,Male,3.0,5,Single,1,1.0,Davi Lucas Rios
 12755.0,1,0.0,Computer,Debit Card,Male,4.0,2,Divorced,1,0.0,Sr. Otávio Moraes
 13854.0,0,19.0,Mobile Phone,E wallet,Female,3.0,5,Divorced,0,,Allana Fonseca
 12797.0,0,6.0,Phone,UPI,Male,3.0,3,Divorced,0,0.0,Fernando Cunha
 13369.0,1,,Computer,Debit Card,Male,4.0,5,Married,0,1.0,Ryan Correia
 12494.0,0,3.0,Phone,,Male,3.0,5,Married,0,1.0,Davi Miguel Cassiano
 17857.0,0,13.0,Computer,Credit Card,Male,3.0,4,Divorced,0,1.0,Juan Viana
-17411.0,0,1.0,Phone,CC,Male,4.0,589314,Divorced,0,1.0,Thiago Vargas
+17411.0,0,1.0,Phone,CC,Male,4.0,5,Divorced,0,1.0,Thiago Vargas
 14932.0,0,19.0,Mobile Phone,Debit Card,Male,3.0,4,Divorced,0,,Vinicius Andrade
 12429.0,0,8.0,Mobile Phone,Debit Card,Male,3.0,5,Divorced,1,1.0,Dr. Davi Lucca Peixoto
 14987.0,0,3.0,Phone,Debit Card,Male,3.0,3,Married,0,8.0,Eduardo Castro
 14355.0,0,17.0,Phone,UPI,Male,3.0,2,Single,0,1.0,Enzo Silveira
 17526.0,0,19.0,Mobile Phone,COD,Male,3.0,2,Married,0,1.0,Augusto Jesus
-14896.0,0,15.0,Computer,Credit Card,Male,1.0,589314,Divorced,0,0.0,Isaac Macedo
+14896.0,0,15.0,Computer,Credit Card,Male,1.0,5,Divorced,0,0.0,Isaac Macedo
 14440.0,0,30.0,Mobile Phone,E wallet,Male,1.0,2,Married,1,0.0,João Miguel Sá
 13240.0,0,5.0,Computer,UPI,Female,4.0,4,Divorced,0,0.0,Sra. Isabel Nascimento
 14479.0,0,5.0,Computer,Debit Card,Female,3.0,3,Single,1,1.0,Luana Viana
@@ -635,14 +635,14 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17912.0,0,21.0,Mobile Phone,Debit Card,Male,3.0,2,Single,0,1.0,Luiz Gustavo Pimenta
 15723.0,0,0.0,Phone,CC,Female,1.0,2,Divorced,0,1.0,Kamilly Porto
 16656.0,0,24.0,Mobile Phone,Cash on Delivery,Female,4.0,4,Single,0,0.0,Ana Vitória Rios
-14037.0,0,,Computer,Debit Card,Female,3.0,589314,Single,0,1.0,Sra. Maria Clara Moraes
+14037.0,0,,Computer,Debit Card,Female,3.0,5,Single,0,1.0,Sra. Maria Clara Moraes
 14256.0,0,0.0,Computer,Debit Card,Male,5.0,2,Single,0,1.0,Sr. Arthur Casa Grande
 14543.0,1,18.0,Mobile Phone,E wallet,Male,1.0,3,Single,1,2.0,Pedro Lucas Andrade
 16062.0,0,29.0,Mobile Phone,Debit Card,Male,3.0,4,,1,11.0,Bernardo da Costa
 18116.0,0,,Computer,Cash on Delivery,Female,4.0,3,Married,0,1.0,Sra. Maria Cecília Gomes
 16019.0,0,13.0,Mobile Phone,Credit Card,Female,1.0,3,Married,0,5.0,Ana Beatriz Pereira
 18178.0,0,7.0,Mobile Phone,Credit Card,Male,,3,Divorced,0,0.0,Rael Freitas
-18065.0,1,0.0,Computer,Debit Card,Female,4.0,589314,Single,0,0.0,Melina Teixeira
+18065.0,1,0.0,Computer,Debit Card,Female,4.0,5,Single,0,0.0,Melina Teixeira
 13148.0,0,7.0,Mobile Phone,COD,Female,3.0,2,Single,0,1.0,Cecilia Moura
 12989.0,0,1.0,Phone,Debit Card,Male,4.0,5,Divorced,0,1.0,Miguel Dias
 14107.0,1,0.0,Mobile Phone,Credit Card,Male,3.0,3,Divorced,1,3.0,Dr. Josué Camargo
@@ -717,7 +717,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12476.0,0,2.0,Computer,Debit Card,Female,,4,Divorced,0,0.0,Laura Barbosa
 17293.0,0,1.0,Mobile Phone,Debit Card,Male,5.0,4,Divorced,0,1.0,Thiago Machado
 17890.0,0,6.0,Mobile Phone,Debit Card,Male,3.0,3,,1,0.0,João Lucas Pinto
-17375.0,0,5.0,Mobile Phone,Credit Card,Male,3.0,589314,Single,0,0.0,Sr. Davi Lucas Brito
+17375.0,0,5.0,Mobile Phone,Credit Card,Male,3.0,5,Single,0,0.0,Sr. Davi Lucas Brito
 17371.0,0,27.0,Computer,Credit Card,Female,3.0,1,Married,0,1.0,Maria Fernanda Vieira
 17969.0,0,17.0,Mobile Phone,Debit Card,Male,3.0,5,Divorced,0,,Luiz Otávio Sá
 15159.0,0,12.0,Mobile Phone,Debit Card,Female,3.0,4,Single,0,0.0,Fernanda Pereira
@@ -812,7 +812,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17044.0,0,20.0,Mobile Phone,Debit Card,Female,1.0,4,Married,0,0.0,Ana Vitória Nunes
 13829.0,0,22.0,Mobile Phone,Debit Card,Male,3.0,3,Single,0,1.0,Bento Novaes
 17633.0,0,0.0,Phone,Debit Card,Male,3.0,5,Single,0,0.0,Guilherme Oliveira
-13266.0,1,0.0,Phone,Credit Card,Male,4.0,589314,Single,1,1.0,Dom Cavalcante
+13266.0,1,0.0,Phone,Credit Card,Male,4.0,5,Single,1,1.0,Dom Cavalcante
 17820.0,0,11.0,Phone,CC,Female,3.0,3,Married,0,0.0,Stephany Macedo
 15664.0,0,26.0,Mobile Phone,Credit Card,Male,1.0,1,Married,0,0.0,Gustavo Silva
 17189.0,1,11.0,Computer,CC,Female,3.0,3,Married,1,4.0,Rebeca Borges
@@ -840,7 +840,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12877.0,1,0.0,Mobile Phone,E wallet,Male,,5,Married,1,2.0,Eduardo da Mota
 15394.0,1,0.0,Mobile Phone,Debit Card,Male,5.0,4,Single,0,0.0,Daniel Andrade
 14621.0,0,0.0,Phone,CC,Female,3.0,4,Single,0,1.0,Sra. Allana da Costa
-15379.0,0,4.0,Computer,COD,Female,3.0,589314,Single,0,1.0,Ana Lívia Brito
+15379.0,0,4.0,Computer,COD,Female,3.0,5,Single,0,1.0,Ana Lívia Brito
 14309.0,0,5.0,Mobile Phone,Debit Card,Male,5.0,3,Married,0,1.0,Arthur Gabriel Machado
 17288.0,0,18.0,Mobile Phone,Debit Card,Female,5.0,3,Married,0,1.0,Ana Julia da Cruz
 14709.0,0,3.0,Computer,COD,Female,4.0,5,Single,0,0.0,Srta. Maria Liz Macedo
@@ -910,11 +910,11 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14646.0,0,2.0,Phone,CC,Male,4.0,4,Married,0,1.0,José Fogaça
 12944.0,0,16.0,Mobile Phone,Credit Card,Female,4.0,3,Married,0,3.0,Maria Laura Barros
 15312.0,0,21.0,Mobile Phone,Debit Card,Male,4.0,4,Married,0,3.0,Nathan Marques
-14099.0,1,0.0,Computer,Debit Card,Male,4.0,589314,Single,1,1.0,Joaquim Sampaio
+14099.0,1,0.0,Computer,Debit Card,Male,4.0,5,Single,1,1.0,Joaquim Sampaio
 14113.0,1,9.0,Mobile Phone,Debit Card,Female,3.0,4,Married,0,0.0,Letícia Rodrigues
 13104.0,0,12.0,Phone,UPI,Male,3.0,1,Married,0,1.0,Arthur Gabriel Borges
 17204.0,0,28.0,Phone,COD,Male,4.0,1,Married,0,0.0,Mateus Garcia
-13027.0,1,0.0,Mobile Phone,Credit Card,Male,3.0,589314,Single,0,0.0,Renan Araújo
+13027.0,1,0.0,Mobile Phone,Credit Card,Male,3.0,5,Single,0,0.0,Renan Araújo
 17621.0,1,0.0,Phone,Debit Card,Male,3.0,4,,1,1.0,Sr. Enzo Gabriel Barros
 17090.0,0,4.0,Phone,Debit Card,Male,3.0,3,Married,0,0.0,Pedro Henrique Ramos
 14119.0,0,7.0,Mobile Phone,Debit Card,Male,,1,Married,1,0.0,Calebe Moura
@@ -924,7 +924,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15034.0,0,0.0,Mobile Phone,,Female,1.0,3,Single,0,0.0,Ísis Nunes
 12423.0,0,21.0,Computer,Credit Card,Female,3.0,1,Married,0,,Srta. Emanuelly Dias
 12678.0,0,17.0,Mobile Phone,Debit Card,Male,1.0,5,Married,0,2.0,Gustavo Henrique Pastor
-15208.0,1,,Computer,COD,Male,5.0,589314,Married,1,3.0,Miguel Barbosa
+15208.0,1,,Computer,COD,Male,5.0,5,Married,1,3.0,Miguel Barbosa
 17306.0,1,19.0,Phone,,Male,3.0,1,Single,0,0.0,Enrico Nunes
 14737.0,0,9.0,Mobile Phone,E wallet,Male,4.0,4,Married,0,1.0,Mathias Rocha
 13029.0,0,15.0,Mobile Phone,Credit Card,Male,3.0,5,Married,0,3.0,Lucas Gomes
@@ -1003,7 +1003,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16551.0,0,5.0,Phone,COD,Male,3.0,5,,0,1.0,Rafael Viana
 16889.0,0,8.0,Mobile Phone,Debit Card,Female,3.0,1,Single,1,1.0,Stephany Mendes
 16473.0,0,11.0,Mobile Phone,Debit Card,Female,3.0,1,Married,0,0.0,Olívia Brito
-13750.0,1,13.0,Computer,Debit Card,Male,3.0,589314,Married,0,1.0,Rael Dias
+13750.0,1,13.0,Computer,Debit Card,Male,3.0,5,Married,0,1.0,Rael Dias
 12501.0,0,9.0,Mobile Phone,E wallet,Female,4.0,1,Married,0,1.0,Letícia Aparecida
 15607.0,0,18.0,Phone,Debit Card,Female,3.0,3,Single,0,1.0,Srta. Alícia Fernandes
 15139.0,0,8.0,Computer,Debit Card,Male,3.0,3,Married,1,1.0,Sr. Enzo Sousa
@@ -1030,9 +1030,9 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14761.0,0,7.0,Phone,CC,Male,3.0,1,,0,0.0,Marcelo Sales
 17555.0,1,,Phone,Debit Card,Male,4.0,3,Single,1,0.0,Thomas Gomes
 12651.0,0,2.0,Mobile Phone,Debit Card,Female,1.0,5,Married,0,6.0,Cecilia Oliveira
-16735.0,0,0.0,Computer,CC,Male,1.0,589314,Married,1,0.0,Otávio Cirino
+16735.0,0,0.0,Computer,CC,Male,1.0,5,Married,1,0.0,Otávio Cirino
 16833.0,0,26.0,Mobile Phone,Debit Card,Female,4.0,1,Married,0,0.0,Zoe Sales
-17800.0,0,11.0,Phone,Debit Card,Male,3.0,589314,Single,1,0.0,Sr. Enzo Mendonça
+17800.0,0,11.0,Phone,Debit Card,Male,3.0,5,Single,1,0.0,Sr. Enzo Mendonça
 16748.0,0,0.0,Computer,UPI,Female,1.0,3,Married,0,0.0,Cecilia Cirino
 14755.0,1,0.0,Phone,Debit Card,Male,4.0,5,Single,0,0.0,Rael Pinto
 16549.0,0,7.0,Mobile Phone,Debit Card,Female,3.0,4,Single,0,0.0,Maria Alice Albuquerque
@@ -1187,7 +1187,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13310.0,0,18.0,Computer,Credit Card,Female,4.0,1,Single,0,5.0,Srta. Isabela da Rocha
 14916.0,0,9.0,Mobile Phone,Debit Card,Male,3.0,4,Single,0,2.0,Levi Gonçalves
 17602.0,0,10.0,Computer,UPI,Male,3.0,1,Married,1,1.0,Dr. Liam Machado
-14572.0,0,11.0,Mobile Phone,Debit Card,Male,3.0,589314,Married,0,1.0,Igor Barbosa
+14572.0,0,11.0,Mobile Phone,Debit Card,Male,3.0,5,Married,0,1.0,Igor Barbosa
 13502.0,0,,Phone,Debit Card,Male,4.0,1,Married,0,0.0,Davi Luiz Vasconcelos
 14784.0,0,10.0,Computer,E wallet,Male,3.0,1,Married,0,3.0,Cauê Cassiano
 15938.0,0,2.0,Computer,Credit Card,Female,3.0,1,Married,0,4.0,Eloah Machado
@@ -1200,7 +1200,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16892.0,1,0.0,Phone,Debit Card,Female,3.0,5,Married,0,1.0,Clara Borges
 12402.0,0,25.0,Computer,Debit Card,Male,4.0,3,Single,1,,Sr. Luiz Henrique Gonçalves
 17771.0,0,5.0,Phone,Debit Card,Female,3.0,4,Married,0,1.0,Ana Julia Rocha
-15422.0,1,0.0,Phone,Debit Card,Male,4.0,589314,Single,1,0.0,José Pedro Cavalcanti
+15422.0,1,0.0,Phone,Debit Card,Male,4.0,5,Single,1,0.0,José Pedro Cavalcanti
 14770.0,0,,Phone,CC,Female,3.0,3,,0,1.0,Maria Luiza Machado
 16912.0,0,5.0,Computer,E wallet,Male,3.0,1,Married,0,2.0,Yan da Cruz
 15174.0,0,14.0,Phone,Debit Card,Male,3.0,5,Married,0,0.0,Ravi Caldeira
@@ -1235,7 +1235,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15497.0,0,2.0,Computer,Debit Card,Male,3.0,1,Single,0,0.0,Luiz Henrique Vargas
 12559.0,0,28.0,Mobile Phone,COD,Male,3.0,1,Married,1,0.0,Igor Castro
 13819.0,0,0.0,Computer,Credit Card,Male,3.0,5,Married,1,1.0,Josué Ribeiro
-14501.0,1,7.0,Computer,Debit Card,Male,3.0,589314,Married,1,0.0,João Felipe Nascimento
+14501.0,1,7.0,Computer,Debit Card,Male,3.0,5,Married,1,0.0,João Felipe Nascimento
 14782.0,1,0.0,Phone,CC,Male,3.0,4,Married,1,1.0,Sr. Henry Oliveira
 17861.0,0,1.0,Phone,Debit Card,Female,3.0,1,Single,0,1.0,Maria Cavalcanti
 14439.0,0,22.0,Computer,Debit Card,Female,3.0,5,Single,1,,Isabela Pastor
@@ -1339,7 +1339,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13141.0,0,15.0,Computer,Debit Card,Female,3.0,3,Married,0,1.0,Ana Julia Souza
 15365.0,0,19.0,Phone,Credit Card,Female,3.0,3,Married,0,1.0,Juliana Freitas
 13707.0,0,15.0,Computer,COD,Female,4.0,1,Married,0,0.0,Maitê Vieira
-13709.0,1,0.0,Phone,COD,Female,3.0,589314,Single,1,0.0,Luana da Mota
+13709.0,1,0.0,Phone,COD,Female,3.0,5,Single,1,0.0,Luana da Mota
 17329.0,0,,Computer,Debit Card,Male,3.0,1,Married,1,1.0,Carlos Eduardo da Conceição
 14805.0,0,13.0,Mobile Phone,Debit Card,Female,3.0,3,Married,0,,Letícia Souza
 16897.0,0,0.0,Phone,Debit Card,Female,3.0,1,Married,0,0.0,Luna da Mata
@@ -1350,7 +1350,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17431.0,0,23.0,Mobile Phone,Debit Card,Male,4.0,3,Married,0,,Benício das Neves
 17463.0,0,3.0,Computer,CC,Female,3.0,1,Single,0,1.0,Dra. Maria Luiza Carvalho
 14502.0,0,30.0,Computer,E wallet,Female,4.0,5,Married,0,3.0,Ana Cavalcanti
-12528.0,0,19.0,Mobile Phone,Debit Card,Male,3.0,589314,Married,0,,Guilherme Araújo
+12528.0,0,19.0,Mobile Phone,Debit Card,Male,3.0,5,Married,0,,Guilherme Araújo
 15448.0,0,8.0,Phone,,Male,5.0,3,Single,0,1.0,Arthur Gabriel Marques
 17314.0,0,27.0,Phone,Debit Card,Female,3.0,3,Single,0,0.0,Maria Cecília Santos
 17373.0,0,5.0,Mobile Phone,E wallet,Female,4.0,1,Married,1,0.0,Kamilly Freitas
@@ -1375,7 +1375,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17356.0,0,13.0,Computer,UPI,Male,5.0,5,Married,0,0.0,Marcelo Novais
 12477.0,0,14.0,Computer,UPI,Female,4.0,3,Single,1,0.0,Dra. Larissa da Rosa
 12836.0,0,0.0,Phone,Credit Card,Male,3.0,3,Married,0,0.0,Sr. Rodrigo Azevedo
-13939.0,0,8.0,Phone,Credit Card,Female,3.0,589314,Single,0,1.0,Kamilly Porto
+13939.0,0,8.0,Phone,Credit Card,Female,3.0,5,Single,0,1.0,Kamilly Porto
 16745.0,0,7.0,Mobile Phone,Debit Card,Male,1.0,1,Single,0,0.0,João Guilherme da Luz
 13606.0,1,0.0,Phone,COD,Male,5.0,1,Single,1,0.0,Dr. Gabriel Cassiano
 13494.0,0,10.0,Mobile Phone,COD,Female,3.0,1,Single,0,1.0,Isabella Araújo
@@ -1421,7 +1421,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12350.0,0,9.0,Mobile Phone,Credit Card,Male,4.0,4,Married,1,0.0,Matheus Montenegro
 16992.0,0,,Phone,CC,Male,4.0,1,Single,0,1.0,Leandro Cavalcante
 17337.0,1,0.0,Mobile Phone,Credit Card,Male,3.0,3,Single,1,1.0,Augusto da Rosa
-16405.0,0,0.0,Phone,,Male,1.0,589314,Married,0,0.0,Rafael Siqueira
+16405.0,0,0.0,Phone,,Male,1.0,5,Married,0,0.0,Rafael Siqueira
 17071.0,0,0.0,Phone,Debit Card,Male,1.0,4,Married,0,1.0,Vinicius Fernandes
 13873.0,0,11.0,Phone,E wallet,Female,4.0,1,Single,0,1.0,Catarina Fernandes
 17362.0,0,21.0,Mobile Phone,E wallet,Male,1.0,4,Married,0,0.0,Luiz Henrique Sá
@@ -1459,7 +1459,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15199.0,1,0.0,Phone,UPI,Male,3.0,1,Single,1,6.0,Ravi Aragão
 13911.0,0,0.0,Mobile Phone,Credit Card,Female,3.0,1,Single,0,0.0,Emanuella Aparecida
 14194.0,0,18.0,Mobile Phone,COD,Male,5.0,3,Single,0,1.0,Luiz Miguel Rocha
-14842.0,0,0.0,Phone,Credit Card,Male,1.0,589314,Single,0,0.0,Paulo Sousa
+14842.0,0,0.0,Phone,Credit Card,Male,1.0,5,Single,0,0.0,Paulo Sousa
 13584.0,1,10.0,Computer,Debit Card,Female,1.0,3,Single,1,0.0,Aylla Teixeira
 17105.0,1,18.0,Mobile Phone,Credit Card,Male,3.0,5,Married,1,1.0,Anthony Carvalho
 14438.0,0,9.0,Computer,Debit Card,Male,4.0,5,Single,0,0.0,Sr. Lucas Fogaça
@@ -1617,7 +1617,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13301.0,0,18.0,Mobile Phone,Debit Card,Female,3.0,1,Married,0,,Ester Câmara
 14803.0,0,5.0,Computer,Credit Card,Female,3.0,3,Single,0,6.0,Isis Correia
 13744.0,0,7.0,Mobile Phone,E wallet,Male,1.0,1,Married,0,0.0,Fernando Rios
-12988.0,0,26.0,Computer,E wallet,Female,4.0,589314,Married,0,5.0,Ana Júlia Sá
+12988.0,0,26.0,Computer,E wallet,Female,4.0,5,Married,0,5.0,Ana Júlia Sá
 17323.0,1,0.0,Phone,UPI,Male,3.0,3,Married,0,0.0,Ravi Ramos
 12707.0,0,,Phone,Debit Card,Female,3.0,3,,1,0.0,Ana Sophia da Rocha
 18094.0,0,1.0,Mobile Phone,Credit Card,Male,3.0,4,,0,0.0,Sr. José Brito
@@ -1727,7 +1727,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12781.0,0,21.0,Phone,COD,Male,1.0,4,Single,0,0.0,Luiz Felipe Vasconcelos
 14036.0,0,0.0,Phone,Debit Card,Male,3.0,3,Married,0,1.0,Dr. Davi Miguel Ribeiro
 16057.0,0,2.0,Mobile Phone,Debit Card,Male,3.0,1,Married,1,1.0,Ian Machado
-15724.0,0,21.0,Mobile Phone,Debit Card,Male,4.0,589314,Single,0,,Sr. Carlos Eduardo Cunha
+15724.0,0,21.0,Mobile Phone,Debit Card,Male,4.0,5,Single,0,,Sr. Carlos Eduardo Cunha
 12458.0,0,2.0,Mobile Phone,Debit Card,Female,4.0,1,Married,0,,Maria Liz Viana
 12598.0,0,7.0,Phone,COD,Female,1.0,3,Married,0,1.0,Ana Júlia Castro
 13675.0,0,6.0,Mobile Phone,E wallet,Male,1.0,3,Married,1,0.0,André Borges
@@ -1741,7 +1741,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12509.0,0,7.0,Phone,E wallet,Female,3.0,5,Single,1,1.0,Sabrina Macedo
 14046.0,0,24.0,Computer,Debit Card,Male,3.0,4,,1,6.0,Guilherme Ribeiro
 13292.0,0,7.0,Computer,Credit Card,Female,3.0,4,Married,0,0.0,Laura Correia
-16427.0,0,,Computer,CC,Male,3.0,589314,Single,1,1.0,Thomas Moreira
+16427.0,0,,Computer,CC,Male,3.0,5,Single,1,1.0,Thomas Moreira
 14056.0,0,17.0,Mobile Phone,Debit Card,Male,1.0,5,Married,0,2.0,Sr. Enzo Gabriel Rocha
 15656.0,0,8.0,Phone,Debit Card,Male,3.0,3,Married,1,1.0,Luiz Miguel da Costa
 12811.0,0,15.0,Phone,CC,Female,1.0,4,Married,1,0.0,Srta. Eduarda Borges
@@ -1771,7 +1771,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15416.0,0,11.0,Mobile Phone,Debit Card,Female,3.0,5,Married,0,0.0,Ayla Guerra
 15733.0,0,7.0,Mobile Phone,Credit Card,Female,3.0,5,Single,0,4.0,Dra. Manuela Barbosa
 16678.0,0,0.0,Phone,Credit Card,Male,3.0,1,Married,0,0.0,Felipe Melo
-12834.0,1,20.0,Mobile Phone,Credit Card,Female,4.0,589314,Married,1,1.0,Maria Cunha
+12834.0,1,20.0,Mobile Phone,Credit Card,Female,4.0,5,Married,1,1.0,Maria Cunha
 13722.0,0,21.0,Mobile Phone,Debit Card,Male,3.0,1,Single,0,1.0,João Felipe Cirino
 14934.0,0,0.0,Phone,CC,Female,1.0,1,Married,0,0.0,Dra. Esther Monteiro
 15067.0,0,0.0,Computer,Debit Card,Male,5.0,1,Single,0,0.0,Sr. Isaac Sousa
@@ -1858,13 +1858,13 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15819.0,0,8.0,Mobile Phone,Debit Card,Female,4.0,4,Single,0,3.0,Olivia Nascimento
 14586.0,0,,Phone,Debit Card,Male,3.0,3,Single,0,1.0,Samuel Sá
 15944.0,1,,Mobile Phone,Debit Card,Male,3.0,5,Single,0,1.0,Kaique Albuquerque
-13340.0,0,7.0,Mobile Phone,COD,Male,4.0,589314,Married,1,7.0,João Vitor Peixoto
+13340.0,0,7.0,Mobile Phone,COD,Male,4.0,5,Married,1,7.0,João Vitor Peixoto
 16917.0,1,0.0,Computer,Debit Card,Female,3.0,3,Single,0,2.0,Alana Novaes
 14407.0,0,23.0,Computer,Credit Card,Male,5.0,1,Single,1,1.0,Gabriel Jesus
 13908.0,0,,Phone,COD,Male,3.0,3,Married,1,3.0,Pedro Henrique Gonçalves
 12758.0,0,15.0,Phone,Credit Card,Male,4.0,4,Married,0,0.0,Enrico Silva
 13975.0,0,10.0,Phone,Credit Card,Male,3.0,1,Married,0,2.0,Dr. Marcos Vinicius Câmara
-14730.0,0,2.0,Mobile Phone,UPI,Female,5.0,589314,Married,0,1.0,Anna Liz Lima
+14730.0,0,2.0,Mobile Phone,UPI,Female,5.0,5,Married,0,1.0,Anna Liz Lima
 12623.0,0,6.0,Phone,Debit Card,Male,4.0,4,Single,0,1.0,Sr. Valentim Teixeira
 14367.0,0,15.0,Computer,Debit Card,Male,3.0,1,Married,1,4.0,João Gabriel da Paz
 13373.0,0,13.0,Mobile Phone,Credit Card,Male,3.0,5,Married,0,7.0,Dr. Noah Correia
@@ -2069,7 +2069,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17102.0,0,0.0,Computer,UPI,Male,1.0,1,Married,0,2.0,Dr. Francisco Gomes
 15410.0,0,18.0,Computer,Credit Card,Male,3.0,3,Single,0,0.0,Renan Carvalho
 13239.0,0,6.0,Mobile Phone,E wallet,Male,3.0,3,Single,0,0.0,Gael Câmara
-15449.0,0,1.0,Computer,Debit Card,Male,4.0,589314,Married,1,1.0,Nicolas Teixeira
+15449.0,0,1.0,Computer,Debit Card,Male,4.0,5,Married,1,1.0,Nicolas Teixeira
 14870.0,1,0.0,Computer,Cash on Delivery,Male,1.0,5,Single,0,0.0,João Gabriel Jesus
 13821.0,0,12.0,Computer,Debit Card,Female,5.0,3,Married,0,0.0,Gabriela Sá
 17096.0,0,,Phone,COD,Male,3.0,4,Married,0,0.0,Benício Cavalcanti
@@ -2110,7 +2110,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13695.0,0,0.0,Phone,Debit Card,Male,4.0,3,Single,0,1.0,Dante Cardoso
 17979.0,0,0.0,Phone,UPI,Male,3.0,1,Single,0,1.0,Alexandre Pinto
 13139.0,0,13.0,Computer,COD,Female,3.0,3,Married,0,7.0,Alice Marques
-12545.0,0,13.0,Mobile Phone,E wallet,Female,3.0,589314,Married,0,1.0,Sara Nogueira
+12545.0,0,13.0,Mobile Phone,E wallet,Female,3.0,5,Married,0,1.0,Sara Nogueira
 14758.0,0,,Phone,UPI,Female,3.0,4,Married,0,0.0,Sabrina da Costa
 14536.0,0,3.0,Phone,Credit Card,Male,3.0,4,Married,0,1.0,Renan Marques
 13662.0,0,0.0,Phone,UPI,Male,3.0,3,Married,1,0.0,Pedro Miguel Barros
@@ -2126,7 +2126,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14476.0,0,13.0,Phone,Debit Card,Male,3.0,1,Married,0,1.0,Dr. Arthur Miguel Borges
 16245.0,0,,Phone,,Male,4.0,4,Married,0,2.0,Lorenzo Freitas
 12669.0,0,12.0,Phone,Debit Card,Male,3.0,1,Single,0,0.0,Bernardo Teixeira
-12792.0,0,5.0,Mobile Phone,E wallet,Female,3.0,589314,Married,0,0.0,Ana Luiza da Rocha
+12792.0,0,5.0,Mobile Phone,E wallet,Female,3.0,5,Married,0,0.0,Ana Luiza da Rocha
 17765.0,0,10.0,Mobile Phone,Debit Card,Female,1.0,1,Married,1,5.0,Catarina Campos
 15083.0,0,0.0,Phone,UPI,Female,3.0,3,Married,1,0.0,Sra. Luísa Moura
 18010.0,0,25.0,Computer,Debit Card,Male,3.0,1,Married,0,1.0,Vinicius Costela
@@ -2146,8 +2146,8 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17931.0,0,9.0,Mobile Phone,E wallet,Female,4.0,1,Married,0,1.0,Srta. Alexia Porto
 13803.0,0,18.0,Phone,Debit Card,Female,3.0,3,Single,0,0.0,Larissa da Cunha
 17398.0,0,13.0,Phone,Debit Card,Male,4.0,3,Single,0,0.0,Leandro da Rosa
-15906.0,0,8.0,Phone,Debit Card,Female,5.0,589314,Married,0,1.0,Luna Vargas
-16253.0,0,2.0,Phone,UPI,Male,4.0,589314,Married,1,0.0,Danilo Rodrigues
+15906.0,0,8.0,Phone,Debit Card,Female,5.0,5,Married,0,1.0,Luna Vargas
+16253.0,0,2.0,Phone,UPI,Male,4.0,5,Married,1,0.0,Danilo Rodrigues
 13439.0,0,2.0,Phone,Credit Card,Female,,5,Single,0,0.0,Manuela Gonçalves
 12888.0,1,13.0,Mobile Phone,E wallet,Male,4.0,5,,1,2.0,Sr. Erick Correia
 13588.0,0,4.0,Computer,Credit Card,Male,3.0,5,Single,0,1.0,Lucca Rocha
@@ -2169,13 +2169,13 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15980.0,1,10.0,Mobile Phone,Credit Card,Male,5.0,2,Single,0,1.0,Theo da Costa
 15832.0,1,1.0,Phone,UPI,Male,4.0,5,Married,1,2.0,Rael da Rosa
 16092.0,1,1.0,Computer,Debit Card,Female,5.0,2,Single,1,2.0,Valentina da Rosa
-15528.0,1,1.0,Mobile Phone,E wallet,Male,5.0,589314,Single,1,2.0,Daniel Freitas
+15528.0,1,1.0,Mobile Phone,E wallet,Male,5.0,5,Single,1,2.0,Daniel Freitas
 16398.0,1,1.0,Computer,Debit Card,Male,6.0,3,Single,1,2.0,Guilherme Borges
 17088.0,1,1.0,Mobile Phone,Debit Card,Male,6.0,3,Divorced,1,7.0,Thiago Alves
 17438.0,1,1.0,Phone,E wallet,Male,4.0,3,Single,1,1.0,Theodoro Cassiano
 13060.0,1,1.0,Mobile Phone,Debit Card,Female,,3,Divorced,1,2.0,Manuela Mendes
 14790.0,1,15.0,Computer,Debit Card,Male,6.0,2,Single,0,1.0,Dr. Luan Casa Grande
-14890.0,1,1.0,Mobile Phone,Credit Card,Female,4.0,589314,Single,0,2.0,Stella Rocha
+14890.0,1,1.0,Mobile Phone,Credit Card,Female,4.0,5,Single,0,2.0,Stella Rocha
 16386.0,0,19.0,Phone,Debit Card,Male,4.0,4,Married,0,2.0,Gustavo Silveira
 14818.0,0,6.0,Computer,E wallet,Female,4.0,2,Single,0,3.0,Natália Gomes
 13571.0,0,3.0,Computer,COD,Male,4.0,3,Divorced,0,1.0,Sr. André das Neves
@@ -2251,7 +2251,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17906.0,0,16.0,Mobile Phone,Debit Card,Female,3.0,5,Single,1,1.0,Emanuella Melo
 18272.0,0,3.0,Mobile Phone,E wallet,Male,4.0,2,Married,0,2.0,Gabriel Novais
 16144.0,0,1.0,Mobile Phone,Debit Card,Female,4.0,3,Divorced,0,2.0,Maria Cecília Leão
-13731.0,0,16.0,Mobile Phone,Credit Card,Female,5.0,589314,Married,1,5.0,Laura Rios
+13731.0,0,16.0,Mobile Phone,Credit Card,Female,5.0,5,Married,1,5.0,Laura Rios
 12580.0,0,14.0,Mobile Phone,Credit Card,Male,4.0,3,Married,0,1.0,Davi Luiz Albuquerque
 14912.0,0,25.0,Mobile Phone,Debit Card,Male,4.0,2,Divorced,0,2.0,Antony Casa Grande
 15530.0,1,1.0,Computer,Credit Card,Male,5.0,4,Single,0,2.0,Dr. Pedro Henrique Carvalho
@@ -2513,7 +2513,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17384.0,0,11.0,Mobile Phone,Debit Card,Female,4.0,5,Married,1,4.0,Manuella Casa Grande
 16990.0,0,9.0,Mobile Phone,Debit Card,Female,4.0,2,Divorced,0,1.0,Melissa Nogueira
 13762.0,0,4.0,Mobile Phone,Debit Card,Male,6.0,3,Divorced,0,2.0,Vitor da Rosa
-12593.0,0,14.0,Computer,Credit Card,Female,2.0,589314,Divorced,0,1.0,Amanda Guerra
+12593.0,0,14.0,Computer,Credit Card,Female,2.0,5,Divorced,0,1.0,Amanda Guerra
 14340.0,0,8.0,Mobile Phone,Debit Card,Female,4.0,5,Divorced,0,2.0,Clara Marques
 17429.0,0,16.0,Computer,Debit Card,Male,4.0,2,Married,0,1.0,Eduardo Abreu
 13711.0,1,1.0,Phone,Debit Card,Male,2.0,5,Divorced,1,2.0,Dr. Juan Melo
@@ -2567,7 +2567,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13492.0,1,1.0,Mobile Phone,Credit Card,Female,5.0,3,Married,1,1.0,Júlia Fonseca
 16440.0,0,27.0,Mobile Phone,E wallet,Male,,2,Divorced,0,1.0,Luiz Henrique Aragão
 18120.0,0,9.0,Mobile Phone,Cash on Delivery,Male,5.0,4,Divorced,0,4.0,João Vitor Moura
-12355.0,0,11.0,Computer,Credit Card,Female,4.0,589314,Divorced,0,2.0,Srta. Sophie Correia
+12355.0,0,11.0,Computer,Credit Card,Female,4.0,5,Divorced,0,2.0,Srta. Sophie Correia
 17723.0,0,27.0,Mobile Phone,Debit Card,Female,4.0,2,Single,0,,Srta. Aylla Peixoto
 14699.0,0,17.0,Computer,Debit Card,Female,4.0,2,Divorced,0,2.0,Ísis Duarte
 12821.0,0,21.0,Mobile Phone,E wallet,Female,4.0,2,Divorced,1,6.0,Liz da Mata
@@ -2598,7 +2598,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14277.0,0,22.0,Phone,Credit Card,Male,4.0,3,Divorced,0,1.0,Kevin Rios
 15187.0,0,5.0,Computer,E wallet,Female,4.0,3,Divorced,0,2.0,Aylla Viana
 13052.0,0,10.0,Mobile Phone,UPI,Male,4.0,2,Single,0,1.0,Gustavo Pastor
-18133.0,0,12.0,Mobile Phone,Cash on Delivery,Female,,589314,Divorced,0,4.0,Ester Rios
+18133.0,0,12.0,Mobile Phone,Cash on Delivery,Female,,5,Divorced,0,4.0,Ester Rios
 17664.0,0,6.0,Computer,Debit Card,Female,5.0,4,Divorced,0,2.0,Ana Borges
 14649.0,1,1.0,Phone,E wallet,Male,5.0,4,Divorced,1,1.0,João Lucas Pacheco
 13235.0,0,14.0,Mobile Phone,E wallet,Male,5.0,4,Married,0,2.0,Luiz Gustavo Castro
@@ -2628,7 +2628,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15907.0,0,7.0,Computer,UPI,Female,2.0,4,Divorced,1,1.0,Maria Laura Macedo
 12695.0,0,15.0,Computer,Credit Card,Male,4.0,3,Married,0,2.0,Bryan Campos
 14342.0,0,1.0,Mobile Phone,COD,Female,4.0,4,Divorced,0,3.0,Maria Laura Guerra
-14873.0,0,19.0,Computer,Debit Card,Male,4.0,589314,Divorced,1,2.0,Sr. Enzo Gabriel Azevedo
+14873.0,0,19.0,Computer,Debit Card,Male,4.0,5,Divorced,1,2.0,Sr. Enzo Gabriel Azevedo
 14689.0,0,12.0,Computer,Credit Card,Male,4.0,3,Divorced,0,1.0,Gael Henrique Fernandes
 15440.0,0,20.0,Mobile Phone,Credit Card,Male,4.0,3,Married,0,1.0,Nathan Campos
 16076.0,0,1.0,Mobile Phone,Credit Card,Female,5.0,3,Married,0,3.0,Mariana Silveira
@@ -2690,7 +2690,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13856.0,0,8.0,Computer,Debit Card,Male,5.0,2,Divorced,0,2.0,João Aragão
 13243.0,0,19.0,Computer,Debit Card,Female,5.0,3,Divorced,0,1.0,Maria Liz Câmara
 15095.0,0,26.0,Mobile Phone,Debit Card,Male,4.0,4,Single,0,4.0,Caleb Silva
-18048.0,0,3.0,Mobile Phone,Debit Card,Female,4.0,589314,Married,0,1.0,Aylla Pastor
+18048.0,0,3.0,Mobile Phone,Debit Card,Female,4.0,5,Married,0,1.0,Aylla Pastor
 18287.0,0,2.0,Mobile Phone,Credit Card,Female,4.0,4,,0,1.0,Júlia Azevedo
 18150.0,0,-10000.0,Mobile Phone,E wallet,Male,4.0,3,Divorced,0,2.0,Vinícius Melo
 16690.0,0,12.0,Mobile Phone,E wallet,Male,4.0,4,Single,0,2.0,Gustavo Henrique Ferreira
@@ -2701,7 +2701,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13657.0,0,10.0,Computer,Debit Card,Male,4.0,2,Single,0,2.0,Théo Marques
 17176.0,0,5.0,Computer,Debit Card,Male,2.0,2,Divorced,0,2.0,Sr. Antony Pires
 14837.0,0,9.0,Computer,E wallet,Male,4.0,2,,0,1.0,Sr. Theo Cunha
-14682.0,0,23.0,Mobile Phone,Cash on Delivery,Male,5.0,589314,Divorced,0,2.0,Dr. João Felipe Porto
+14682.0,0,23.0,Mobile Phone,Cash on Delivery,Male,5.0,5,Divorced,0,2.0,Dr. João Felipe Porto
 14921.0,0,8.0,Computer,Debit Card,Male,4.0,3,Single,0,2.0,Pedro Henrique Nunes
 16341.0,0,16.0,Mobile Phone,Credit Card,Male,6.0,2,Single,0,2.0,Sr. Vicente Costa
 14647.0,0,12.0,Mobile Phone,UPI,Male,2.0,3,Divorced,0,2.0,Ravi Casa Grande
@@ -2759,7 +2759,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15925.0,0,28.0,Mobile Phone,Debit Card,Male,4.0,2,,0,2.0,Otto Pereira
 12787.0,0,5.0,Mobile Phone,Credit Card,Male,4.0,5,Divorced,1,1.0,Dr. Rafael Sales
 15863.0,0,5.0,Mobile Phone,Credit Card,Female,5.0,5,Single,0,1.0,Ana Júlia Ramos
-16483.0,0,31.0,Mobile Phone,Debit Card,Female,5.0,589314,Single,0,1.0,Srta. Melina Vieira
+16483.0,0,31.0,Mobile Phone,Debit Card,Female,5.0,5,Single,0,1.0,Srta. Melina Vieira
 13398.0,0,17.0,Mobile Phone,Debit Card,Male,6.0,2,Divorced,0,2.0,Sr. Alexandre Guerra
 13070.0,0,23.0,Mobile Phone,Credit Card,Male,5.0,3,Divorced,0,1.0,Leandro Dias
 14819.0,0,22.0,Mobile Phone,COD,Male,2.0,4,Single,0,1.0,Bryan Camargo
@@ -2775,7 +2775,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16484.0,0,29.0,Computer,Credit Card,Male,5.0,4,Married,1,4.0,Gael Henrique da Luz
 15184.0,1,1.0,Computer,,Female,5.0,3,Single,0,3.0,Srta. Ana Julia Guerra
 18135.0,0,20.0,Mobile Phone,E wallet,Female,5.0,4,Divorced,0,2.0,Mariane Peixoto
-14453.0,0,25.0,Computer,Debit Card,Male,4.0,589314,Married,1,3.0,Dom Borges
+14453.0,0,25.0,Computer,Debit Card,Male,4.0,5,Married,1,3.0,Dom Borges
 17900.0,0,-10000.0,Mobile Phone,Credit Card,Male,4.0,2,Single,0,2.0,Enzo Gabriel Nunes
 13437.0,0,8.0,Computer,Credit Card,Female,4.0,4,Married,0,4.0,Alice Silva
 12517.0,0,2.0,Computer,Credit Card,Male,,3,Single,1,1.0,Pedro Henrique Vargas
@@ -2809,7 +2809,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15386.0,0,30.0,Mobile Phone,,Male,4.0,4,Single,0,2.0,Davi Lucas Monteiro
 17252.0,0,8.0,Mobile Phone,Debit Card,Male,4.0,2,Married,0,2.0,Luiz Miguel Lopes
 14542.0,0,14.0,Mobile Phone,Debit Card,Male,4.0,2,Single,0,4.0,João Pimenta
-16825.0,0,15.0,Computer,E wallet,Female,4.0,589314,Married,0,1.0,Stella Dias
+16825.0,0,15.0,Computer,E wallet,Female,4.0,5,Married,0,1.0,Stella Dias
 12380.0,0,9.0,Computer,Debit Card,Male,4.0,3,Single,1,2.0,Enzo Dias
 18072.0,0,12.0,Mobile Phone,Debit Card,Female,4.0,5,Married,0,1.0,Sra. Clarice Novais
 13643.0,0,8.0,Mobile Phone,Credit Card,Female,4.0,5,Single,0,2.0,Dra. Maysa Aragão
@@ -2825,7 +2825,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17414.0,0,8.0,Mobile Phone,Credit Card,Male,4.0,3,Divorced,0,1.0,Enzo Gabriel Souza
 14622.0,1,1.0,Computer,,Female,5.0,2,Single,0,1.0,Júlia Nunes
 15609.0,1,1.0,Computer,E wallet,Female,,3,Divorced,1,4.0,Dra. Hadassa Pacheco
-14561.0,0,12.0,Computer,Debit Card,Male,2.0,589314,Married,0,1.0,Vinicius Vargas
+14561.0,0,12.0,Computer,Debit Card,Male,2.0,5,Married,0,1.0,Vinicius Vargas
 16872.0,0,-10000.0,Mobile Phone,COD,Female,4.0,2,Single,0,2.0,Emilly Leão
 16358.0,0,2.0,Mobile Phone,Debit Card,Male,5.0,5,Divorced,0,2.0,Josué Vargas
 15238.0,1,1.0,Mobile Phone,Credit Card,Male,4.0,3,Divorced,1,4.0,Calebe Farias
@@ -2865,7 +2865,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14704.0,0,1.0,Mobile Phone,Credit Card,Female,4.0,3,Divorced,1,2.0,Bianca Moraes
 16794.0,0,6.0,Mobile Phone,E wallet,Male,4.0,2,Divorced,0,2.0,Noah Brito
 13761.0,0,15.0,Phone,Credit Card,Male,2.0,3,Divorced,1,2.0,José Fogaça
-13517.0,0,14.0,Computer,UPI,Male,4.0,589314,Married,0,2.0,Bruno Vargas
+13517.0,0,14.0,Computer,UPI,Male,4.0,5,Married,0,2.0,Bruno Vargas
 13936.0,1,10.0,Mobile Phone,E wallet,Male,4.0,1,Married,0,1.0,Antony Camargo
 16342.0,1,3.0,Computer,Debit Card,Female,5.0,5,Single,1,1.0,Dra. Nicole Cavalcanti
 14177.0,1,1.0,Computer,Debit Card,Female,2.0,4,Single,0,4.0,Maria Júlia Aparecida
@@ -2929,7 +2929,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15747.0,0,9.0,Phone,Credit Card,Male,5.0,5,Single,0,1.0,Sr. Benicio Macedo
 15840.0,0,4.0,Mobile Phone,Cash on Delivery,Male,4.0,4,Married,0,1.0,Daniel Caldeira
 15016.0,1,1.0,Phone,Debit Card,Female,4.0,5,Married,1,2.0,Bella Novais
-14808.0,1,17.0,Mobile Phone,Cash on Delivery,Female,5.0,589314,Married,0,2.0,Sofia Caldeira
+14808.0,1,17.0,Mobile Phone,Cash on Delivery,Female,5.0,5,Married,0,2.0,Sofia Caldeira
 12904.0,0,6.0,Computer,COD,Male,4.0,5,Married,0,2.0,Dante Costela
 15825.0,0,22.0,Phone,UPI,Female,4.0,5,Married,0,8.0,Eduarda Siqueira
 12432.0,0,8.0,Mobile Phone,Credit Card,Male,4.0,1,Single,0,1.0,Pedro Miguel Teixeira
@@ -3030,7 +3030,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12977.0,0,21.0,Computer,E wallet,Male,4.0,4,Married,0,1.0,Vitor Cirino
 13291.0,0,20.0,Mobile Phone,Debit Card,Male,4.0,1,Married,1,1.0,João Guilherme Viana
 13583.0,0,5.0,Computer,COD,Female,4.0,1,Single,0,2.0,Isabelly Santos
-16929.0,0,13.0,Computer,Debit Card,Male,4.0,589314,Married,1,4.0,Pedro Miguel Barros
+16929.0,0,13.0,Computer,Debit Card,Male,4.0,5,Married,1,4.0,Pedro Miguel Barros
 17892.0,0,14.0,Mobile Phone,Credit Card,Male,4.0,4,Single,0,2.0,Lorenzo Guerra
 15505.0,0,4.0,Computer,COD,Female,5.0,5,Single,0,1.0,Ana Clara Mendonça
 14459.0,0,1.0,Computer,Credit Card,Male,4.0,1,Married,0,2.0,Luigi Lopes
@@ -3042,7 +3042,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13302.0,0,4.0,Mobile Phone,E wallet,Male,5.0,5,Married,0,1.0,Caio Cassiano
 16012.0,0,-10000.0,Computer,E wallet,Female,4.0,4,Single,0,1.0,Maria Luísa Rocha
 12635.0,0,23.0,Mobile Phone,E wallet,Female,4.0,1,Single,0,1.0,Ana Liz Pimenta
-17031.0,1,1.0,Mobile Phone,E wallet,Male,4.0,589314,Married,0,2.0,Fernando Alves
+17031.0,1,1.0,Mobile Phone,E wallet,Male,4.0,5,Married,0,2.0,Fernando Alves
 12461.0,0,3.0,Phone,COD,Female,5.0,5,Married,0,1.0,Srta. Letícia Gomes
 12648.0,0,6.0,Computer,COD,Male,4.0,4,Single,0,2.0,Liam Casa Grande
 18121.0,0,12.0,Mobile Phone,Credit Card,Male,6.0,1,Married,1,1.0,Lorenzo da Luz
@@ -3181,7 +3181,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13277.0,0,6.0,Mobile Phone,E wallet,Female,4.0,1,Married,0,4.0,Alícia Cavalcanti
 18127.0,0,11.0,Mobile Phone,Debit Card,Female,2.0,1,Married,1,,Beatriz Almeida
 15149.0,0,1.0,Mobile Phone,UPI,Female,4.0,3,Married,1,2.0,Srta. Maria Helena Rezende
-18081.0,0,26.0,Computer,Debit Card,Male,4.0,589314,Married,0,2.0,Lucca Costela
+18081.0,0,26.0,Computer,Debit Card,Male,4.0,5,Married,0,2.0,Lucca Costela
 14511.0,0,18.0,Phone,Credit Card,Male,4.0,1,Single,1,1.0,Rafael da Costa
 12716.0,0,1.0,Phone,Credit Card,Male,4.0,5,Single,1,2.0,Marcelo Ribeiro
 15776.0,1,1.0,Computer,E wallet,Male,4.0,5,Married,0,2.0,Vinicius Pinto
@@ -3291,7 +3291,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 12962.0,1,10.0,Mobile Phone,Credit Card,Male,5.0,1,Single,0,4.0,Thiago Vargas
 13273.0,0,25.0,Mobile Phone,E wallet,Male,4.0,1,Single,1,1.0,Nicolas Machado
 17736.0,0,4.0,Mobile Phone,Credit Card,Female,5.0,4,Married,1,3.0,Isis Costela
-15472.0,0,6.0,Mobile Phone,Credit Card,Male,4.0,589314,Single,0,6.0,Augusto Martins
+15472.0,0,6.0,Mobile Phone,Credit Card,Male,4.0,5,Single,0,6.0,Augusto Martins
 12680.0,0,28.0,Mobile Phone,Cash on Delivery,Female,4.0,3,Married,0,1.0,Ana Sophia Porto
 16582.0,0,1.0,Mobile Phone,UPI,Female,4.0,3,Married,0,1.0,Dra. Nicole Garcia
 17747.0,0,2.0,Computer,Credit Card,Male,4.0,3,Married,0,1.0,Murilo Correia
@@ -3330,8 +3330,8 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15263.0,0,19.0,Mobile Phone,Credit Card,Male,4.0,1,,0,2.0,Levi Albuquerque
 14314.0,0,12.0,Mobile Phone,,Female,4.0,3,Single,1,3.0,Hadassa Marques
 16093.0,0,4.0,Mobile Phone,Debit Card,Female,4.0,3,Single,0,2.0,Ana Luiza Ribeiro
-17844.0,0,4.0,0,Credit Card,Male,5.0,589314,Single,0,1.0,Léo Aparecida
-14687.0,0,15.0,Computer,Debit Card,Male,5.0,589314,Married,0,3.0,Henrique Jesus
+17844.0,0,4.0,0,Credit Card,Male,5.0,5,Single,0,1.0,Léo Aparecida
+14687.0,0,15.0,Computer,Debit Card,Male,5.0,5,Married,0,3.0,Henrique Jesus
 14050.0,0,1.0,Phone,Credit Card,Female,4.0,4,Single,0,2.0,Sara Caldeira
 16429.0,0,14.0,Computer,Credit Card,Female,4.0,4,Married,0,1.0,Dra. Eloá da Cunha
 14055.0,0,27.0,Phone,E wallet,Male,4.0,3,Married,1,1.0,Luan Pires
@@ -3419,7 +3419,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13372.0,1,1.0,Mobile Phone,Debit Card,Male,4.0,3,Single,0,1.0,Theodoro Camargo
 18255.0,0,3.0,Mobile Phone,Credit Card,Male,5.0,4,Married,0,2.0,Heitor Cirino
 14250.0,0,5.0,Mobile Phone,Credit Card,Male,5.0,1,Married,0,1.0,Bento Souza
-16796.0,0,1.0,Computer,Debit Card,Male,2.0,589314,Married,0,2.0,Gael da Luz
+16796.0,0,1.0,Computer,Debit Card,Male,2.0,5,Married,0,2.0,Gael da Luz
 14432.0,0,19.0,Mobile Phone,Credit Card,Male,4.0,1,Married,1,3.0,Pedro Lucas Pires
 15782.0,0,10.0,Mobile Phone,Debit Card,Male,4.0,1,Married,0,2.0,Cauê Porto
 12883.0,0,29.0,Mobile Phone,Credit Card,Male,4.0,5,Single,1,4.0,Bruno da Rocha
@@ -3428,10 +3428,10 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 18215.0,0,11.0,Mobile Phone,Credit Card,Male,4.0,1,Married,0,2.0,Isaac Mendes
 18158.0,0,1.0,Mobile Phone,Credit Card,Male,,3,Single,0,2.0,Carlos Eduardo Albuquerque
 13375.0,0,9.0,Mobile Phone,Debit Card,Female,2.0,4,,0,6.0,Juliana Sá
-13431.0,0,12.0,Mobile Phone,Credit Card,Female,2.0,589314,Married,1,5.0,Ana Cecília Brito
+13431.0,0,12.0,Mobile Phone,Credit Card,Female,2.0,5,Married,1,5.0,Ana Cecília Brito
 16211.0,0,1.0,Computer,Debit Card,Female,4.0,4,Married,0,2.0,Stephany Vieira
 12884.0,0,3.0,Computer,Debit Card,Male,4.0,1,Single,0,1.0,Marcos Vinicius Pereira
-16141.0,0,29.0,Mobile Phone,COD,Male,4.0,589314,Married,1,1.0,João Felipe Mendonça
+16141.0,0,29.0,Mobile Phone,COD,Male,4.0,5,Married,1,1.0,João Felipe Mendonça
 17919.0,1,8.0,Computer,Debit Card,Male,4.0,3,Married,1,1.0,Lucca Pereira
 16360.0,0,12.0,Mobile Phone,Debit Card,Male,4.0,1,Married,0,1.0,Lucca Freitas
 17433.0,1,1.0,Phone,Credit Card,Male,4.0,4,Married,1,2.0,Dr. Levi da Costa
@@ -3633,7 +3633,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 17528.0,0,8.0,Mobile Phone,Credit Card,Female,4.0,3,Single,0,1.0,Juliana Caldeira
 16361.0,0,1.0,Mobile Phone,Credit Card,Male,4.0,5,Married,0,2.0,Pedro Lucas Castro
 13886.0,0,13.0,Mobile Phone,UPI,Female,2.0,4,Married,0,1.0,Maria Souza
-13354.0,0,30.0,Mobile Phone,,Male,4.0,589314,Married,0,1.0,André Fogaça
+13354.0,0,30.0,Mobile Phone,,Male,4.0,5,Married,0,1.0,André Fogaça
 15050.0,0,14.0,Phone,Credit Card,Female,5.0,1,Single,1,1.0,Srta. Brenda Correia
 13503.0,0,27.0,Phone,Debit Card,Male,4.0,1,Single,0,3.0,Asafe Carvalho
 16653.0,0,9.0,Computer,Debit Card,Female,4.0,5,Married,0,2.0,Mariah Souza
@@ -3676,12 +3676,12 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16183.0,0,8.0,Computer,Debit Card,Female,5.0,1,,0,2.0,Olivia da Mota
 13297.0,1,13.0,Mobile Phone,E wallet,Female,4.0,1,Married,0,1.0,Beatriz Lopes
 13801.0,1,19.0,0,Credit Card,Male,4.0,1,Single,0,2.0,José Mendonça
-16881.0,0,17.0,Mobile Phone,Debit Card,Male,4.0,589314,Married,0,2.0,Lucas Gabriel da Rosa
+16881.0,0,17.0,Mobile Phone,Debit Card,Male,4.0,5,Married,0,2.0,Lucas Gabriel da Rosa
 17014.0,0,1.0,Mobile Phone,Cash on Delivery,Male,5.0,1,Married,1,2.0,Calebe Rios
 15255.0,0,2.0,Mobile Phone,E wallet,Female,4.0,4,Married,1,7.0,Caroline Farias
 14184.0,0,8.0,Mobile Phone,UPI,Male,4.0,1,Married,0,2.0,Luiz Miguel Souza
 13351.0,0,25.0,Mobile Phone,E wallet,Female,4.0,3,Married,0,,Vitória Pereira
-15739.0,0,18.0,Mobile Phone,Credit Card,Male,4.0,589314,Single,0,2.0,Isaac Rezende
+15739.0,0,18.0,Mobile Phone,Credit Card,Male,4.0,5,Single,0,2.0,Isaac Rezende
 12512.0,0,7.0,Mobile Phone,Credit Card,Male,2.0,5,Married,0,1.0,Gustavo Henrique Pacheco
 17957.0,0,9.0,Mobile Phone,Credit Card,Female,5.0,5,Single,0,1.0,Aurora Caldeira
 15276.0,0,10.0,Mobile Phone,,Male,4.0,1,,1,4.0,Dante Aparecida
@@ -3739,7 +3739,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 13806.0,1,1.0,Mobile Phone,COD,Male,4.0,5,Single,0,2.0,Gabriel Azevedo
 18096.0,0,5.0,Mobile Phone,Credit Card,Female,4.0,1,Married,1,7.0,Ana Sophia Lima
 13587.0,0,14.0,Computer,Credit Card,Male,4.0,4,Married,1,1.0,Rafael Ramos
-12856.0,0,6.0,Mobile Phone,Credit Card,Female,4.0,589314,Married,0,2.0,Beatriz Silveira
+12856.0,0,6.0,Mobile Phone,Credit Card,Female,4.0,5,Married,0,2.0,Beatriz Silveira
 13419.0,1,1.0,Mobile Phone,Debit Card,Male,5.0,1,Married,1,4.0,Davi Miguel Siqueira
 17509.0,0,7.0,Mobile Phone,Debit Card,Female,5.0,1,Single,0,2.0,Beatriz Garcia
 16900.0,1,1.0,Mobile Phone,Debit Card,Male,5.0,3,Married,0,6.0,Antônio Camargo
@@ -3850,7 +3850,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16932.0,0,15.0,Mobile Phone,Debit Card,Male,4.0,1,Married,1,2.0,Igor Cunha
 16363.0,1,1.0,Computer,Credit Card,Male,4.0,3,Married,0,2.0,Sr. Enrico Montenegro
 14830.0,0,11.0,Mobile Phone,Credit Card,Female,5.0,1,Married,0,2.0,Stephany Vargas
-17244.0,0,1.0,Mobile Phone,Debit Card,Male,5.0,589314,Married,0,2.0,Pietro Viana
+17244.0,0,1.0,Mobile Phone,Debit Card,Male,5.0,5,Married,0,2.0,Pietro Viana
 15355.0,0,8.0,Mobile Phone,Debit Card,Female,4.0,3,Married,0,1.0,Maitê da Rocha
 15598.0,0,9.0,Mobile Phone,COD,Male,,3,Single,0,1.0,Pedro Aparecida
 15637.0,1,1.0,Mobile Phone,Debit Card,Female,5.0,5,Married,0,2.0,Dra. Maria Julia da Costa
@@ -3980,7 +3980,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16648.0,0,1.0,Mobile Phone,Debit Card,Male,2.0,3,Married,0,2.0,Anthony Cavalcanti
 16164.0,0,26.0,Computer,Credit Card,Female,2.0,3,Married,1,2.0,Dra. Ana Beatriz Campos
 14218.0,0,17.0,Mobile Phone,Credit Card,Female,5.0,3,Single,1,1.0,Manuella Mendes
-15096.0,0,1.0,Mobile Phone,E wallet,Female,5.0,589314,Married,1,2.0,Ísis Abreu
+15096.0,0,1.0,Mobile Phone,E wallet,Female,5.0,5,Married,1,2.0,Ísis Abreu
 18030.0,1,1.0,Phone,Debit Card,Female,4.0,3,Single,1,5.0,Stephany Sousa
 14416.0,0,1.0,Mobile Phone,Credit Card,Male,5.0,1,Single,0,2.0,Davi Correia
 17839.0,0,26.0,Mobile Phone,UPI,Female,4.0,5,Married,0,2.0,Ana Nascimento
@@ -4055,7 +4055,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15010.0,0,18.0,Mobile Phone,Debit Card,Male,4.0,5,Married,0,,Davi Moreira
 18022.0,0,20.0,Mobile Phone,Debit Card,Female,4.0,4,Married,0,,Isabella Oliveira
 16318.0,0,9.0,Mobile Phone,Debit Card,Female,5.0,4,Single,0,4.0,Rebeca da Mota
-17274.0,0,1.0,Phone,Debit Card,Male,4.0,589314,Single,0,2.0,Rodrigo Câmara
+17274.0,0,1.0,Phone,Debit Card,Male,4.0,5,Single,0,2.0,Rodrigo Câmara
 15597.0,1,4.0,Phone,Debit Card,Male,4.0,5,Single,0,2.0,João Vargas
 17233.0,0,8.0,Mobile Phone,Cash on Delivery,Male,5.0,3,Married,1,8.0,Bryan Fogaça
 16887.0,0,24.0,Computer,Credit Card,Male,6.0,1,Single,1,,Joaquim Ribeiro
@@ -4086,7 +4086,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 14080.0,0,1.0,Phone,Debit Card,Female,4.0,1,Married,0,2.0,Maria Eduarda Brito
 17623.0,0,12.0,Mobile Phone,Debit Card,Male,4.0,4,Married,0,4.0,Mateus Siqueira
 13673.0,0,12.0,Mobile Phone,Debit Card,Female,4.0,4,Single,0,2.0,Evelyn da Rocha
-14073.0,0,10.0,Mobile Phone,Debit Card,Female,4.0,589314,Single,0,2.0,Maria Luiza Cavalcanti
+14073.0,0,10.0,Mobile Phone,Debit Card,Female,4.0,5,Single,0,2.0,Maria Luiza Cavalcanti
 16070.0,0,3.0,Mobile Phone,Credit Card,Male,4.0,5,Single,1,1.0,João Guilherme Moura
 13066.0,0,9.0,Mobile Phone,Credit Card,Female,4.0,3,,1,1.0,Sabrina Moreira
 14929.0,0,3.0,Computer,Debit Card,Male,4.0,1,Married,0,2.0,Cauê Rodrigues
@@ -4143,12 +4143,12 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 16433.0,0,6.0,Mobile Phone,Credit Card,Male,4.0,4,,0,2.0,Enrico da Rosa
 15692.0,0,5.0,Mobile Phone,Debit Card,Female,4.0,1,Married,0,1.0,Laura Azevedo
 17052.0,0,23.0,Mobile Phone,Credit Card,Female,4.0,5,Married,1,1.0,Alice Marques
-16368.0,0,12.0,Computer,Credit Card,Female,5.0,589314,Single,0,1.0,Helena da Paz
+16368.0,0,12.0,Computer,Credit Card,Female,5.0,5,Single,0,1.0,Helena da Paz
 18014.0,0,21.0,Mobile Phone,Debit Card,Female,2.0,4,Married,0,,Camila Aragão
 13732.0,0,23.0,Mobile Phone,,Male,4.0,3,Single,0,,Leandro Abreu
 13091.0,0,15.0,Mobile Phone,,Male,4.0,3,Single,1,1.0,Luiz Gustavo Ribeiro
 14661.0,0,1.0,Mobile Phone,Debit Card,Male,4.0,5,Single,0,1.0,Benicio da Cunha
-13170.0,0,7.0,Computer,Debit Card,Female,4.0,589314,Married,1,1.0,Marcela da Paz
+13170.0,0,7.0,Computer,Debit Card,Female,4.0,5,Married,1,1.0,Marcela da Paz
 15654.0,0,10.0,Mobile Phone,Debit Card,Male,4.0,3,Married,0,2.0,Eduardo Borges
 13146.0,0,18.0,Mobile Phone,Debit Card,Female,4.0,1,Married,1,3.0,Sra. Cecília Siqueira
 14788.0,1,1.0,Mobile Phone,Credit Card,Male,5.0,3,Single,1,2.0,Pedro Pacheco
@@ -4166,13 +4166,13 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 18117.0,0,9.0,Computer,Credit Card,Male,5.0,1,Single,1,2.0,Marcos Vinicius Viana
 15458.0,0,17.0,Mobile Phone,Credit Card,Male,4.0,1,Married,1,4.0,Calebe Carvalho
 17566.0,0,1.0,Mobile Phone,Credit Card,Male,2.0,3,Married,0,1.0,Pedro Miguel Sales
-16207.0,0,15.0,Mobile Phone,E wallet,Male,4.0,589314,Single,0,4.0,Theodoro Rodrigues
+16207.0,0,15.0,Mobile Phone,E wallet,Male,4.0,5,Single,0,4.0,Theodoro Rodrigues
 12762.0,0,3.0,Mobile Phone,Credit Card,Female,4.0,3,Married,0,1.0,Sra. Nina Fogaça
 17793.0,0,10.0,Mobile Phone,Debit Card,Female,4.0,1,Single,0,7.0,Nina Leão
 14953.0,0,19.0,Computer,,Male,5.0,3,Married,0,5.0,Ravi Alves
-16504.0,1,1.0,Phone,UPI,Male,6.0,589314,Married,0,1.0,Apollo Vargas
+16504.0,1,1.0,Phone,UPI,Male,6.0,5,Married,0,1.0,Apollo Vargas
 12374.0,1,11.0,Computer,Debit Card,Male,,3,Married,0,7.0,Caio Sá
-15009.0,0,19.0,Mobile Phone,Cash on Delivery,Female,5.0,589314,Single,0,7.0,Liz Viana
+15009.0,0,19.0,Mobile Phone,Cash on Delivery,Female,5.0,5,Single,0,7.0,Liz Viana
 16423.0,0,6.0,Computer,Debit Card,Male,4.0,3,Married,0,1.0,Théo Freitas
 15419.0,0,5.0,Mobile Phone,Debit Card,Male,4.0,3,Married,0,2.0,Yago Nunes
 17510.0,0,15.0,Computer,UPI,Male,6.0,4,Married,0,1.0,Benjamim Sá
@@ -4317,7 +4317,7 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15619.0,0,29.0,Mobile Phone,UPI,Male,2.0,4,Married,1,2.0,Kaique Barros
 15148.0,0,13.0,Mobile Phone,E wallet,Male,4.0,5,Single,0,5.0,João Lucas Pimenta
 14601.0,0,16.0,Computer,Debit Card,Male,5.0,3,Single,0,4.0,Thales Almeida
-15783.0,0,5.0,Computer,Credit Card,Female,4.0,589314,Married,0,4.0,Maria Isis Macedo
+15783.0,0,5.0,Computer,Credit Card,Female,4.0,5,Married,0,4.0,Maria Isis Macedo
 17772.0,0,28.0,Mobile Phone,Credit Card,Female,4.0,5,Single,1,1.0,Heloisa Costela
 14126.0,0,1.0,Mobile Phone,Debit Card,Male,5.0,3,Single,0,2.0,Francisco Ribeiro
 16479.0,0,1.0,Mobile Phone,UPI,Male,4.0,1,Single,0,2.0,Vitor Aragão
@@ -4370,4 +4370,4 @@ CustomerID,Churn,Tenure,PreferredLoginDevice,PreferredPaymentMode,Gender,NumberO
 15520.0,0,13.0,Mobile Phone,Credit Card,Male,5.0,5,Married,0,1.0,Arthur Castro
 13298.0,0,1.0,Mobile Phone,Debit Card,Male,2.0,4,Married,1,1.0,Augusto da Rocha
 14569.0,0,23.0,Computer,Credit Card,Male,,4,Married,0,2.0,Apollo Caldeira
-12713.0,0,8.0,Mobile Phone,Credit Card,Male,2.0,589314,Married,0,2.0,Heitor Dias
+12713.0,0,8.0,Mobile Phone,Credit Card,Male,2.0,5,Married,0,2.0,Heitor Dias
