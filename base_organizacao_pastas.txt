@@ -1,0 +1,50 @@
+meu_projeto/
+│
+├── 📁 data/                               # Datasets locais, se necessário
+│   ├── csv/                           # Dados (arquivos CSV)
+│   └── sqlite/                        # Banco de dados do cliente
+│
+├── 📁 database/                            # Conexão e scripts MySQL
+│   ├── connection.py                  # Código para conectar ao banco
+│   ├── migrations/                    # Criação/alteração de tabelas
+│   │   └── create_tables.sql
+│   └── queries/                       # Consultas SQL organizadas
+│       └── get_clientes.sql
+│            
+│
+├── 📁 notebooks/                       # Análises e experimentações com Jupyter
+│   ├── Exploracao_dos_dados.ipynb
+│   ├── Limpeza_dos_dados_do_kaggle.ipynb
+│   ├── Dados_para_ETL.ipynb
+│   ├── RFM.ipybn
+│   └── Churn.ipynb
+│
+├── 📁 src/                             # Código-fonte principal
+│   ├── _init_.py
+│   ├── ingestion/                     # Scripts para puxar e enviar dados do banco
+│   │   └── load_data.py
+│   ├── analysis/                      # Análises (sem notebooks)
+│   │   └── rfm.py
+│   ├── pipelines/                     # Fluxo de etapas (ETL, previsão, etc.)
+│   │   └── churn_pipeline.py
+│   ├── model/                         # Modelo de previsão de churn
+│   │   ├── train_model.py
+│   │   ├── predict.py
+│   │   └── model.pkl                  # Modelo treinado salvo
+│   └── utils/                         # Funções auxiliares reutilizáveis
+│       └── helpers.py
+│
+├── 📁 routes/                          # Rotas de API ou endpoints
+│   └── api.py                         # Ex: usando FastAPI ou Flask
+│
+├── 📁 templates/                       # HTML ou Jinja2 (interface visual)
+│   └── index.html
+│
+├── 📁 static/                          # Arquivos estáticos (CSS, JS, imagens)
+│   └── img/
+│       └── churn_grafico.png
+│
+├── .env                                # Variáveis sensíveis (login, host, etc.)
+├── requirements.txt                    # Bibliotecas do projeto
+├── README.md                           # Documentação inicial
+└── main.py                             # Arquivo principal do app
