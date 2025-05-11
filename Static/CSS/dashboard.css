@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --tran-02:all 0.2s ease;
+    --tran-03:all 0.3s ease;
+    --tran-04:all 0.4s ease;
+    --tran-05:all 0.5s ease;
+}
+
+main{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+body{
+    height: 100vh; 
+}
+
+
+/* SIDE-MENU */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    padding: 10px 14px;
+    background: #fff;
+    transition: var(--tran-05);
+    z-index: 100;
+    font-family: "Poppins", sans-serif;
+}
+
+.sidebar.close {
+    width: 100px;
+}
+
+.sidebar .text {
+    font-size: 19px;
+    font-weight: 500;
+    color: #08416f;
+    transition: var(--tran-04);
+    white-space: nowrap;
+    opacity: 1;
+    margin-left: -15px;
+    
+}
+
+.sidebar.close .text {
+    opacity: 0;
+}
+
+.sidebar .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.sidebar header {
+    position: relative;
+}
+.sidebar .image-text{
+    margin: 40px;
+}
+.sidebar .image-text .logo{
+    display: block;
+    width: 180px;
+    transition: width 0.6s ease;
+}
+.sidebar .image-text .logo-closed {
+    display: none;
+    width: 40px;
+    transition: width 0.6s ease;
+}
+
+/* Quando sidebar está fechada */
+.sidebar.close .logo {
+    display: none;
+     /* Esconde a logo grande */
+}
+
+.sidebar.close .logo-closed {
+    display: block; /* Mostra a logo reduzida */
+    margin-right: 65px;
+}
+
+
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name {
+    font-weight: 600;
+}
+
+.header-text .profession {
+    margin-top: -2px;
+}
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 100%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 40px;
+    width: 40px;
+    background: #dfdede;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #1c75bc;
+    font-size: 22px;
+    transition: var(--tran-03);
+    cursor: pointer;
+}
+
+.sidebar li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover {
+    background: #c8d2ff;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
+.sidebar li.active a {
+    background-color: #c8d2ff;
+    border-radius: 20px;
+}
+
+.sidebar li.active a .text {
+    color: #08416f;
+    font-weight: 600;
+}
+
+.sidebar li a:hover .text {
+    color: #08416f;
+}
+
+.sidebar .menu-bar {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+.sidebar.close header .toggle {
+    transform: translateY(-50%);
+}
+.tudo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: #fff;
+    transition: var(--tran-05);
+}
+
+.tudo .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: #08416f;
+    padding: 8px 40px;
+}
+
+.sidebar.close ~ main .tudo {
+    left: 100px;
+    width: calc(100% - 100px);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: #c8d2ff;
+    height: 60px;
+    border-radius: 15px;
+    margin-top: 250px;
+    padding: 10px;
+    transition: var(--tran-04);
+    
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.user-info .name {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #2c3e50;
+    white-space: nowrap;
+}
+
+.user-info .role {
+    font-size: 12px;
+    color: #555;
+    white-space: nowrap;
+}
+
+.logout-icon {
+    font-size: 30px;
+    color: #08416f;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-left: 50px;
+}
+
+.logout-icon:hover {
+    color: red;
+} 
+
+/* Quando sidebar estiver fechada */
+.sidebar.close .user-info {
+    display: none;
+}
+.sidebar.close .logout-icon{
+    display: none;
+}
+.sidebar.close .user-profile {
+    border-radius: 30px;
+    cursor: pointer;
+}
+.sidebar.close .user-avatar{
+    margin-left: -1.5px;
+}
+
+/*SEARCH BAR*/
+.search{
+    display: flex;
+    align-items: center;
+    background-color: #dfdede;
+    justify-content: center;
+    width: 400px;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #4b4b4b;
+
+}
+#searchInput{
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+}
+.search label{
+    height: 20 px;
+}
+.material-symbols-outlined img{
+    width: 20px;
+    margin-top: 5px;
+}
+.search input{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* DASHBOARD */
+.dashboard{
+    width: 100%;
+    padding: 100px;
+}
+
+.titulo-pesquisa{
+    display: flex;
+    justify-content: space-between;
+}
+.titulo-nome h1{
+    font-size: 30pt;
+    color: #1c75bc;
+    font-weight: 600;
+}
+.titulo-nome h3{
+    font-size: 15pt;
+    color: #1c75bc;
+    font-weight: 400;
+    margin-top: -15px;
+}
+
+.destaques{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding-top: 40px;
+}
+.lucro-anual{
+    background-color: #82b3da;
+    width: 37%;
+    height: 130px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    line-height: 45px;
+    color: #0e0132;
+    padding: 20px;
+}
+.lucro-valor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lucro-valor h1{
+    font-size: 47pt;
+    margin-bottom: 20px;
+}
+.lucro-valor h3{
+    font-weight: 600;
+    margin-right: 50px;
+}
+.lucro-img img{
+    width: 35px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+.clientes-novos{
+    background-color: #08416f;
+    width: 37%;
+    height: 130px;
+    border-radius: 15px;
+    display: flex;
+    color: #ffff;
+}
+.clientes-novos-img img{
+    width: 50px;
+}
+.clientes-novos-img{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+.cliente-novos-numero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+    padding-top: 30px;
+}
+.cliente-novos-numero h1{
+    font-size: 70pt;
+    font-weight: 600;
+}
+.cliente-novos-numero h3{
+    font-size: 16pt;
+    font-weight: 600;
+}
+
+.clientes-novos-aumento img{
+    width: 45px;
+}
+
+.clientes-novos-aumento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 15px;
+    padding-left: 50px;
+
+}
+.clientes-novos-aumento h4{
+    font-weight: 600;
+    margin-top: 5px;
+}
+.clientes-novos-aumento h6{
+    font-weight: 400;
+}
+
+.pais-mais-vendido{
+    background-color: #1c75bc;
+    width: 25%;
+    height: 130px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #ffff;   
+}
+.pais-mais-vendido-img{
+    margin-right: 10px;
+}
+.pais-mais-vendido-img img{
+    width: 40px;
+    
+}
+.pais-mais-vendido-nome{
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.pais-mais-vendido-nome h1{
+    font-size: 45pt;
+    font-weight: 800;
+}
+
+.rendimento-compras-vendas{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+    color: #0e0132;
+}
+.rendimento-anual{
+    width: 75%;
+    background-color: #dfdede;
+    border-radius: 15px;
+    height: 49vh;
+    padding: 30px 0 0 50px;
+}
+.rendimento-anual h1{
+    font-size: 25pt;
+}
+.compras-qtdvendas{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.produto-mais-vendido{
+    background-color: #90caf9;
+    border-radius: 15px;
+    height: 20vh;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 15px;
+}
+.produto-mais-vendido h1{
+    margin-top: 15px;
+    font-size: 25pt;
+}
+.produto-mais-vendido h3{
+    font-weight: 400;
+}
+.produto-mais-vendido img{
+    width: 40px;
+    margin-bottom: 20px;
+}
+.qtd-vendas {
+    background-color: #c8d2ff;
+    border-radius: 15px;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.qtd-vendas h1 {
+    font-size: 19pt;
+    font-weight: 800; /* deixa a fonte mais grossa */
+    text-align: center;
+    margin: 0;
+}
+
+.qtd-vendas h4 {
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.qtd-vendas h1.valor {
+    font-size: 90pt;
+    color: #073763; /* azul escuro parecido com o da imagem */
+    text-align: center;
+    margin: 0;
+    line-height: 90px;
+}
+.produtos-mais-vendidos{
+    width: 100%;
+    background-color: #dfdede;
+    border-radius: 15px;
+    height: 49vh;
+    padding: 30px 0 0 50px;
+    margin-top: 10px;
+    color: #0e0132;
+}
+
+.produtos-mais-vendidos h1{
+    font-size: 25pt;
+}

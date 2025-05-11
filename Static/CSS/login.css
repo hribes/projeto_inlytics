@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main{
+    min-width: 320px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.tudo {
+    height: 100vh; 
+}
+
+.direita-esquerda {
+    display: flex;
+    height: 100%;
+}
+
+.esquerda {
+    display: flex;
+    flex-direction: column;
+    padding: 150px;
+    width: 60%;
+    background-image: url('/projeto_inlytics/Static/Imagens/fundo-azul.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100%;
+    color: #ffff;
+}
+
+
+
+.sub-titulo{
+    width: 500px;
+    font-size: 25pt;
+    line-height: 50px;
+}
+
+.sub-titulo h1{
+    font-weight: 600;
+    color: #90caf9;
+
+}
+.textinho{
+    padding-top: 30px;
+    width: 400px;
+    font-size: 15pt;
+}
+
+.logo img{
+    margin-top: 120px;
+    width: 170px;
+}
+
+.direita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    background-color: #90caf9; 
+}
+.diagonal{
+    background-color: #90caf9; 
+    border-left: 100px solid #1C75BC;
+    border-bottom: 811px solid transparent;
+    box-sizing: border-box;
+
+}
+
+.titulo-direito h1{
+    color: #08416f;
+    font-weight: 600;
+    text-align: center;
+    font-size: 40pt;
+    line-height: 60px;
+}
+.titulo-direito{
+    margin: 20px;
+}
+.titulo-direito .maior {
+    color: #1c75bc;
+    font-weight: 800;
+    font-size: 50pt;
+}
+.titulo-maior{
+    display: flex;
+}
+.titulo-maior .dynamic-txts{
+    line-height: 90px;
+    height: 90px;
+    overflow: hidden;
+}
+.dynamic-txts li{
+    list-style: none;
+    color: #ffff;
+    font-size: 70px;
+    font-weight: 900;
+    top: 0;
+    position: relative;
+    animation: slide 12s steps(4)
+    infinite;
+}
+
+@keyframes slide{
+    100%{
+        top: -360px;
+    }
+
+}
+
+.dynamic-txts li{
+    position: relative;
+}
+
+
+.dynamic-txts li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1c75bc;
+    border-left: 2px solid #ffff;
+    animation: typing 3s steps(10)
+    infinite;
+}
+
+@keyframes typing{
+    40%,
+    60%{
+        left: calc(100% + 30px);
+    }
+    100%{
+        left:0;
+    }
+}
+
+/*INPUTS*/
+
+.usuario, .senha {
+    display: flex;
+    align-items: center;
+    background-color: #efefef;
+    border-radius: 100px;
+    padding: 5px 15px;
+    margin: 20px 0;
+    width: fit-content;
+}
+
+
+.usuario-icone, .senha-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.usuario-icone img {
+    width: 20px;
+}
+.senha-icone img {
+    width: 17px;
+}
+
+.usuario input, .senha input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 11pt;
+    font-family: "Poppins", sans-serif;
+    width: 300px;
+    padding: 10px;
+}
+
+.usuario input{
+    width: 330px;
+}
+.ver-senha {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ver-senha img {
+    width: 20px;
+    margin-left: 10px;
+    transition: opacity 0.2s;
+}
+/*BOTÃO*/
+
+.botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.entrar{
+    width: 180px;
+    height: 45px;
+    border: 3px solid #104d7d;
+    color: #104d7d;
+    border-radius: 100px;
+    background-color: transparent;
+    font-size: 14pt;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #104d7d;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+.slide_right:hover {
+    box-shadow: inset 400px 0 0 0 #104d7d;
+  }
+.entrar:hover{
+    background-color: #104d7d;
+    color: #ffff;
+}
+.esqueceu-senha{
+    margin-top: 20px;
+    color: #104d7d;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.esqueceu-senha:hover{
+    color: #1c75bc;
+}

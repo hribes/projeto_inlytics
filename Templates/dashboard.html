@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/projeto_inlytics/Static/CSS/dashboard.css">  
+    <title>Inlytics - Dashboard</title>
+    <link rel="icon" href="/projeto_inlytics/Static/Logos/4 - Copia.png" type="image/png">
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/projeto_inlytics/Static/Logos/4.png" alt="logo" class="logo">
+                    <img src="/projeto_inlytics/Static/Logos/4 - Copia.png" alt="logo-closed" class="logo-closed">
+                </span>
+            </div>
+    
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link active">
+                        <a href="/projeto_inlytics/Templates/dashboard.html">
+                            <img src="/projeto_inlytics/Static/Imagens/dashboard.png" alt="Dashboard Icon" class="icon">
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/projeto_inlytics/Templates/rfm.html">
+                            <img src="/projeto_inlytics/Static/Imagens/rfm-icone.png" alt="RFM Icon" class="icon">
+                            <span class="text nav-text">RFM</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/projeto_inlytics/Templates/churn.html">
+                            <img src="/projeto_inlytics/Static/Imagens/churn-icone.png" alt="Churn Icon" class="icon">
+                            <span class="text nav-text">Churn</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/projeto_inlytics/Templates/sazonalidade.html">
+                            <img src="/projeto_inlytics/Static/Imagens/sazionalidade-icone.png" alt="Sazonalidade Icon" class="icon">
+                            <span class="text nav-text">Sazonalidade</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/projeto_inlytics/Templates/usuario.html">
+                            <img src="/projeto_inlytics/Static/Imagens/usuario-icone.png" alt="Usuário Icon" class="icon">
+                            <span class="text nav-text">Usuário</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-profile">
+                <img src="/projeto_inlytics/Static/Imagens/Alana Crystal (1).png"  class="user-avatar">
+                <div class="user-info">
+                    <span class="name">Alana Crystal</span>
+                    <span class="role">Tray - Analista</span>
+                </div>
+                <a href="/projeto_inlytics/Templates/index.html" class="logout-link">
+                <i class='bx bx-log-out logout-icon'>
+                </i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main>
+    <section class="tudo">
+            <div class="dashboard">
+                <div class="cabecalho">
+                    <div class="titulo-pesquisa">
+                        <div class="titulo-nome">
+                            <h1>Olá, Alana!</h1>
+                            <h3>Confira o seu desempenho geral</h3>
+                        </div>
+                        <div class="barra-pesquisa">   
+                            <div class="search">
+                                <input type="text" id="searchInput" placeholder="Pesquise algo...">
+                                <label for="searchInput">
+                                    <span class="material-symbols-outlined">
+                                        <img src="/projeto_inlytics/Static/Imagens/search-bar.png" alt="">
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="destaques">
+                    <div class="lucro-anual">
+                        <div class="lucro-img">
+                            <img src="/projeto_inlytics/Static/Imagens/lucro.png" alt="" srcset="">
+                        </div>
+                        <div class="lucro-valor">
+                            <h3>Lucro Anual</h3>
+                            <h1>105.986,27</h1>
+                        </div>
+                    </div>
+                    <div class="clientes-novos">
+                        <div class="clientes-novos-img">
+                            <img src="/projeto_inlytics/Static/Imagens/icone-clientes.png" alt="">
+                        </div>
+                        <div class="cliente-novos-numero">
+                            <h1>124</h1>
+                            <h3>Clientes novos</h3>
+                        </div>
+                        <div class="clientes-novos-aumento">
+                            <img src="/projeto_inlytics/Static/Imagens/seta-aumento.png" alt="">
+                            <h4>Aumento de 30%</h4>
+                            <h6><i>Em relação ao mês anterior</i></h6>    
+                        </div>
+                    </div>
+                    <div class="pais-mais-vendido">
+                        <div class="pais-mais-vendido-img">
+                            <img src="/projeto_inlytics/Static/Imagens/certo-compras.png " alt="">
+                        </div>
+                        <div class="pais-mais-vendido-nome">
+                            <h1>Brasil</h1>
+                            <h3>País mais vendido</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="rendimento-compras-vendas">
+                    <div class="rendimento-anual">
+                        <h1>Rendimento Anual</h1>
+                    </div>
+                    <div class="compras-qtdvendas">
+                        <div class="produto-mais-vendido">
+                        <img src="/projeto_inlytics/Static/Imagens/coroa-produtos.png" alt="">
+                        <h3>Produto em Destaque</h3>
+                        <h1>Garrafa 500ml</h1>
+                    </div> 
+                        <div class="qtd-vendas">
+                            <h1>Quantidade Vendida</h1>
+                            <h4>Mensal</h4>
+                            <h1 class="valor">647</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="produtos-mais-vendidos">
+                    <h1>Produtos mais Vendidos</h1>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/projeto_inlytics/Static/JS/sidemenu.js"></script>
+</body>
+</html>
