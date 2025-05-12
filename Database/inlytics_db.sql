@@ -47,7 +47,7 @@ UNLOCK TABLES;
 -- Table structure for table `customer`
 --
 
---DROP TABLE IF EXISTS `customer`;
+---DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
@@ -84,7 +84,7 @@ UNLOCK TABLES;
 -- Table structure for table `enterprise`
 --
 
---DROP TABLE IF EXISTS `enterprise`;
+---DROP TABLE IF EXISTS `enterprise`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `enterprise` (
@@ -114,7 +114,7 @@ UNLOCK TABLES;
 -- Table structure for table `inlytic_user`
 --
 
---DROP TABLE IF EXISTS `inlytic_user`;
+---DROP TABLE IF EXISTS `inlytic_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inlytic_user` (
@@ -143,7 +143,7 @@ UNLOCK TABLES;
 -- Table structure for table `plan_type`
 --
 
---DROP TABLE IF EXISTS `plan_type`;
+---DROP TABLE IF EXISTS `plan_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `plan_type` (
@@ -168,7 +168,7 @@ UNLOCK TABLES;
 -- Table structure for table `rfm`
 --
 
---DROP TABLE IF EXISTS `rfm`;
+---DROP TABLE IF EXISTS `rfm`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rfm` (
@@ -179,6 +179,9 @@ CREATE TABLE `rfm` (
   `customer_classification` varchar(20) DEFAULT NULL,
   `customer_id` int(11) NOT NULL,
   `enterprise_id` int(11) NOT NULL,
+  `r_score` int(11) NOT NULL,
+  `f_score` int(11) NOT NULL,
+  `m_score` int(11) NOT NULL,
   PRIMARY KEY (`id_rfm`),
   KEY `customer_id` (`customer_id`),
   KEY `enterprise_id` (`enterprise_id`),
@@ -200,7 +203,7 @@ UNLOCK TABLES;
 -- Table structure for table `seasonality`
 --
 
---DROP TABLE IF EXISTS `seasonality`;
+---DROP TABLE IF EXISTS `seasonality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seasonality` (
@@ -229,7 +232,7 @@ UNLOCK TABLES;
 -- Table structure for table `sold_products`
 --
 
---DROP TABLE IF EXISTS `sold_products`;
+---DROP TABLE IF EXISTS `sold_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sold_products` (
@@ -244,7 +247,9 @@ CREATE TABLE `sold_products` (
   `id_product` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sold_products`),
   KEY `id_enterprisa` (`id_enterprise`),
-  CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`)
+  KEY `id_customer` (`id_customer`),
+  CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`),
+  CONSTRAINT `sold_products_ibfk_2` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -266,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-04-28 14:46:57
+-- Dump completed on 2025-05-12 14:54:55
