@@ -2,7 +2,7 @@ from Database.conexao_bd import conectar_db
 from datetime import date, timedelta
 
 quinze_dias = date.today() - timedelta(days=15)
-print (quinze_dias)
+#print (quinze_dias)
 
 
 def show_highlight_products():

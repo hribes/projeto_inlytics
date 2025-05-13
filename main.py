@@ -1,9 +1,9 @@
 from flask import Flask, render_template
-from Routes.api import clientes
+from Routes.api import home
 
 
 app = Flask(__name__)
-app.register_blueprint(clientes)
+app.register_blueprint(home)
 
 
 if __name__ == "__main__":

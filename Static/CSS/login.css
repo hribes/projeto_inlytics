@@ -25,7 +25,7 @@ main{
     flex-direction: column;
     padding: 150px;
     width: 60%;
-    background-image: url('/projeto_inlytics/Static/Imagens/fundo-azul.png'); 
+    background-image: url('/static/Imagens/fundo-azul.png'); 
     background-size: cover; 
     background-repeat: no-repeat;
     height: 100%;
