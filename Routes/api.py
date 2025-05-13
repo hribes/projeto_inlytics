@@ -12,6 +12,7 @@ def exibir_clientes():
     clientes_totais = qnt_all_customers()
     porcentagem_clientes_novos = (customers / (clientes_totais-customers)) * 100
     
-    return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
+    return render_template("rfm.html")
+    #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
 
