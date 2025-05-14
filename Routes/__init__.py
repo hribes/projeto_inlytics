@@ -1,1 +1,0 @@
-from .api import exibir_clientes

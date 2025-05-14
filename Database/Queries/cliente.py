@@ -1,5 +1,6 @@
 from Database.conexao_bd import conectar_db
 
+#Listar todos usuarios
 def list_all_customers():
     conn = conectar_db()
     cursor = conn.cursor()
@@ -9,6 +10,7 @@ def list_all_customers():
     
     return customer
 
+#QNT total de usuarios
 def qnt_all_customers():
     conn = conectar_db()
     cursor = conn.cursor()
@@ -20,7 +22,7 @@ def qnt_all_customers():
     
     return qnt_total_clientes
     
-    
+#QNT total de novos usuarios por data    
 def customers_increase():
     conn = conectar_db()
     cursor = conn.cursor()

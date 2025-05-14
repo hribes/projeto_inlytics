@@ -68,7 +68,7 @@ CREATE TABLE `inlytic_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- Tabela: venda dos produtos 
+-- Tabela: venda dos produtos  
 CREATE TABLE `sold_products` (
   `id_sold_products` int(11) NOT NULL,
   `id_tax` int(11) DEFAULT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE `sold_products` (
   `bill_emission` datetime NOT NULL,
   `id_enterprise` int(11) DEFAULT NULL,
   `id_product` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_sold_products`),
+  PRIMARY KEY (`id_sold_products`), 
   KEY `id_enterprise` (`id_enterprise`),
   CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

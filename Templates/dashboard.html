@@ -108,12 +108,12 @@
                             <img src="/static/Imagens/icone-clientes.png" alt="">
                         </div>
                         <div class="cliente-novos-numero">
-                            <h1>124</h1>
+                            <h1>{{ clientes_novos }}</h1>
                             <h3>Clientes novos</h3>
                         </div>
                         <div class="clientes-novos-aumento">
                             <img src="/static/Imagens/seta-aumento.png" alt="">
-                            <h4>Aumento de 30%</h4>
+                            <h4>Aumento de {{ porcentagem_clientes_novos | round(2) }}%</h4>
                             <h6><i>Em relação ao mês anterior</i></h6>    
                         </div>
                     </div>
