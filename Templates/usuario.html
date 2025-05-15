@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/CSS/clientes.css">
+    <title>Inlytics - Usuários</title>
+    <link rel="icon" href="/static/Logos/4 - Copia.png" type="image/png">
+</head>
+<body>
+ <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/static/Logos/4.png" alt="logo" class="logo">
+                    <img src="/static/Logos/4 - Copia.png" alt="logo-closed" class="logo-closed">
+                </span>
+            </div>
+    
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+       <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.dashboard")}}">
+                            <img src="/static/Imagens/dashboard.png" alt="Dashboard Icon" class="icon">
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for ("home.rfm")}}">
+                            <img src="/static/Imagens/rfm-icone.png" alt="RFM Icon" class="icon">
+                            <span class="text nav-text">RFM</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.churn")}}">
+                            <img src="/static/Imagens/churn-icone.png" alt="Churn Icon" class="icon">
+                            <span class="text nav-text">Churn</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.sazonalidade") }}">
+                            <img src="/static/Imagens/sazionalidade-icone.png" alt="Sazonalidade Icon" class="icon">
+                            <span class="text nav-text">Sazonalidade</span>
+                        </a>
+                    </li>
+                    <li class="nav-link active">
+                        <a href="{{ url_for("home.usuario")}}">
+                            <img src="/static/Imagens/usuario-icone.png" alt="Usuário Icon" class="icon">
+                            <span class="text nav-text">Usuário</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-profile">
+                <img src="/static/Imagens/Alana Crystal (1).png"  class="user-avatar">
+                <div class="user-info">
+                    <span class="name">Alana Crystal</span>
+                    <span class="role">Tray - Analista</span>
+                </div>
+                <a href="{{ url_for("home.home_page")}}" class="logout-link">
+                <i class='bx bx-log-out logout-icon'>
+                </i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="tudo">
+            <div class="cabecalho">
+                <div class="titulo-pesquisa">
+                    <div class="titulo-nome">
+                        <h1>Olá, Alana!</h1>
+                        <h3>Confira seus clientes</h3>
+                    </div>
+                    <div class="barra-pesquisa">   
+                        <div class="search">
+                            <input type="text" id="searchInput" placeholder="Pesquise algo...">
+                            <label for="searchInput">
+                                <span class="material-symbols-outlined">
+                                    <img src="/static/Imagens/search-bar.png" alt="">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="usuario">
+                    <div class="titulos-tabela">
+                        <h3 class="id">Id</h3>
+                        <h3 class="nome">Nome</h3>
+                        <h3 class="lucro">Lucro</h3>
+                        <h3 class="conversao">Conversão</h3>
+                    </div>
+                    <div class="div-clique" onclick="toggleConteudo(this)">
+                    <div class="usuario-informacoes">
+                        <h4 class="id">1235</h4>
+                        <h4 class="nome">Giulianny Junqueira Agnes</h4>
+                        <h4 class="lucro">R$1.352,80</h4>
+                        <h4 class="conversao">70%</h4>
+                    </div>
+
+                    <div class="conteudo">
+                        <div class="bloco-info">
+                            <div class="coluna">
+                                <h2>Gênero</h2>
+                                <h3>Feminino</h3>
+
+                                    <h2>Dispositivo Usado</h2>
+                                    <h3>Moto G24</h3>
+
+                                    <h2>Recência</h2>
+                                    <h3>85</h3>
+                                </div>
+
+                            <div class="coluna">
+                                <h2>Data de Nascimento</h2>
+                                <h3>01/05/2005</h3>
+
+                                <h2>Dispositivos</h2>
+                                <h3>3</h3>
+
+                                <h2>Frequência</h2>
+                                <h3>2</h3>
+                            </div>           
+                            <div class="coluna">
+                                <h2>Tempo como cliente</h2>
+                                <h3>1 ano e 7 meses</h3>
+
+                                <h2>Score de Satisfação</h2>
+                                <h3>65%</h3>
+
+                                <h2>Monetário</h2>
+                                <h3>30</h3>
+                            </div>
+
+                            <div class="coluna">
+                                <h2>Método de Pagamento</h2>
+                                <h3>PIX</h3>
+
+                                <h2>Usa cupom?</h2>
+                                <h3>Sim</h3>
+
+                                <h2>Segmentação</h2>
+                                <h3>78</h3>
+                            </div>
+                            </div>
+                          </div>
+                      </div>
+
+                    <div class="div-clique" onclick="toggleConteudo(this)">
+                    <div class="usuario-informacoes">
+                        <h4 class="id">1235</h4>
+                        <h4 class="nome">Giulianny Junqueira Agnes</h4>
+                        <h4 class="lucro">R$1.352,80</h4>
+                        <h4 class="conversao">70%</h4>
+                    </div>
+
+                    <div class="conteudo">
+                        <div class="bloco-info">
+                            <div class="coluna">
+                                <h2>Gênero</h2>
+                                <h3>Feminino</h3>
+
+                                    <h2>Dispositivo Usado</h2>
+                                    <h3>Moto G24</h3>
+
+                                    <h2>Recência</h2>
+                                    <h3>85</h3>
+                                </div>
+
+                            <div class="coluna">
+                                <h2>Data de Nascimento</h2>
+                                <h3>01/05/2005</h3>
+
+                                <h2>Dispositivos</h2>
+                                <h3>3</h3>
+
+                                <h2>Frequência</h2>
+                                <h3>2</h3>
+                            </div>           
+                            <div class="coluna">
+                                <h2>Tempo como cliente</h2>
+                                <h3>1 ano e 7 meses</h3>
+
+                                <h2>Score de Satisfação</h2>
+                                <h3>65%</h3>
+
+                                <h2>Monetário</h2>
+                                <h3>30</h3>
+                            </div>
+
+                            <div class="coluna">
+                                <h2>Método de Pagamento</h2>
+                                <h3>PIX</h3>
+
+                                <h2>Usa cupom?</h2>
+                                <h3>Sim</h3>
+
+                                <h2>Segmentação</h2>
+                                <h3>78</h3>
+                            </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+    <script src="/static/JS/sidemenu.js"></script>
+</body>
+</html>

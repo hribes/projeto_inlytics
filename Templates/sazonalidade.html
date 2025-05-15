@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/CSS/sazonalidade.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Inlytics - Sazonalidade</title>
+    <link rel="icon" href="/static/Logos/4 - Copia.png" type="image/png">
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/static/Logos/4.png" alt="logo" class="logo">
+                    <img src="/static/Logos/4 - Copia.png" alt="logo-closed" class="logo-closed">
+                </span>
+            </div>
+    
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.dashboard")}}">
+                            <img src="/static/Imagens/dashboard.png" alt="Dashboard Icon" class="icon">
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for ("home.rfm")}}">
+                            <img src="/static/Imagens/rfm-icone.png" alt="RFM Icon" class="icon">
+                            <span class="text nav-text">RFM</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.churn")}}">
+                            <img src="/static/Imagens/churn-icone.png" alt="Churn Icon" class="icon">
+                            <span class="text nav-text">Churn</span>
+                        </a>
+                    </li>
+                    <li class="nav-link active">
+                        <a href="{{ url_for("home.sazonalidade") }}">
+                            <img src="/static/Imagens/sazionalidade-icone.png" alt="Sazonalidade Icon" class="icon">
+                            <span class="text nav-text">Sazonalidade</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.usuario")}}">
+                            <img src="/static/Imagens/usuario-icone.png" alt="Usuário Icon" class="icon">
+                            <span class="text nav-text">Usuário</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-profile">
+                <img src="/static/Imagens/Alana Crystal (1).png"  class="user-avatar">
+                <div class="user-info">
+                    <span class="name">Alana Crystal</span>
+                    <span class="role">Tray - Analista</span>
+                </div>
+                <a href="{{ url_for("home.home_page")}}" class="logout-link">
+                <i class='bx bx-log-out logout-icon'>
+                </i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="tudo">
+            <div class="sazonalidade">
+                <div class="cabecalho">
+                    <div class="titulo-pesquisa">
+                        <div class="titulo-nome">
+                            <h1>Olá, Alana!</h1>
+                            <h3>Confira os seus clientes sazonais</h3>
+                        </div>
+                        <div class="barra-pesquisa">   
+                            <div class="search">
+                                <input type="text" id="searchInput" placeholder="Pesquise algo...">
+                                <label for="searchInput">
+                                    <span class="material-symbols-outlined">
+                                        <img src="/static/Imagens/search-bar.png" alt="">
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="epoca-mais-vendida-qtd">
+                    <div class="epoca-mais-vendida">
+                        <h1>Época mais vendida</h1>
+                    </div>
+                    <div class="qtd-de-vendas">
+                        <h1>Quantidade de Vendas</h1>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th align="left">Feriado</th>
+                                <th align="left">Qtd</th>
+                                <th align="left">Lucro</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Páscoa</td>
+                                <td>200</td>
+                                <td>3.900,20</td>
+                            </tr>
+                            <tr>
+                                <td>Natal</td>
+                                <td>89</td>
+                                <td>4.879,30</td>
+                            </tr>
+                            <tr>
+                                <td>Ano novo</td>
+                                <td>7894</td>
+                                <td>10.595,45
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ano novo</td>
+                                <td>7894</td>
+                                <td>10.595,45
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ano novo</td>
+                                <td>7894</td>
+                                <td>10.595,45
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/static/JS/sidemenu.js"></script>
+</body>
+</html>

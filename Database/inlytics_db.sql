@@ -236,7 +236,7 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sold_products` (
-  `id_sold_products` int(11) NOT NULL AUTO_INCREMENT,
+  `id_sold_products` int(11) NOT NULL,
   `id_tax` int(11) DEFAULT NULL,
   `id_customer` int(11) DEFAULT NULL,
   `product_name` varchar(32) DEFAULT NULL,
@@ -246,10 +246,15 @@ CREATE TABLE `sold_products` (
   `id_enterprise` int(11) DEFAULT NULL,
   `id_product` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sold_products`),
+<<<<<<< HEAD
   KEY `id_enterprisa` (`id_enterprise`),
   KEY `id_customer` (`id_customer`),
   CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`),
   CONSTRAINT `sold_products_ibfk_2` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`customer_id`)
+=======
+  KEY `id_enterprise` (`id_enterprise`),
+  CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`)
+>>>>>>> main
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

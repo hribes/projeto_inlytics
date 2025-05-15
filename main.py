@@ -1,14 +1,9 @@
 from flask import Flask, render_template
-from Dataset.db.conexao_bd import conn
-from Dataset.db import services
+from Routes.api import home
 
 
 app = Flask(__name__)
-
-@app.route("/")
-def home():
-    customers = services.list_all_customers()
-    return str(customers)
+app.register_blueprint(home)
 
 
 if __name__ == "__main__":
