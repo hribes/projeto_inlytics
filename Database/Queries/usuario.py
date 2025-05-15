@@ -1,0 +1,27 @@
+from Database.conexao_bd import conectar_db
+
+def get_user_info():
+    conn = conectar_db()
+    cursor = conn.cursor()
+    query_name = """ SELECT worker_name FROM inlytic_user WHERE id_inlytic_user = 1; """
+    cursor.execute(query_name)
+    nome_usuario = cursor.fetchall()
+    
+    query_sector = """ SELECT sector FROM inlytic_user WHERE id_inlytic_user = 1 """
+    cursor.execute(query_sector)
+    setor_usuario = cursor.fetchall()
+
+    conn.close()
+    
+    return nome_usuario, setor_usuario
+    
+#  conn = conectar_db()
+#     cursor = conn.cursor()
+#     query = """ SELECT sold_products, COUNT(*) AS qnt_total_vendas
+#     FROM customer
+#     WHERE time_as_client >= CURDATE() - INTERVAL 15 DAY
+#     GROUP BY customer_id
+#     """
+#     cursor.execute(query)
+#     aumento_clientes = cursor.fetchall()
+#     conn.close()
