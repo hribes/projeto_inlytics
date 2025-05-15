@@ -24,35 +24,35 @@
             <i class='bx bx-chevron-right toggle'></i>
         </header>
 
-        <div class="menu-bar">
+       <div class="menu-bar">
             <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="/templates/dashboard.html">
+                        <a href="{{ url_for("home.dashboard")}}">
                             <img src="/static/Imagens/dashboard.png" alt="Dashboard Icon" class="icon">
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="/templates/rfm.html">
+                        <a href="{{ url_for ("home.rfm")}}">
                             <img src="/static/Imagens/rfm-icone.png" alt="RFM Icon" class="icon">
                             <span class="text nav-text">RFM</span>
                         </a>
                     </li>
-                    <li class="nav-link">
-                        <a href="/templates/churn.html">
+                    <li class="nav-link active">
+                        <a href="{{ url_for("home.churn")}}">
                             <img src="/static/Imagens/churn-icone.png" alt="Churn Icon" class="icon">
                             <span class="text nav-text">Churn</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="/templates/sazonalidade.html">
+                        <a href="{{ url_for("home.sazonalidade") }}">
                             <img src="/static/Imagens/sazionalidade-icone.png" alt="Sazonalidade Icon" class="icon">
                             <span class="text nav-text">Sazonalidade</span>
                         </a>
                     </li>
-                    <li class="nav-link active">
-                        <a href="/templates/usuario.html">
+                    <li class="nav-link">
+                        <a href="{{ url_for("home.usuario")}}">
                             <img src="/static/Imagens/usuario-icone.png" alt="Usuário Icon" class="icon">
                             <span class="text nav-text">Usuário</span>
                         </a>
@@ -65,7 +65,7 @@
                     <span class="name">Alana Crystal</span>
                     <span class="role">Tray - Analista</span>
                 </div>
-                <a href="/templates/index.html" class="logout-link">
+                <a href="{{ url_for("home.home_page")}}" class="logout-link">
                 <i class='bx bx-log-out logout-icon'>
                 </i>
                 </a>
