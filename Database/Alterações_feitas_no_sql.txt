@@ -1,0 +1,31 @@
+1. Adição de um "DROP DATABASE IF EXISTS Inlytics;";
+
+2. Alteração do tamanho da char de gender de "char(1)" para "char(6)";
+
+3. Remoção dos campos "birthdate" e "birth_date";
+
+4. Alteração de "`time_as_client` datetime DEFAULT current_timestamp()" para "`tenure` decimal(3,1) DEFAULT NULL";
+
+5. Alteração do tipo de váriavel do campo "`preferred_payment_type`" de "char(3)" para "varchar(30)";
+
+6. Alteração do tipo de váriavel do campo "`frequent_dispositive`" de "char(3)" para "varchar(32)";
+
+7. Adição do campo "`marital_status` varchar(32) DEFAULT NULL";
+
+8. Alteração do tipo de váriavel do campo "`cupom_used`" de "tinyint(1)" para "int(3)";
+
+9. Alteração do tipo de váriavel do campo "`complained`" de "tinyint(1)" para "int(3)";
+
+10. Troca do nome do campo "`id_tax`" para "`invoice`";
+
+11. Remoção do campo "`product_name` varchar(32) DEFAULT NULL";
+
+12. Alteração do tamanho de váriavel "`product_price` decimal(5,2) NOT NULL" para "`product_price` decimal(10,2) NOT NULL";
+
+13. Adição do campo "`stock_code` varchar(20) NOT NULL";
+
+14. Alteração do campo "`bill_emission` datetime NOT NULL" para "`invoice_date` datetime";
+
+15. Adição do campo "`quantity` int(10) NOT NULL";
+
+16. Adição do campo "`country` varchar(32) DEFAULT NULL";
