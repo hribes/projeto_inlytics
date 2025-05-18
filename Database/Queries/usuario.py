@@ -1,15 +1,21 @@
 from Database.conexao_bd import conectar_db
 
+#Dados do Usuario
 def get_user_info():
     conn = conectar_db()
     cursor = conn.cursor()
     query_name = """ SELECT worker_name FROM inlytic_user WHERE id_inlytic_user = 1; """
     cursor.execute(query_name)
-    nome_usuario = cursor.fetchall()
+    nome_usuario_consulta = cursor.fetchone()
+    
+    nome_usuario = nome_usuario_consulta[0] if nome_usuario_consulta else ""
+    
     
     query_sector = """ SELECT sector FROM inlytic_user WHERE id_inlytic_user = 1 """
     cursor.execute(query_sector)
-    setor_usuario = cursor.fetchall()
+    setor_usuario_consulta = cursor.fetchone()
+    setor_usuario = setor_usuario_consulta[0] if setor_usuario_consulta else ""
+
 
     conn.close()
     

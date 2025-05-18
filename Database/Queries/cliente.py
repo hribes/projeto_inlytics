@@ -1,7 +1,7 @@
 from Database.conexao_bd import conectar_db
 
-#Listar todos usuarios
-def list_all_customers():
+#Listar todos os clientes
+def list_all_clients():
     conn = conectar_db()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM customer")
@@ -10,8 +10,8 @@ def list_all_customers():
     
     return customer
 
-#QNT total de usuarios
-def qnt_all_customers():
+#QNT total de clientes
+def qnt_all_clients():
     conn = conectar_db()
     cursor = conn.cursor()
     query = """ SELECT COUNT(*) FROM customer
@@ -22,14 +22,20 @@ def qnt_all_customers():
     
     return qnt_total_clientes
     
-#QNT total de novos usuarios por data    
-def customers_increase():
+#QNT total de novos clientes por data    
+def clients_increase():
     conn = conectar_db()
     cursor = conn.cursor()
-    query = """ SELECT customer_id, COUNT(*) AS novos_clientes
-    FROM customer
-    WHERE time_as_client >= CURDATE() - INTERVAL 15 DAY
-    GROUP BY customer_id
+    # query = """ SELECT customer_id, COUNT(*) AS novos_clientes
+    # FROM customer
+    # WHERE time_as_client >= CURDATE() - INTERVAL 15 DAY
+    # GROUP BY customer_id
+    # """
+    
+    query = """SELECT customer_id, COUNT(*) AS novos_clientes
+     FROM customer
+     WHERE tenure >= 1 
+     GROUP BY customer_id
     """
     cursor.execute(query)
     aumento_clientes = cursor.fetchall()

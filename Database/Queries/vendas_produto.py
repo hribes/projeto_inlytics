@@ -4,14 +4,14 @@ from datetime import date, timedelta
 quinze_dias = date.today() - timedelta(days=15)
 #print (quinze_dias)
 
-
+#Produto em destaque
 def show_highlight_products():
     conn = conectar_db()
     cursor = conn.cursor()
-    query = """SELECT product_name, COUNT(*) AS produto_destaque
+    query = """SELECT product_desc, COUNT(*) AS produto_destaque
                FROM sold_products 
-               WHERE bill_emission >= CURDATE() - INTERVAL 15 DAY
-               GROUP BY id_product
+               WHERE invoice_date >= CURDATE() - INTERVAL 15 DAY
+               GROUP BY stock_code
                ORDER BY produto_destaque DESC"""   
     cursor.execute(query)
     customer = cursor.fetchall()
@@ -21,6 +21,8 @@ def show_highlight_products():
     return produto_destaque
 
 
+
+#?????
 def last_sold_products():
     conn = conectar_db()
     cursor = conn.cursor()

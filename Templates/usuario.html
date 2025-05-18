@@ -62,8 +62,8 @@
             <div class="user-profile">
                 <img src="/static/Imagens/Alana Crystal (1).png"  class="user-avatar">
                 <div class="user-info">
-                    <span class="name">Alana Crystal</span>
-                    <span class="role">Tray - Analista</span>
+                    <span class="name">{{ nome_usuario }}</span>
+                    <span class="role">Tray - {{ setor_usuario }}</span>
                 </div>
                 <a href="{{ url_for("home.home_page")}}" class="logout-link">
                 <i class='bx bx-log-out logout-icon'>
