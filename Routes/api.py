@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, url_for
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
 from Database.Queries.vendas_produto import show_highlight_products  
 from Database.Queries.usuario import get_user_info
 from Database.Queries.empresa import company_data
+from Database.Queries.login import find_by_email_password
 
 home = Blueprint("home", __name__)
 
@@ -10,8 +11,19 @@ home = Blueprint("home", __name__)
 
 @home.route("/")
 def home_page():
-    
     return render_template("index.html")
+
+@home.route("/login", methods=["POST"])
+def login():
+    email = request.form['emailFORM']
+    senha = request.form['passwordFORM']
+    
+    if find_by_email_password(email, senha):
+        return redirect(url_for('home.dashboard'))
+    else:
+        return render_template('index.html')
+    
+    
 
   
     

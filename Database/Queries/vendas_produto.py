@@ -23,16 +23,16 @@ def show_highlight_products():
 
 
 #?????
-def last_sold_products():
-    conn = conectar_db()
-    cursor = conn.cursor()
-    query = """ SELECT sold_products, COUNT(*) AS qnt_total_vendas
-    FROM customer
-    WHERE time_as_client >= CURDATE() - INTERVAL 15 DAY
-    GROUP BY customer_id
-    """
-    cursor.execute(query)
-    aumento_clientes = cursor.fetchall()
-    conn.close()
+# def last_sold_products():
+#     conn = conectar_db()
+#     cursor = conn.cursor()
+#     query = """ SELECT sold_products, COUNT(*) AS qnt_total_vendas
+#     FROM customer
+#     WHERE time_as_client >= CURDATE() - INTERVAL 15 DAY
+#     GROUP BY customer_id
+#     """
+#     cursor.execute(query)
+#     aumento_clientes = cursor.fetchall()
+#     conn.close()
     
-    return aumento_clientes
+#     return aumento_clientes

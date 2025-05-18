@@ -10,10 +10,11 @@ def conectar_db():
 		# faz a conexão mais a checagem pra ver se está conectado
 		try:
 			conn = connect(
-				user= os.getenv("USER"),
-				password= os.getenv("PASSWORD"),
-				database= os.getenv("DATABASE"),
-				host= os.getenv("HOST")
+				user= os.getenv("DB_USER"),
+				password= os.getenv("DB_PASSWORD"),
+				database= os.getenv("DB_DATABASE"),
+				host= os.getenv("DB_HOST"),
+				port= os.getenv("DB_PORT")
 			)
 		except Error as err:
 			if(err.errno == errorcode.ER_ACCESS_DENIED_ERROR):

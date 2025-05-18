@@ -42,28 +42,30 @@
                 <h1 class="maior">Login</h1>
             </div>
             <div class="formulario">
+                <form method="POST" action="/login">
                 <div class="usuario">
                     <div class="usuario-icone">
                         <img src="/static/Imagens/user.png">
                     </div>
-                    <input type="text" id="usuario" name="usuario" placeholder="Usuário">
+                    <input type="text" id="usuario" name="emailFORM" placeholder="Email">
                 </div>
                 <div class="senha">
                     <div class="senha-icone">
                         <img src="/static/Imagens/senha.png">
                     </div>
-                    <input type="password" id="senha" name="senha" placeholder="Senha">
+                    <input type="password" id="senha" name="passwordFORM" placeholder="Senha">
                     <div class="ver-senha">
                         <img src="/static/Imagens/olho-fechado.png" id="olho">
                     </div>
                 </div>
                 <div class="botao">
                     <a href="/templates/dashboard.html">
-                   <button class="entrar slide_right">Entrar</button></a>
+                   <button class="entrar slide_right" type="submit">Entrar</button></a>
                    <div class="esqueceu-senha">
                     <p>Esqueceu a senha?</p>
                 </div>
                 </div>
+            </form>
             </div>
         </div>
     </div> 
