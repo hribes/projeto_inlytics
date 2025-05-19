@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
 from Database.Queries.vendas_produto import show_highlight_products  
 from Database.Queries.usuario import get_user_info
 from Database.Queries.empresa import company_data
-from Database.Queries.login import find_by_email_password
+from Database.Queries.login import find_by_email_password, User, load_user
 
 home = Blueprint("home", __name__)
 
@@ -13,21 +14,47 @@ home = Blueprint("home", __name__)
 def home_page():
     return render_template("index.html")
 
+@home.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("home.home_page"))
+
 @home.route("/login", methods=["POST"])
 def login():
     email = request.form['emailFORM']
     senha = request.form['passwordFORM']
     
-    if find_by_email_password(email, senha):
+    user_data = find_by_email_password(email, senha)
+    if user_data:
+        user = User(
+            id_inlytic_user=user_data['id_inlytic_user'],
+            worker_name=user_data['worker_name'],
+            worker_email=user_data['worker_email'],
+            sector=user_data['sector'],
+            photo_url=user_data['photo_url']
+        )
+        login_user(user)
         return redirect(url_for('home.dashboard'))
     else:
-        return render_template('index.html')
+        return render_template('index.html', error=True)
+
+# @home.route("/login", methods=["POST"])
+# def login():
+#     email = request.form['emailFORM']
+#     senha = request.form['passwordFORM']
+    
+#     if find_by_email_password(email, senha):
+#         return redirect(url_for('home.dashboard'))
+#     else:
+#         return render_template('index.html')
     
     
 
   
     
 @home.route("/dashboard")
+@login_required
 def dashboard():
     nome_usuario, setor_usuario = get_user_info()
     produto_destaque = show_highlight_products()
@@ -46,6 +73,7 @@ def dashboard():
 
 
 @home.route("/churn")
+@login_required
 def churn():
     nome_usuario, setor_usuario = get_user_info()
     
@@ -54,6 +82,7 @@ def churn():
 
 
 @home.route("/rfm")
+@login_required
 def rfm():
     nome_usuario, setor_usuario = get_user_info()
     
@@ -62,6 +91,7 @@ def rfm():
 
 
 @home.route("/sazonalidade")
+@login_required
 def sazonalidade():
     nome_usuario, setor_usuario = get_user_info()
 
@@ -70,6 +100,7 @@ def sazonalidade():
 
 
 @home.route("/usuario")
+@login_required
 def usuario():
     nome_usuario, setor_usuario = get_user_info()
     

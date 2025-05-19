@@ -141,6 +141,10 @@ main{
     }
 }
 
+.formulario{
+    text-align: center;
+}
+
 /*INPUTS*/
 
 .usuario, .senha {
@@ -153,6 +157,19 @@ main{
     width: fit-content;
 }
 
+.error{
+    /*border: 2px solid red !important;*/
+    background-color: #efefef;
+    transition: 0.3s ease;
+}
+
+.error::placeholder{
+  color: red;
+}
+
+.mensagem-erro{
+    color: red
+}
 
 .usuario-icone, .senha-icone {
     display: flex;

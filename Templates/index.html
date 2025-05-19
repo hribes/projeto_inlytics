@@ -47,17 +47,22 @@
                     <div class="usuario-icone">
                         <img src="/static/Imagens/user.png">
                     </div>
-                    <input type="text" id="usuario" name="emailFORM" placeholder="Email">
+                    <input type="text" id="usuario" name="emailFORM" placeholder="Email"
+                    class="{% if error %}error{% endif %}">
                 </div>
                 <div class="senha">
                     <div class="senha-icone">
                         <img src="/static/Imagens/senha.png">
                     </div>
-                    <input type="password" id="senha" name="passwordFORM" placeholder="Senha">
+                    <input type="password" id="senha" name="passwordFORM" placeholder="Senha" 
+                    class="{% if error %}error{% endif %}">
                     <div class="ver-senha">
                         <img src="/static/Imagens/olho-fechado.png" id="olho">
                     </div>
                 </div>
+                    {% if error %}
+                        <p class="mensagem-erro">Email ou senha incorretos</p>
+                    {% endif %}
                 <div class="botao">
                     <a href="/templates/dashboard.html">
                    <button class="entrar slide_right" type="submit">Entrar</button></a>
