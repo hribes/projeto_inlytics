@@ -2,19 +2,26 @@ import json
 import pandas as pd
 from sqlalchemy import text
 from sqlalchemy import create_engine as eng
+from datetime import datetime, timedelta
+from airflow import DAG
+from airflow.operators.python import PythonOperator
 
+
+#Credenciais do db
 sql_user = ''
 sql_pass = ''
 sql_host = ''
 port = 0000
 db_name = ''
 
+#Conexão com os bancos de dados e arquivos JSON
 sqlite_eng = eng('sqlite:///../../Dataset/db_cliente_sqlite/empresa_cliente_db.db')
 mysql_eng = eng(f'mysql+pymysql://{sql_user}:{sql_pass}@{sql_host}:{port}/{db_name}')
 
 json_archive = './data.json'
 
 
+#Funções auxiliares
 def read_json_clients():
     with open(json_archive,'r') as js:
         save_points = json.load(js)
@@ -50,6 +57,7 @@ def save_json_sales(line):
         json.dump(sales_data, js, indent = 4)
 
 
+#Funções ETL
 def extract(update = None):
     if update:
         return pd.DataFrame.from_dict(update, orient='index')
@@ -158,6 +166,83 @@ def load(df_clients, df_sales):
     df_sales_mysql.to_sql('sold_products', con=mysql_eng, if_exists='append', index=False)
 
 
+#DAG
+default_args = {
+    'owner': 'Inlytic',
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5)
+}
+
+with DAG(
+    dag_id = 'ETL',
+    default_args = default_args,
+    description = 'ETL que extrai arquivos do banco SQLite e os armazena no MYSQL',
+    schedule = '0 0 * * *',     #'(p/ min) (p/ hora) (p/ dia) (p/mes) (p/ano)'
+    start_date = datetime(2025, 1, 1),
+    catchup = False
+) as dag:
+    
+
+    def task_extract(ti):
+        df_clients, df_sales, clients_update, clients_starting_line, sales_starting_line = extract()
+
+        ti.xcom_push(key='df_clients', value=df_clients.to_json())
+        ti.xcom_push(key='df_sales', value=df_sales.to_json())
+        ti.xcom_push(key='clients_update', value=clients_update)
+        ti.xcom_push(key='clients_starting_line', value=clients_starting_line)
+        ti.xcom_push(key='sales_starting_line', value=sales_starting_line)
+
+
+    def task_transform(ti):
+        df_clients = pd.read_json(ti.xcom_pull(key='df_clients', task_ids='extract_data'))
+        df_sales = pd.read_json(ti.xcom_pull(key='df_sales', task_ids='extract_data'))
+
+        transform(df_clients, df_sales)
+
+
+    def task_update(ti):
+        clients_update = ti.xcom_pull(key='clients_update', task_ids='extract_data')
+
+        if clients_update:
+            update(clients_update)
+
+
+    def task_load(ti):
+        df_clients = pd.read_json(ti.xcom_pull(key='df_clients', task_ids='extract_data'))
+        df_sales = pd.read_json(ti.xcom_pull(key='df_clients', task_ids='extract_data'))
+
+        load(df_clients, df_sales)
+
+        clients_starting_line = ti.xcom_pull(key='clients_starting_line', task_ids='extract_data')
+        sales_starting_line = ti.xcom_pull(key='sales_starting_line', task_ids='extract_data')
+        
+        save_json_clients(clients_starting_line + len(df_clients), {})
+        save_json_sales(sales_starting_line + len(df_sales))
+
+
+    extract_op = PythonOperator(
+        task_id='extract_data',
+        python_callable=task_extract
+    )
+
+    transform_op = PythonOperator(
+        task_id='transform_data',
+        python_callable=task_transform
+    )
+
+    update_op = PythonOperator(
+        task_id='update_clients',
+        python_callable=task_update
+    )
+
+    load_op = PythonOperator(
+        task_id='load_data',
+        python_callable=task_load
+    )
+
+    extract_op >> transform_op >> update_op >> load_op
+
+'''
 def main():
     df_clients, df_sales, clients_update, clients_starting_line, sales_starting_line = extract()
 
@@ -174,3 +259,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
