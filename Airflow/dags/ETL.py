@@ -57,7 +57,7 @@ def extract(update = None):
     clients_starting_line, clients_updates = read_json_clients()
     sales_starting_line = read_json_sales()
 
-    df_clients = pd.read_sql('SELECT * FROM customer_user', sqlite_eng)
+    df_clients = pd.read_sql('SELECT * FROM customer_user', sqlite_eng).iloc[clients_starting_line:]
     df_sales = pd.read_sql('SELECT * FROM customer_sales', sqlite_eng).iloc[sales_starting_line:]
 
     return df_clients, df_sales, clients_updates, clients_starting_line, sales_starting_line
@@ -73,7 +73,7 @@ def transform(df_clients = None, df_sales = None, df_update = None):
         return
     
     #Transformações nas tabelas de clientes
-    df_clients['CustomerID'] = pd.to_numeric(df_clients['CustomerID'], errors='coerce').astyper('int')
+    df_clients['CustomerID'] = pd.to_numeric(df_clients['CustomerID'], errors='coerce').astype('int')
     df_clients.loc[df_clients['Tenure'] <= 0, 'Tenure'] = 0
     df_clients.loc[df_clients['Tenure'].isnull(), 'Tenure'] = 0
 
@@ -128,7 +128,7 @@ def update(clients_ids):
 
 
 def load(df_clients, df_sales):
-    df_clients_mysql = df_clients.raname(columns={
+    df_clients_mysql = df_clients.rename(columns={
         'CustomerID': 'customer_id',
         'NomeCustomer': 'name',
         'Churn': 'churn',
