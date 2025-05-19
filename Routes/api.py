@@ -5,6 +5,7 @@ from Database.Queries.vendas_produto import show_highlight_products
 from Database.Queries.usuario import get_user_info
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
+from Database.Queries.rfm import type_and_qnt_perfil
 
 home = Blueprint("home", __name__)
 
@@ -84,9 +85,11 @@ def churn():
 @home.route("/rfm")
 @login_required
 def rfm():
+    enterprise_id = 1
     nome_usuario, setor_usuario = get_user_info()
+    quantidades_rfm = type_and_qnt_perfil(enterprise_id)
     
-    return render_template("rfm.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario)
+    return render_template("rfm.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, quantidades_rfm=quantidades_rfm)
 
 
 
