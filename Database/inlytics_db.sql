@@ -68,7 +68,7 @@ CREATE TABLE `inlytic_user` (
   `worker_name` varchar(32) DEFAULT NULL,
   `sector` varchar(32) DEFAULT NULL,
   `worker_email` varchar(32) DEFAULT NULL,
-  `login_password` varchar(16) DEFAULT NULL,
+  `login_password` varchar(255) DEFAULT NULL,
   `photo_url` varchar(255) DEFAULT NULL,  -- Coluna para o link da foto
   PRIMARY KEY (`id_inlytic_user`),
   KEY `id_enterprise` (`id_enterprise`),
@@ -113,7 +113,7 @@ CREATE TABLE `seasonality` (
 
 
 CREATE TABLE `sold_products` (
-  `id_sold_products` int(11) NOT NULL AUTO_INCREMENT,
+  `id_sold_products` int(11) NOT NULL,
   `invoice` int(11) DEFAULT NULL,
   `id_customer` int(11) DEFAULT NULL,
   `product_desc` varchar(128) NOT NULL,
@@ -123,7 +123,6 @@ CREATE TABLE `sold_products` (
   `quantity` int(10) NOT NULL,
   `country` varchar(32) DEFAULT NULL,
   `id_enterprise` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_sold_products`),
   KEY `id_enterprise` (`id_enterprise`),
   CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
