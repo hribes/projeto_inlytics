@@ -1,5 +1,11 @@
 {
     "sales_data": {
         "last_sales_line": 0
-    }
+    },
+
+    "clients_data": {
+        "last_clients_line": 0
+    },
+
+    "clients_update" :{}
 }
