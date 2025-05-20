@@ -34,7 +34,7 @@ CREATE TABLE `customer` (
   `name` varchar(32) DEFAULT NULL,
   `churn` decimal(5,2) DEFAULT NULL,
   `gender` char(6) DEFAULT NULL,
-  `tenure` decimal(3,1) DEFAULT NULL,
+  `tenure` decimal(10,4) DEFAULT NULL,
   `preferred_payment_type` varchar(30) DEFAULT NULL,
   `frequent_dispositive` varchar(32) DEFAULT NULL,
   `satisfaction_score` decimal(5,2) DEFAULT NULL,
