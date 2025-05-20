@@ -8,17 +8,17 @@ from airflow.operators.python import PythonOperator
 
 
 #Credenciais do db
-sql_user = ''
-sql_pass = ''
-sql_host = ''
-port = 0000
-db_name = ''
+sql_user = 'root'
+sql_pass = 'airfwDB9090'
+sql_host = 'db'
+port = 3306
+db_name = 'Inlytics'
 
 #Conexão com os bancos de dados e arquivos JSON
-sqlite_eng = eng('sqlite:///../../Dataset/db_cliente_sqlite/empresa_cliente_db.db')
+sqlite_eng = eng('sqlite:////opt/airflow/data/empresa_cliente_db.db')
 mysql_eng = eng(f'mysql+pymysql://{sql_user}:{sql_pass}@{sql_host}:{port}/{db_name}')
 
-json_archive = './data.json'
+json_archive = '/opt/airflow/data/data.json'
 
 
 #Funções auxiliares
@@ -170,7 +170,7 @@ def load(df_clients, df_sales):
 default_args = {
     'owner': 'Inlytic',
     'retries': 1,
-    'retry_delay': timedelta(minutes=5)
+    'retry_delay': timedelta(minutes=1)
 }
 
 with DAG(
@@ -241,22 +241,3 @@ with DAG(
     )
 
     extract_op >> transform_op >> update_op >> load_op
-
-'''
-def main():
-    df_clients, df_sales, clients_update, clients_starting_line, sales_starting_line = extract()
-
-    transform(df_clients, df_sales)
-
-    if clients_update:
-        update(clients_update)
-
-    load(df_clients, df_sales)
-
-    save_json_clients(clients_starting_line + len(df_clients), {})
-    save_json_sales(sales_starting_line + len(df_sales))
-
-
-if __name__ == '__main__':
-    main()
-'''
