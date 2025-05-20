@@ -166,6 +166,10 @@ def load(df_clients, df_sales):
     df_sales_mysql.to_sql('sold_products', con=mysql_eng, if_exists='append', index=False)
 
 
+#Váriaveis que vão ser responsáveis pelo transporte dos dataframes entre funções
+df_clients_file = '/opt/airflow/data/df_clients.parquet'
+df_sales_file = '/opt/airflow/data/df_sales.parquet'
+
 #DAG
 default_args = {
     'owner': 'Inlytic',
@@ -186,16 +190,17 @@ with DAG(
     def task_extract(ti):
         df_clients, df_sales, clients_update, clients_starting_line, sales_starting_line = extract()
 
-        ti.xcom_push(key='df_clients', value=df_clients.to_json())
-        ti.xcom_push(key='df_sales', value=df_sales.to_json())
+        df_clients.to_parquet(df_clients_file)
+        df_sales.to_parquet(df_sales_file)
+        
         ti.xcom_push(key='clients_update', value=clients_update)
         ti.xcom_push(key='clients_starting_line', value=clients_starting_line)
         ti.xcom_push(key='sales_starting_line', value=sales_starting_line)
 
 
     def task_transform(ti):
-        df_clients = pd.read_json(ti.xcom_pull(key='df_clients', task_ids='extract_data'))
-        df_sales = pd.read_json(ti.xcom_pull(key='df_sales', task_ids='extract_data'))
+        df_clients = pd.read_parquet(df_clients_file)
+        df_sales = pd.read_parquet(df_sales_file)
 
         transform(df_clients, df_sales)
 
@@ -208,8 +213,8 @@ with DAG(
 
 
     def task_load(ti):
-        df_clients = pd.read_json(ti.xcom_pull(key='df_clients', task_ids='extract_data'))
-        df_sales = pd.read_json(ti.xcom_pull(key='df_clients', task_ids='extract_data'))
+        df_clients = pd.read_parquet(df_clients_file)
+        df_sales = pd.read_parquet(df_sales_file)
 
         load(df_clients, df_sales)
 
