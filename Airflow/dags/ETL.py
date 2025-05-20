@@ -78,12 +78,14 @@ def transform(df_clients = None, df_sales = None, df_update = None):
         df_update['Tenure'] = pd.to_numeric(df_update['Tenure'], errors='coerce').astype('float')
         df_update.loc[df_update['Tenure'] <= 0, 'Tenure'] = 0
         df_update.loc[df_update['Tenure'].isnull(), 'Tenure'] = 0
+        df_update.loc[df_update['Tenure'] > 99.9, 'Tenure'] = 99.9
         return
     
     #Transformações nas tabelas de clientes
     df_clients['CustomerID'] = pd.to_numeric(df_clients['CustomerID'], errors='coerce').astype('int')
     df_clients.loc[df_clients['Tenure'] <= 0, 'Tenure'] = 0
     df_clients.loc[df_clients['Tenure'].isnull(), 'Tenure'] = 0
+    df_clients.loc[df_clients['Tenure'] > 99.9, 'Tenure'] = 99.9
 
     #Transformações nas tabelas de vendas
     df_sales['InvoiceNo'] = pd.to_numeric(df_sales['InvoiceNo'], errors='coerce').astype('int')
