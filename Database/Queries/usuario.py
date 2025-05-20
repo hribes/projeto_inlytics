@@ -20,6 +20,16 @@ def get_user_info():
     conn.close()
     
     return nome_usuario, setor_usuario
+
+def get_all_customers():
+    conn = conectar_db()
+    cursor = conn.cursor(dictionary=True)
+
+    query = "SELECT * FROM customer"
+    cursor.execute(query)
+    results = cursor.fetchall()
+    conn.close()
+    return results
     
 #  conn = conectar_db()
 #     cursor = conn.cursor()
