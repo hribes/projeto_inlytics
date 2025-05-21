@@ -95,8 +95,10 @@ def rfm():
     enterprise_id = 1
     nome_usuario, setor_usuario = get_user_info()
     quantidades_rfm = type_and_qnt_perfil(enterprise_id)
+    qnt_total_clientes = qnt_all_clients()
     
-    return render_template("rfm.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, quantidades_rfm=quantidades_rfm)
+    print(qnt_all_clients)
+    return render_template("rfm.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, quantidades_rfm=quantidades_rfm, qnt_total_clientes=qnt_total_clientes)
 
 
 

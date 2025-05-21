@@ -19,7 +19,7 @@ def qnt_all_clients():
     cursor.execute(query)
     qnt_total_clientes = cursor.fetchone()[0]
     conn.close()
-    
+    print(qnt_total_clientes)
     return qnt_total_clientes
     
 #QNT total de novos clientes por data    
