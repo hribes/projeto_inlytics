@@ -91,11 +91,14 @@ def ip():
 
 def erro(erro: str):
     print("\nErro durante a configuração do airflow")
-    print(f"\t- {erro.strip().replace(chr(10), '\n\t')}")
+    
+    erro_formatado = erro.strip().replace(chr(10), '\n\t')
+    print(f"\t- {erro_formatado}")
 
     input("\nAperte enter para continuar...")
 
     return False
+
 
 def main():
     doc = sub.run(args=["docker", "info"], capture_output=True)
