@@ -75,7 +75,7 @@ def dashboard():
     else:
         porcentagem_clientes_novos = (clientes_novos / (clientes_totais-clientes_novos)) * 100
     
-    return render_template("dashboard.html", produto_destaque=produto_destaque[0], clientes_novos=clientes_novos, porcentagem_clientes_novos=porcentagem_clientes_novos,nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa )
+    return render_template("dashboard.html", produto_destaque=produto_destaque, clientes_novos=clientes_novos, porcentagem_clientes_novos=porcentagem_clientes_novos,nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa )
     #return jsonfy(buscar_dados())
     #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 

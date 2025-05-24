@@ -22,8 +22,10 @@ def show_highlight_products():
     produto_destaque = [row['product_desc'] for row in customer]
     conn.close()
     
-    return produto_destaque
-
+    if produto_destaque:
+        return produto_destaque
+    else:
+        return {'product_desc': 'Nenhum produto vendido', 'quantidade_vendida': 0}
 
 
 #?????
