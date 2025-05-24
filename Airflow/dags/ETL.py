@@ -1,7 +1,8 @@
 import json
 import pandas as pd
-from sqlalchemy import text
+from sqlalchemy import text, MetaData, Table
 from sqlalchemy import create_engine as eng
+from sqlalchemy.dialects.mysql import insert
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -19,6 +20,11 @@ sqlite_eng = eng('sqlite:////opt/airflow/data/empresa_cliente_db.db')
 mysql_eng = eng(f'mysql+pymysql://{sql_user}:{sql_pass}@{sql_host}:{port}/{db_name}')
 
 json_archive = '/opt/airflow/data/data.json'
+
+#Tabelas alvo
+metadata = MetaData()
+customer_table = Table('customer', metadata, autoload_with=mysql_eng)
+sold_products_table = Table('sold_products', metadata, autoload_with=mysql_eng)
 
 
 #Funções auxiliares
@@ -71,37 +77,54 @@ def extract(update = None):
     return df_clients, df_sales, clients_updates, clients_starting_line, sales_starting_line
 
 
-def transform(df_clients = None, df_sales = None, df_update = None):
-    #Só ira transformar updates se existirem
-    if df_update is not None and not df_update.empty:
-        df_update['CustomerID'] = pd.to_numeric(df_update['CustomerID'], errors='coerce').astype('int')
-        df_update['Tenure'] = pd.to_numeric(df_update['Tenure'], errors='coerce').astype('float')
-        df_update.loc[df_update['Tenure'] <= 0, 'Tenure'] = 0
-        df_update.loc[df_update['Tenure'].isnull(), 'Tenure'] = 0
-        df_update.loc[df_update['Tenure'] > 99.9, 'Tenure'] = 99.9
-        return
-    
+def transform(df_clients = None, df_sales = None):
+
     #Transformações nas tabelas de clientes
-    df_clients['CustomerID'] = pd.to_numeric(df_clients['CustomerID'], errors='coerce').astype('int')
-    df_clients['Tenure'] = pd.to_numeric(df_clients['Tenure'], errors='coerce').astype('float')
-    df_clients.loc[df_clients['Tenure'] <= 0, 'Tenure'] = 0
-    df_clients.loc[df_clients['Tenure'].isnull(), 'Tenure'] = 0
-    df_clients.loc[df_clients['Tenure'] > 99.9, 'Tenure'] = 99.9
+    if df_clients is not None:
+        df_clients = df_clients.copy()
+        '''
+        df_clients['CustomerID'] = pd.to_numeric(df_clients['CustomerID'], errors='coerce').astype('Int64')
+        df_clients['Tenure'] = pd.to_numeric(df_clients['Tenure'], errors='coerce').fillna(0).clip(lower=0, upper=99.9)
+        '''
+        df_clients['CustomerID'] = pd.to_numeric(df_clients['CustomerID'], errors='coerce').astype(int)
+        df_clients['NomeCustomer'] = df_clients['NomeCustomer'].fillna(' ')
+        df_clients['Churn'] = pd.to_numeric(df_clients['Churn'], errors='coerce').fillna(0).astype(float)
+        df_clients['Gender'] = df_clients['Gender'].fillna(' ')
+        df_clients['Tenure'] = pd.to_numeric(df_clients['Tenure'], errors='coerce').fillna(0).astype(float).clip(lower=0, upper=99.9)
+        df_clients['PreferredPaymentMode'] = df_clients['PreferredPaymentMode'].fillna(' ')
+        df_clients['PreferredLoginDevice'] = df_clients['PreferredLoginDevice'].fillna(' ')
+        df_clients['SatisfactionScore'] = pd.to_numeric(df_clients['SatisfactionScore'], errors='coerce').fillna(0).astype(float)
+        df_clients['MaritalStatus'] = df_clients['MaritalStatus'].fillna(' ')
+        df_clients['CouponUsed'] = pd.to_numeric(df_clients['CouponUsed'], errors='coerce').fillna(0).astype(int)
+        df_clients['Complain'] = pd.to_numeric(df_clients['Complain'], errors='coerce').fillna(0).astype(int)
+        df_clients['NumberOfDeviceRegistered'] = pd.to_numeric(df_clients['NumberOfDeviceRegistered'], errors='coerce').fillna(0).astype(int)
+        #df_clients['id_enterprise'] = pd.to_numeric(df_clients['id_enterprise'], errors='coerce').fillna(0).astype(int)
 
     #Transformações nas tabelas de vendas
-    df_sales['InvoiceNo'] = pd.to_numeric(df_sales['InvoiceNo'], errors='coerce').astype('int')
-    df_sales['InvoiceDate'] = pd.to_datetime(df_sales['InvoiceDate'])
-    df_sales['CustomerID'] = pd.to_numeric(df_sales['CustomerID'], errors='coerce').astype('int')
-    df_sales['UnitPrice'] = pd.to_numeric(df_sales['UnitPrice'], errors='coerce').astype('float')
+    if df_sales is not None:
+        df_sales =  df_sales.copy()
+        '''
+        df_sales['InvoiceNo'] = pd.to_numeric(df_sales['InvoiceNo'], errors='coerce').astype('Int64')
+        df_sales['InvoiceDate'] = pd.to_datetime(df_sales['InvoiceDate'])
+        df_sales['CustomerID'] = pd.to_numeric(df_sales['CustomerID'], errors='coerce').astype('Int64')
+        df_sales['UnitPrice'] = pd.to_numeric(df_sales['UnitPrice'], errors='coerce').fillna(0).astype('float')
+        '''
+        df_sales['InvoiceNo'] = pd.to_numeric(df_sales['InvoiceNo'], errors='coerce').fillna(0).astype(int)
+        df_sales['StockCode'] = df_sales['StockCode'].fillna(' ')
+        df_sales['Description'] = df_sales['Description'].fillna(' ')
+        df_sales['Quantity'] = pd.to_numeric(df_sales['Quantity'], errors='coerce').fillna(0).astype(int)
+        df_sales['InvoiceDate'] = pd.to_datetime(df_sales['InvoiceDate'], errors='coerce').fillna(datetime(1970, 1, 1))
+        df_sales['UnitPrice'] = pd.to_numeric(df_sales['UnitPrice'], errors='coerce').fillna(0).astype(float)
+        df_sales['CustomerID'] = pd.to_numeric(df_sales['CustomerID'], errors='coerce').fillna(0).astype(int)
+        df_sales['Country'] = df_sales['Country'].fillna(' ')
 
-
-def update(clients_ids):
     
-    df_update = extract(clients_ids)
-    transform(None, None, df_update)
+    return df_clients, df_sales
 
-    df_update_mysql = df_update.rename(columns={
-        'CustomerID': 'customer_id',
+
+def rename_columns(df_clients, df_sales):
+    rename_clients = {
+        'CustomerID': 'customer_id', 
         'NomeCustomer': 'name',
         'Churn': 'churn',
         'Gender': 'gender',
@@ -113,36 +136,59 @@ def update(clients_ids):
         'Complain': 'complained',
         'NumberOfDeviceRegistered': 'dispositives_num',
         'MaritalStatus': 'marital_status'
-    })
+    }
 
-    #Executa os updates na tabela de clientes
+    rename_sales = {
+        'InvoiceNo': 'invoice',
+        'CustomerID': 'id_customer',
+        'Description': 'product_desc',
+        'UnitPrice': 'product_price',
+        'StockCode': 'stock_code',
+        'InvoiceDate': 'invoice_date',
+        'Quantity': 'quantity',
+        'Country': 'country'
+    }
+
+    df_clients_renamed = df_clients.rename(columns=rename_clients)
+    df_sales_renamed = df_sales.rename(columns=rename_sales)
+
+    return df_clients_renamed, df_sales_renamed
+
+
+def upsert_dataframe(table, df, key):
+    '''
     with mysql_eng.begin() as conn:
-        for _, row in df_update_mysql.iterrows():
-            conn.execute(
-                text("""
-                    UPDATE customer SET
-                     name = :name,
-                     churn = :churn,
-                     gender = :gender,
-                     tenure = :tenure,
-                     preferred_payment_type = :preferred_payment_type,
-                     frequent_dispositive = :frequent_dispositive,
-                     satisfaction_score = :satisfaction_score,
-                     cupom_used = :cupom_used,
-                     complained = :complained,
-                     dispositives_num = :dispositives_num,
-                     marital_status = :marital_status
-                    WHERE customer_id = :customer_id
-                """),
-                row.to_dict()
-            )
+        insert_stmt = insert(table)
+        update_stmt = insert_stmt.on_duplicate_key_update(
+            **{col: insert_stmt.inserted[col] for col in df.columns if col != key}
+        )
+        conn.execute(update_stmt, df.to_dict(orient='records'))
+    '''
+    df = df.where(pd.notnull(df), None)  # Converte NaN para None
+    with mysql_eng.begin() as conn:
+        insert_stmt = insert(table)
+        update_stmt = insert_stmt.on_duplicate_key_update(
+            **{col: insert_stmt.inserted[col] for col in df.columns if col != key}
+        )
+        conn.execute(update_stmt, df.to_dict(orient='records'))
+
+
+def validate_dataframe(df):
+    if 'tenure' in df.columns and (df['tenure'] < 0).any():
+        raise ValueError("Dados inválidos: 'tenure' contém valores negativos")
+    if 'UnitPrice' in df.columns and (df['UnitPrice'] < 0).any():
+        raise ValueError("Dados inválidos: 'UnitPrice' contém valores negativos")
 
 
 def load(df_clients, df_sales):
+    validate_dataframe(df_clients)
+    validate_dataframe(df_sales)
+
     df_clients_mysql = df_clients.rename(columns={
         'CustomerID': 'customer_id',
         'NomeCustomer': 'name',
         'Churn': 'churn',
+        #'Churn': 'teste',
         'Gender': 'gender',
         'Tenure': 'tenure',
         'PreferredPaymentMode': 'preferred_payment_type',
@@ -165,19 +211,43 @@ def load(df_clients, df_sales):
         'Country': 'country'
     })
 
+    df_clients_mysql = df_clients_mysql.where(pd.notnull(df_clients_mysql), None)
+    df_sales_mysql = df_sales_mysql.where(pd.notnull(df_sales_mysql), None)
+
     df_clients_mysql.to_sql('customer', con=mysql_eng, if_exists='append', index=False)
     df_sales_mysql.to_sql('sold_products', con=mysql_eng, if_exists='append', index=False)
 
+    '''
+    upsert_dataframe(customer_table, df_clients_mysql, 'customer_id')
+    upsert_dataframe(sold_products_table, df_sales_mysql, 'invoice')
+
+    with mysql_eng.begin() as conn:
+        for _, row in df_clients_mysql.iterrows():
+            stmt = insert('customer').values(**row.to_dict())
+            stmt = stmt.on_duplicate_key_update(**{
+                col: stmt.inserted[col] for col in row.index if col != 'customer_id'
+            })
+            conn.execute(stmt)
+
+        for _, row in df_sales_mysql.iterrows():
+            stmt = insert('sold_products').values(**row.to_dict())
+            stmt = stmt.on_duplicate_key_update(**{
+                col: stmt.inserted[col] for col in row.index if col != 'invoice'
+            })
+            conn.execute(stmt)
+    '''
 
 #Váriaveis que vão ser responsáveis pelo transporte dos dataframes entre funções
 df_clients_file = '/opt/airflow/data/df_clients.parquet'
 df_sales_file = '/opt/airflow/data/df_sales.parquet'
+transformed_clients_file = '/opt/airflow/transformed_clients.parquet'
+transformed_sales_file = '/opt/airflow/transformed_sales.parquet'
 
 #DAG
 default_args = {
     'owner': 'Inlytic',
-    'retries': 1,
-    'retry_delay': timedelta(minutes=1)
+    'retries': 0,
+    'retry_delay': timedelta(seconds=30)
 }
 
 with DAG(
@@ -205,14 +275,10 @@ with DAG(
         df_clients = pd.read_parquet(df_clients_file)
         df_sales = pd.read_parquet(df_sales_file)
 
-        transform(df_clients, df_sales)
+        df_clients, df_sales = transform(df_clients, df_sales)
 
-
-    def task_update(ti):
-        clients_update = ti.xcom_pull(key='clients_update', task_ids='extract_data')
-
-        if clients_update:
-            update(clients_update)
+        df_clients.to_parquet(transformed_clients_file)
+        df_clients.to_parquet(transformed_sales_file)
 
 
     def task_load(ti):
@@ -237,15 +303,10 @@ with DAG(
         task_id='transform_data',
         python_callable=task_transform
     )
-
-    update_op = PythonOperator(
-        task_id='update_clients',
-        python_callable=task_update
-    )
-
+    
     load_op = PythonOperator(
         task_id='load_data',
         python_callable=task_load
     )
 
-    extract_op >> transform_op >> update_op >> load_op
+    extract_op >> transform_op >> load_op

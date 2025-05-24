@@ -14,11 +14,14 @@ def list_all_clients():
 def qnt_all_clients():
     conn = conectar_db()
     cursor = conn.cursor()
+
     query = """ SELECT COUNT(*) FROM customer
     """
+
     cursor.execute(query)
-    qnt_total_clientes = cursor.fetchone()[0]
+    qnt_total_clientes = cursor.fetchone()['COUNT(*)']
     conn.close()
+
     print(qnt_total_clientes)
     return qnt_total_clientes
     

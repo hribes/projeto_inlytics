@@ -1,4 +1,5 @@
 from Database.conexao_bd import conectar_db
+#from ..conexao_bd import conectar_db
 from werkzeug.security import check_password_hash
 
 from flask_login import UserMixin
@@ -17,7 +18,8 @@ class User(UserMixin):
     
 def find_by_email_password(email, password):
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
+    #cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor()
     
     query = "SELECT * FROM inlytic_user WHERE worker_email = %s LIMIT 1"
     cursor.execute(query, (email,))
@@ -32,7 +34,8 @@ def find_by_email_password(email, password):
     
 def load_user(user_id):
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
+    #cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor()
 
     query = "SELECT * FROM inlytic_user WHERE id_inlytic_user = %s"
     cursor.execute(query, (user_id,))
@@ -51,7 +54,8 @@ def load_user(user_id):
 
 def find_user_by_id(user_id):
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
+    #cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor()
 
     query = "SELECT * FROM inlytic_user WHERE id_inlytic_user = %s"
     cursor.execute(query, (user_id,))
@@ -74,4 +78,13 @@ def find_user_by_id(user_id):
 #         return True
 #     else:
 #         return False
-    
+
+'''
+def main():
+    email = input("Email: ")
+    pw = input("Password: ")
+    find_by_email_password(email, pw)
+
+if __name__ == "__main__":
+    main()
+'''

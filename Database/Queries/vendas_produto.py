@@ -8,14 +8,18 @@ quinze_dias = date.today() - timedelta(days=15)
 def show_highlight_products():
     conn = conectar_db()
     cursor = conn.cursor()
+
     query = """SELECT product_desc, COUNT(*) AS produto_destaque
                FROM sold_products 
                WHERE invoice_date >= CURDATE() - INTERVAL 15 DAY
-               GROUP BY stock_code
-               ORDER BY produto_destaque DESC"""   
+               GROUP BY stock_code, product_desc
+               ORDER BY produto_destaque DESC"""
+       
     cursor.execute(query)
     customer = cursor.fetchall()
-    produto_destaque = [row[0] for row in customer]
+
+    #produto_destaque = [row[0] for row in customer]
+    produto_destaque = [row['product_desc'] for row in customer]
     conn.close()
     
     return produto_destaque
