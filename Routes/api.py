@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
-from Database.Queries.vendas_produto import show_highlight_products  
+from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data  
 from Database.Queries.usuario import get_user_info, get_all_customers
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
@@ -13,6 +13,7 @@ home = Blueprint("home", __name__)
 
 @home.route("/")
 def home_page():
+    print(monthly_sales_data())
     if logout_user() == True:
         return render_template("index.html")
     else:
