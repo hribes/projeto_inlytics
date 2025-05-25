@@ -103,6 +103,8 @@
 
     <!-- Início do looping -->
     {% for cliente in clientes %}
+    <!-- {% if not request.args.get('perfil') or cliente.customer_classification == request.args.get('perfil') %} -->
+
     <div class="div-clique" onclick="toggleConteudo(this)">
         <div class="usuario-informacoes">
             <h4 class="id">{{ cliente.customer_id }}</h4>
@@ -159,6 +161,9 @@
             </div>
         </div>
     </div>
+    <!-- {% endif %} -->
+     {% else %}
+        <h2 style="color: gray; text-align: center">Não foram encontrados usuários com esse tipo de perfil</h2>
     {% endfor %}
 </div>
 
