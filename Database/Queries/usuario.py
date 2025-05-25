@@ -27,7 +27,7 @@ def get_user_info():
 
 def get_all_customers():
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor()
 
     query = "SELECT * FROM customer"
     cursor.execute(query)
