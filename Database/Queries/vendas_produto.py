@@ -11,9 +11,10 @@ def show_highlight_products():
 
     query = """SELECT product_desc, COUNT(*) AS produto_destaque
                FROM sold_products 
-               WHERE invoice_date >= CURDATE() - INTERVAL 15 DAY
+               WHERE invoice_date >= CURDATE() - INTERVAL 30 DAY
                GROUP BY stock_code, product_desc
-               ORDER BY produto_destaque DESC"""
+               ORDER BY produto_destaque DESC
+               LIMIT 1"""
        
     cursor.execute(query)
     customer = cursor.fetchall()
