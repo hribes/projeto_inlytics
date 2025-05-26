@@ -71,7 +71,30 @@ def monthly_sales_data():
     print(dados_completos)
     
     return dados_completos
-#?????
+
+
+
+def qnt_products_month():
+    conn = conectar_db()
+    cursor = conn.cursor()
+    
+    query = """SELECT SUM(quantity) AS qnt_produtos
+    FROM sold_products
+    WHERE invoice_date >= CURDATE() - INTERVAL 30 DAY;
+    """
+    cursor.execute(query)
+    qnt_total_produtos = cursor.fetchall()
+    cursor.close()
+    
+    
+    if qnt_total_produtos and qnt_total_produtos[0][0] is not None:
+        return int(qnt_total_produtos[0][0])
+    else:
+        return 0
+    
+  
+
+
 # def last_sold_products():
 #     conn = conectar_db()
 #     cursor = conn.cursor()
