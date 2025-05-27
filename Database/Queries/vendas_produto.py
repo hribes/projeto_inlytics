@@ -71,6 +71,33 @@ def monthly_sales_data():
     print(dados_completos)
     
     return dados_completos
+
+def monthly_sales_volume():
+    conn = conectar_db()
+    cursor = conn.cursor()
+    
+    query = """
+        SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
+        SUM(quantity) AS total_vendas
+        FROM sold_products
+        GROUP BY mes
+        ORDER BY mes;
+    """
+    
+    cursor.execute(query)
+    resultado = cursor.fetchall()
+    conn.close()
+    
+    # dados = lista de tuplas (mes, total de vendas)
+    dados = [(row[0], int(row[1])) for row in resultado]
+    
+    # Completa meses/anos faltantes
+    dados_completos = completa_anos_meses_simples(dados)
+    
+    print("QUANTIDADE DE VENDAS POR MÊS - GRÁFICO")
+    print(dados_completos)
+    
+    return dados_completos
 #?????
 # def last_sold_products():
 #     conn = conectar_db()
