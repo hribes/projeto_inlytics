@@ -1,9 +1,9 @@
 {
     "sales_data": {
-        "last_sales_line": 0
+        "last_sales_line": 397884
     },
     "clients_data": {
-        "last_clients_line": 0
+        "last_clients_line": 4372
     },
     "clients_update": {}
 }
