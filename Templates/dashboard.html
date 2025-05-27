@@ -64,7 +64,7 @@
                 <img src="/static/Imagens/Alana Crystal (1).png"  class="user-avatar">
                 <div class="user-info">
                     <span class="name">{{ nome_usuario }}</span>
-                    <span class="role">{{ empresa }} - {{ setor_usuario }}</span>
+                    <span class="role">{{ empresa[0] }} - {{ setor_usuario }}</span>
                 </div>
                 <a href="{{ url_for("home.logout")}}" class="logout-link">
                 <i class='bx bx-log-out logout-icon'>
@@ -79,7 +79,7 @@
                 <div class="cabecalho">
                     <div class="titulo-pesquisa">
                         <div class="titulo-nome">
-                            <h1>Olá, Alana!</h1>
+                            <h1>Olá, {{ nome_usuario }}!</h1>
                             <h3>Confira o seu desempenho geral</h3>
                         </div>
                         <div class="barra-pesquisa">   
@@ -142,7 +142,7 @@
                         <div class="qtd-vendas">
                             <h1>Quantidade Vendida</h1>
                             <h4>Mensal</h4>
-                            <h1 class="valor">647</h1>
+                            <h1 class="valor">{{ qnt_produtos }}</h1>
                         </div>
                     </div>
                 </div>
