@@ -9,24 +9,26 @@ def show_highlight_products():
     conn = conectar_db()
     cursor = conn.cursor()
 
-    query = """SELECT product_desc, COUNT(*) AS produto_destaque
+    query = """SELECT product_desc, COUNT(*) AS quantidade_vendida
                FROM sold_products 
-               WHERE invoice_date >= CURDATE() - INTERVAL 30 DAY
+               WHERE invoice_date >= '2011-12-01'
                GROUP BY stock_code, product_desc
-               ORDER BY produto_destaque DESC
+               ORDER BY quantidade_vendida DESC
                LIMIT 1"""
        
     cursor.execute(query)
-    customer = cursor.fetchall()
+    resultado = cursor.fetchall()  # lista de dicts
 
-    #produto_destaque = [row[0] for row in customer]
-    produto_destaque = [row['product_desc'] for row in customer]
     conn.close()
     
-    if produto_destaque:
-        return produto_destaque
+    if resultado:
+        return resultado  # retorna lista com 1 dict
     else:
-        return {'product_desc': 'Nenhum produto vendido', 'quantidade_vendida': 0}
+        # retorna lista com 1 dict indicando "nenhum produto"
+        return [{'product_desc': 'Nenhum produto vendido', 'quantidade_vendida': 0}]
+
+
+
 
 def completa_anos_meses_simples(dados):
     # Dicionário de meses em português
@@ -59,28 +61,6 @@ def completa_anos_meses_simples(dados):
 
 
 
-# def monthly_sales_data():
-#     conn = conectar_db()
-#     cursor = conn.cursor()
-    
-#     query = """
-#         SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
-#         SUM(product_price) AS faturamento_total
-#         FROM sold_products
-#         GROUP BY mes
-#         ORDER BY mes;
-#     """
-    
-#     cursor.execute(query)
-#     resultado = cursor.fetchall()
-#     conn.close()
-    
-#     dados = [(row[0], round(float(row[1]), 2)) for row in resultado]
-    
-#     # Exemplo de função opcional que completa os meses vazios
-#     dados_completos = completa_anos_meses_simples(dados)
-
-#     return dados_completos
 
 def monthly_sales_data():
     conn = conectar_db()
@@ -88,7 +68,7 @@ def monthly_sales_data():
     
     query = """
         SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
-        SUM(product_price) AS faturamento_total
+               SUM(product_price) AS faturamento_total
         FROM sold_products
         GROUP BY mes
         ORDER BY mes;
@@ -98,25 +78,26 @@ def monthly_sales_data():
     resultado = cursor.fetchall()
     conn.close()
     
-    # Dicionário para mapear números dos meses para nomes em português
     meses = {
         '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
         '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
         '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
     }
     
-    # Converter os dados brutos e incluir nomes dos meses
     dados = []
     for row in resultado:
-        ano_mes = row[0]  # Formato 'YYYY-MM'
+        ano_mes = row['mes']  # usa chave 'mes'
+        faturamento = row['faturamento_total']  # usa chave do alias do SELECT
         ano, mes = ano_mes.split('-')
-        nome_mes = f"{meses[mes]} {ano}"  # Ex: "Janeiro 2025"
-        dados.append({'data': nome_mes, 'valor': round(float(row[1]), 2)})
+        nome_mes = f"{meses[mes]} {ano}"
+        dados.append({'data': nome_mes, 'valor': round(float(faturamento), 2)})
     
-    # Completar os meses vazios com a função existente
     dados_completos = completa_anos_meses_simples(dados)
     
     return dados_completos
+
+
+
 
 def monthly_sales_volume():
     conn = conectar_db()
@@ -124,7 +105,7 @@ def monthly_sales_volume():
     
     query = """
         SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
-        SUM(quantity) AS total_vendas
+               SUM(quantity) AS total_vendas
         FROM sold_products
         GROUP BY mes
         ORDER BY mes;
@@ -134,34 +115,66 @@ def monthly_sales_volume():
     resultado = cursor.fetchall()
     conn.close()
     
-    # dados = lista de tuplas (mes, total de vendas)
-    dados = [(row[0], int(row[1])) for row in resultado]
+    meses = {
+        '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
+        '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+        '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
+    }
     
-    # Completa meses/anos faltantes
+    dados = []
+    for row in resultado:
+        ano_mes = row[0]  # 'YYYY-MM'
+        total_vendas = row[1]
+        ano, mes = ano_mes.split('-')
+        nome_mes = f"{meses[mes]} {ano}"  # Exemplo: "Jan 2025"
+        dados.append({'data': nome_mes, 'valor': int(total_vendas)})
+    
     dados_completos = completa_anos_meses_simples(dados)
     
-    print("QUANTIDADE DE VENDAS POR MÊS - GRÁFICO")
-    print(dados_completos)
-    
     return dados_completos
+
+
+
 
 def qnt_products_month():
     conn = conectar_db()
     cursor = conn.cursor()
     
-    query = """SELECT SUM(quantity) AS qnt_produtos
+    
+    query = """
+    SELECT SUM(quantity) AS qnt_produtos
     FROM sold_products
-    WHERE invoice_date >= CURDATE() - INTERVAL 30 DAY;
+    WHERE invoice_date >= CURDATE() - '2011-12-01';
     """
     cursor.execute(query)
     qnt_total_produtos = cursor.fetchall()
     cursor.close()
-    
-    
-    if qnt_total_produtos and qnt_total_produtos[0][0] is not None:
-        return int(qnt_total_produtos[0][0])
+    conn.close()
+
+    if qnt_total_produtos and qnt_total_produtos[0]['qnt_produtos'] is not None:
+        return int(qnt_total_produtos[0]['qnt_produtos'])
     else:
         return 0
+
+
+
+# def qnt_products_month():
+#     conn = conectar_db()
+#     cursor = conn.cursor()
+    
+#     query = """SELECT SUM(quantity) AS qnt_produtos
+#     FROM sold_products
+#     WHERE invoice_date >= CURDATE() - INTERVAL 30 DAY;
+#     """
+#     cursor.execute(query)
+#     qnt_total_produtos = cursor.fetchall()
+#     cursor.close()
+    
+    
+#     if qnt_total_produtos and qnt_total_produtos[0][0] is not None:
+#         return int(qnt_total_produtos[0][0])
+#     else:
+#         return 0
 
 
 #?????
@@ -178,3 +191,108 @@ def qnt_products_month():
 #     conn.close()
     
 #     return aumento_clientes
+
+
+
+# def monthly_sales_data():
+#     conn = conectar_db()
+#     cursor = conn.cursor()
+    
+#     query = """
+#         SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
+#                SUM(product_price) AS faturamento_total
+#         FROM sold_products
+#         GROUP BY mes
+#         ORDER BY mes;
+#     """
+    
+#     cursor.execute(query)
+#     resultado = cursor.fetchall()
+#     conn.close()
+    
+#     meses = {
+#         '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
+#         '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+#         '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
+#     }
+    
+#     dados = []
+#     for row in resultado:
+#         ano_mes = row[0]  # 'YYYY-MM'
+#         faturamento = row[1]
+#         ano, mes = ano_mes.split('-')
+#         nome_mes = f"{meses[mes]} {ano}"  # Ex: "Jan 2025"
+#         dados.append({'data': nome_mes, 'valor': round(float(faturamento), 2)})
+    
+#     dados_completos = completa_anos_meses_simples(dados)
+    
+#     return dados_completos
+
+
+
+
+# def monthly_sales_data():
+#     conn = conectar_db()
+#     cursor = conn.cursor()
+    
+#     query = """
+#         SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
+#         SUM(product_price) AS faturamento_total
+#         FROM sold_products
+#         GROUP BY mes
+#         ORDER BY mes;
+#     """
+    
+#     cursor.execute(query)
+#     resultado = cursor.fetchall()
+#     conn.close()
+    
+#     # Dicionário para mapear números dos meses para nomes em português
+#     meses = {
+#         '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
+#         '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+#         '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
+#     }
+    
+#     # Converter os dados brutos e incluir nomes dos meses
+#     dados = []
+#     for row in resultado:
+#         ano_mes = row[0]  # Formato 'YYYY-MM'
+#         ano, mes = ano_mes.split('-')
+#         nome_mes = f"{meses[mes]} {ano}"  # Ex: "Janeiro 2025"
+#         dados.append({'data': nome_mes, 'valor': round(float(row[1]), 2)})
+    
+#     # Completar os meses vazios com a função existente
+#     dados_completos = completa_anos_meses_simples(dados)
+    
+#     return dados_completos
+
+
+
+
+# def monthly_sales_volume():
+#     conn = conectar_db()
+#     cursor = conn.cursor()
+    
+#     query = """
+#         SELECT DATE_FORMAT(invoice_date, '%Y-%m') AS mes, 
+#         SUM(quantity) AS total_vendas
+#         FROM sold_products
+#         GROUP BY mes
+#         ORDER BY mes;
+#     """
+    
+#     cursor.execute(query)
+#     resultado = cursor.fetchall()
+#     conn.close()
+    
+#     # dados = lista de tuplas (mes, total de vendas)
+#     dados = [(row[0], int(row[1])) for row in resultado]
+    
+#     # Completa meses/anos faltantes
+#     dados_completos = completa_anos_meses_simples(dados)
+    
+#     print("QUANTIDADE DE VENDAS POR MÊS - GRÁFICO")
+#     print(dados_completos)
+    
+#     return dados_completos
