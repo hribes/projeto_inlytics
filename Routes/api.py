@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
 from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data,qnt_products_month  
+from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data,qnt_products_month  
 from Database.Queries.usuario import get_user_info, get_all_customers,search_user_profile
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
@@ -97,7 +98,9 @@ def faturamento_mensal():
 def churn():
     nome_usuario, setor_usuario = get_user_info()
     empresa = company_data()
+    empresa = company_data()
     
+    return render_template("churn.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
     return render_template("churn.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
 
 
