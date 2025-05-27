@@ -101,8 +101,6 @@ def churn():
     empresa = company_data()
     
     return render_template("churn.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
-    return render_template("churn.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
-
 
 
 @home.route("/rfm")
