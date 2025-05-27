@@ -35,6 +35,29 @@ def get_all_customers():
     conn.close()
     return results
     
+    
+
+def search_user_profile(perfil):
+    conn = conectar_db()
+    cursor = conn.cursor(dictionary=True)
+    
+    query = """
+    SELECT c.*, r.customer_classification
+    FROM customer c
+    JOIN rfm r ON c.customer_id = r.customer_id
+    WHERE r.customer_classification = %s
+    """
+    
+    cursor.execute(query, (perfil,))
+    filtro_perfil = cursor.fetchall()
+    
+    conn.close()
+    return filtro_perfil
+
+
+
+
+
 #  conn = conectar_db()
 #     cursor = conn.cursor()
 #     query = """ SELECT sold_products, COUNT(*) AS qnt_total_vendas

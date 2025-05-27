@@ -63,7 +63,7 @@
                 <img src="/static/Imagens/Alana Crystal (1).png"  class="user-avatar">
                 <div class="user-info">
                     <span class="name">{{ nome_usuario }}</span>
-                    <span class="role">Tray - {{ setor_usuario }}</span>
+                    <span class="role">{{ empresa[0] }} - {{ setor_usuario }}</span>
                 </div>
                 <a href="{{ url_for("home.logout")}}" class="logout-link">
                     <i class='bx bx-log-out logout-icon'>
@@ -79,7 +79,7 @@
                 <div class="cabecalho">
                     <div class="titulo-pesquisa">
                         <div class="titulo-nome">
-                            <h1>Olá, Alana!</h1>
+                            <h1>Olá, {{ nome_usuario }}!</h1>
                             <h3>Confira os seus clientes sazonais</h3>
                         </div>
                         <div class="barra-pesquisa">   

@@ -76,7 +76,7 @@ CREATE TABLE `sold_products` (
   `product_name` varchar(32) DEFAULT NULL,
   `product_desc` varchar(128) NOT NULL COMMENT 'dá pra escrever muita coisa com esse tanto',
   `product_price` decimal(5,2) NOT NULL,
-  `bill_emission` datetime NOT NULL,
+  `invoice_date` datetime NOT NULL,
   `id_enterprise` int(11) DEFAULT NULL,
   `id_product` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sold_products`), 

@@ -1,4 +1,5 @@
 from Database.conexao_bd import conectar_db
+from flask import jsonify
 
 #Listar todos os clientes
 def list_all_clients():
@@ -36,9 +37,9 @@ def clients_increase():
     # """
     
     query = """SELECT customer_id, COUNT(*) AS novos_clientes
-     FROM customer
-     WHERE tenure >= 1 
-     GROUP BY customer_id
+    FROM customer
+    WHERE tenure >= 1 
+    GROUP BY customer_id
     """
     cursor.execute(query)
     aumento_clientes = cursor.fetchall()
