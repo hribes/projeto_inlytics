@@ -462,16 +462,29 @@ header .image-text .header-text {
     padding-top: 10px;
     color: #0e0132;
 }
-.rendimento-anual{
+.rendimento-anual {
     width: 75%;
-    background-color: #dfdede;
-    border-radius: 15px;
-    height: 49vh;
-    padding: 30px 0 0 50px;
+    background-color: transparent;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    height: 65vh;
+    box-sizing: border-box;
+    padding: 15px 30px; /* espaço interno só pra ficar mais ajeitado */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.rendimento-anual canvas {
+    flex: 1;       /* ocupa todo o espaço restante da div */
+    width: 100% !important;
+    height: 70% !important;
 }
 .rendimento-anual h1{
     font-size: 25pt;
+    margin-bottom: 15px;
 }
+
 .compras-qtdvendas{
     display: flex;
     flex-direction: column;
@@ -480,7 +493,7 @@ header .image-text .header-text {
 .produto-mais-vendido{
     background-color: #90caf9;
     border-radius: 15px;
-    height: 20vh;
+    height: 29vh;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -502,7 +515,7 @@ header .image-text .header-text {
 .qtd-vendas {
     background-color: #c8d2ff;
     border-radius: 15px;
-    height: 28vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -532,14 +545,16 @@ header .image-text .header-text {
     margin: 0;
     line-height: 90px;
 }
-.produtos-mais-vendidos{
+.produtos-mais-vendidos {
     width: 100%;
-    background-color: #dfdede;
-    border-radius: 15px;
-    height: 49vh;
-    padding: 30px 0 0 50px;
-    margin-top: 10px;
-    color: #0e0132;
+    background-color: #ffffff; /* Fundo branco para um visual mais limpo */
+    border: 1px solid #e5e5e5; /* Borda mais fina e suave */
+    border-radius: 10px; /* Arredondamento mais sutil */
+    height: 45vh; /* Reduzido ligeiramente para um layout mais compacto */
+    padding: 20px 30px; /* Padding simplificado, mais uniforme */
+    margin-top: 15px; /* Aumentado para melhor separação */
+    color: #0e0132; /* Mantida a cor do texto */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidade */
 }
 
 .produtos-mais-vendidos h1{

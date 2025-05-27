@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/static/CSS/dashboard.css">  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <title>Inlytics - Dashboard</title>
     <link rel="icon" href="/static/Logos/4 - Copia.png" type="image/png">
 </head>
@@ -129,7 +130,8 @@
                 </div>
                 <div class="rendimento-compras-vendas">
                     <div class="rendimento-anual">
-                        <h1>Rendimento Anual</h1>
+                        <h1>Rendimento Mensal</h1>
+                        <canvas id="graficoFaturamento"></canvas>
                     </div>
                     <div class="compras-qtdvendas">
                         <div class="produto-mais-vendido">
@@ -150,6 +152,7 @@
             </div>
         </section>
     </main>
+<script src="{{ url_for('static', filename='/JS/grafico_dashboard.js') }}"></script>
     <script src="/static/JS/sidemenu.js"></script>
 </body>
 </html>
