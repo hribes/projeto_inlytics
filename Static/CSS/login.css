@@ -157,11 +157,6 @@ main{
     width: fit-content;
 }
 
-.error{
-    /*border: 2px solid red !important;*/
-    background-color: #efefef;
-    transition: 0.3s ease;
-}
 
 .error::placeholder{
   color: red;
@@ -249,4 +244,9 @@ main{
 }
 .esqueceu-senha:hover{
     color: #1c75bc;
+}
+
+.mensagem{
+    background-color: pink;
+
 }
