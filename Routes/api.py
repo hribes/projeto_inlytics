@@ -70,6 +70,7 @@ def dashboard():
     clientes_totais = qnt_all_clients()
     empresa = company_data()
     dados_faturamento = monthly_sales_data()
+    qnt_produtos = qnt_products_month()
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
@@ -83,7 +84,7 @@ def dashboard():
     nome_usuario=nome_usuario, 
     setor_usuario=setor_usuario, 
     empresa=empresa, 
-    dados_faturamento=dados_faturamento)
+    dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos)
     #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
 @home.route("/api/faturamento_mensal")
@@ -139,7 +140,7 @@ def usuario():
         clientes = get_all_customers()
         
     
-    return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes)
+    return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes, empresa=empresa)
 
 @home.route("/teste")
 def grafico():
