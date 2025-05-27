@@ -142,7 +142,13 @@ main{
 }
 
 .formulario{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centraliza horizontalmente */
+    justify-content: center;
+    padding: auto;
+
+}/* Centraliza verticalmente *
 }
 
 /*INPUTS*/
@@ -157,10 +163,6 @@ main{
     width: fit-content;
 }
 
-
-.error::placeholder{
-  color: red;
-}
 
 .mensagem-erro{
     color: red
@@ -247,6 +249,13 @@ main{
 }
 
 .mensagem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: pink;
-
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    margin: 0 60px 0 50px;
 }
+

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
 from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data  
@@ -13,7 +13,6 @@ home = Blueprint("home", __name__)
 
 @home.route("/")
 def home_page():
-    print(monthly_sales_data())
     if logout_user() == True:
         return render_template("index.html")
     else:
@@ -70,16 +69,27 @@ def dashboard():
     clientes_novos = len(clients_increase())
     clientes_totais = qnt_all_clients()
     empresa = company_data()
+    dados_faturamento = monthly_sales_data()
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
     else:
         porcentagem_clientes_novos = (clientes_novos / (clientes_totais-clientes_novos)) * 100
     
-    return render_template("dashboard.html", produto_destaque=produto_destaque[0], clientes_novos=clientes_novos, porcentagem_clientes_novos=porcentagem_clientes_novos,nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa )
-    #return jsonfy(buscar_dados())
+    return render_template("dashboard.html", 
+    produto_destaque=produto_destaque[0], 
+    clientes_novos=clientes_novos, 
+    porcentagem_clientes_novos=porcentagem_clientes_novos,
+    nome_usuario=nome_usuario, 
+    setor_usuario=setor_usuario, 
+    empresa=empresa, 
+    dados_faturamento=dados_faturamento)
     #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
+@home.route("/api/faturamento_mensal")
+def faturamento_mensal():
+    dados = monthly_sales_data()
+    return jsonify(dados)
 
 
 @home.route("/churn")
