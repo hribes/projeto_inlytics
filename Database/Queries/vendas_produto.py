@@ -142,9 +142,13 @@ def qnt_products_month():
     
     
     query = """
-    SELECT SUM(quantity) AS qnt_produtos
+    SELECT 
+    DATE_FORMAT(invoice_date, '%Y-%m') AS mes,
+    SUM(quantity) AS qnt_produtos
     FROM sold_products
-    WHERE invoice_date >= CURDATE() - '2011-12-01';
+    WHERE invoice_date BETWEEN '2011-12-01' AND '2011-12-31'
+    GROUP BY mes
+    ORDER BY mes;
     """
     cursor.execute(query)
     qnt_total_produtos = cursor.fetchall()
