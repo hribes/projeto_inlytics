@@ -160,7 +160,44 @@ def qnt_products_month():
     else:
         return 0
 
+#Puxa o país que mais comprou
+def most_frequent_country():
+    
+    conn = conectar_db()
+    cursor = conn.cursor()
 
+    query = """
+    SELECT country, COUNT(*) AS most_freq
+    FROM sold_products
+    GROUP BY country
+    ORDER BY most_freq DESC
+    LIMIT 1"""
+
+    cursor.execute(query)
+    countries = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return countries[0]['country']
+
+def total_profit():
+    conn = conectar_db()
+    cursor = conn.cursor()
+
+    #year = datetime.datetime.today().year
+    year = 2011
+
+    query = f"""
+    SELECT SUM(product_price) AS total_profit
+    FROM sold_products
+    WHERE YEAR(invoice_date) = {year}"""
+
+    cursor.execute(query)
+    profit = cursor.fetchone()['total_profit']
+    form = lambda num: f"{num:,.0f}".replace(",", "v").replace(".", ",").replace("v", ".")
+
+    return f'R$ {form(profit)}'
 
 # def qnt_products_month():
 #     conn = conectar_db()

@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
-from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
-from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data  , monthly_sales_volume, qnt_products_month
-from Database.Queries.usuario import get_user_info, get_all_customers,search_user_profile
+from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients, increase_simbol
+from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month, most_frequent_country, total_profit
+from Database.Queries.usuario import get_user_info, get_all_customers, search_user_profile
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
 from Database.Queries.rfm import type_and_qnt_perfil
@@ -76,6 +76,8 @@ def dashboard():
     empresa = company_data()
     dados_faturamento = monthly_sales_data()
     qnt_produtos = qnt_products_month()
+    pais_destaque = most_frequent_country()
+    lucro_total = total_profit()
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
@@ -90,7 +92,9 @@ def dashboard():
         setor_usuario=setor_usuario, 
         empresa=empresa, 
         dados_faturamento=dados_faturamento, 
-        qnt_produtos=qnt_produtos)
+        qnt_produtos=qnt_produtos,
+        pais_destaque=pais_destaque,
+        lucro_total=lucro_total)
 
 @home.route("/api/faturamento_mensal")
 def faturamento_mensal():

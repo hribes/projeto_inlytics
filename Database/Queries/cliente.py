@@ -51,4 +51,37 @@ def clients_increase():
 #                FROM sold_products 
 #                WHERE bill_emission >= CURDATE() - INTERVAL 15 DAY
 #                GROUP BY id_product
-#                ORDER BY produto_destaque DESC"""   
+#                ORDER BY produto_destaque DESC"""
+
+#Define a seta da variação de clientes
+def increase_simbol():
+    conn = conectar_db()
+    cursor = conn.cursor()
+
+    query = """ SELECT customer_id FROM customer WHERE tenure > 1 """
+
+    cursor.execute(query)
+    old_clients = len(cursor.fetchall())
+
+    query = """ SELECT customer_id FROM customer WHERE tenure = 1 """
+
+    cursor.execute(query)
+    new_clients = len(cursor.fetchall())
+
+    percentage = (new_clients - old_clients) // 100
+
+    if percentage > 0:
+        return True
+    
+    else:
+        return False
+
+    '''
+    1 coisa: Pegar os valores dos tenures iguais ou maiores que 2
+    
+    2 coisa: Pegar os valores dos tenures iguais a 1
+    
+    3 coisa: Fazer a porcentagem (se for maior: seta p/ cima, se for menor: seta p/ baixo)
+    
+    Retornar o sentido da seta para a API
+    '''
