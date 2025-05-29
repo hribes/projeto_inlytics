@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients
-from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data  , monthly_sales_volume, qnt_products_month
+from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month
 from Database.Queries.usuario import get_user_info, get_all_customers,search_user_profile
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
@@ -71,6 +71,7 @@ def dashboard():
     empresa = company_data()
     dados_faturamento = monthly_sales_data()
     qnt_produtos = qnt_products_month()
+    vendas_volume = monthly_sales_volume()
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
@@ -84,13 +85,19 @@ def dashboard():
     nome_usuario=nome_usuario, 
     setor_usuario=setor_usuario, 
     empresa=empresa, 
-    dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos)
+    dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos, vendas_volume=vendas_volume)
     #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
 @home.route("/api/faturamento_mensal")
 def faturamento_mensal():
     dados = monthly_sales_data()
     return jsonify(dados)
+
+@home.route("/api/produtos_vendidos")
+def volumes_vendas_mensal():
+    grafico_volume = monthly_sales_volume()
+    return jsonify(grafico_volume)
+
 
 
 @home.route("/churn")
@@ -142,9 +149,5 @@ def usuario():
     
     return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes, empresa=empresa)
 
-@home.route("/teste")
-def grafico():
-    grafico_volume = monthly_sales_volume()
-    grafico_faturamento = monthly_sales_data()
-    return [grafico_volume, grafico_faturamento]
+
         

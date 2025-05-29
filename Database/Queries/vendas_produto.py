@@ -127,16 +127,29 @@ def monthly_sales_volume():
     resultado = cursor.fetchall()
     conn.close()
     
-    # dados = lista de tuplas (mes, total de vendas)
-    dados = [(row[0], int(row[1])) for row in resultado]
+    # Dicionário para mapear números dos meses para nomes em português
+    meses = {
+        '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
+        '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+        '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
+    }
     
-    # Completa meses/anos faltantes
+    # Converter os dados brutos e incluir nomes dos meses
+    dados = []
+    for row in resultado:
+        ano_mes = row[0]  # Formato 'YYYY-MM'
+        ano, mes = ano_mes.split('-')
+        nome_mes = f"{meses[mes]} {ano}"  # Ex: "Jan 2025"
+        dados.append({'data': nome_mes, 'valor': int(row[1])})
+    
+    # Completar os meses vazios com a função existente
     dados_completos = completa_anos_meses_simples(dados)
     
     print("QUANTIDADE DE VENDAS POR MÊS - GRÁFICO")
     print(dados_completos)
     
     return dados_completos
+
 
 def qnt_products_month():
     conn = conectar_db()
