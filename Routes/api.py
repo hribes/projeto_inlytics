@@ -19,11 +19,13 @@ def home_page():
         logout_user()
         return render_template("index.html")
 
+
 @home.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("home.home_page"))
+
 
 @home.route("/login", methods=["POST", "GET"])
 def login():
@@ -57,7 +59,6 @@ def login():
 #     else:
 #         return render_template('index.html')
     
-    
 
   
 @home.route("/dashboard")
@@ -84,17 +85,9 @@ def dashboard():
     else:
         porcentagem_clientes_novos = (clientes_novos / (clientes_totais - clientes_novos)) * 100
     
-    return render_template("dashboard.html", 
-        produto_destaque=produto_destaque, 
-        clientes_novos=clientes_novos, 
-        porcentagem_clientes_novos=porcentagem_clientes_novos,
-        nome_usuario=nome_usuario, 
-        setor_usuario=setor_usuario, 
-        empresa=empresa, 
-        dados_faturamento=dados_faturamento, 
-        qnt_produtos=qnt_produtos,
-        pais_destaque=pais_destaque,
-        lucro_total=lucro_total)
+    return render_template("dashboard.html", produto_destaque=produto_destaque, clientes_novos=clientes_novos, 
+        porcentagem_clientes_novos=porcentagem_clientes_novos, nome_usuario=nome_usuario,
+        setor_usuario=setor_usuario, empresa=empresa, dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos,pais_destaque=pais_destaque, lucro_total=lucro_total)
 
 @home.route("/api/faturamento_mensal")
 def faturamento_mensal():
@@ -150,6 +143,7 @@ def usuario():
         
     
     return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes, empresa=empresa)
+
 
 @home.route("/teste")
 def grafico():

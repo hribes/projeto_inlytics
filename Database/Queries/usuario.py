@@ -36,26 +36,27 @@ def get_all_customers():
     return results
     
     
-
 def search_user_profile(perfil):
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
-    
+    cursor = conn.cursor()
+
     query = """
-    SELECT c.*, r.customer_classification
-    FROM customer c
-    JOIN rfm r ON c.customer_id = r.customer_id
-    WHERE r.customer_classification = %s
+        SELECT c.*, r.customer_classification
+        FROM customer c
+        JOIN rfm r ON c.customer_id = r.customer_id
+        WHERE r.customer_classification = %s
     """
-    
-    cursor.execute(query, (perfil,))
-    filtro_perfil = cursor.fetchall()
-    
-    conn.close()
+
+    try:
+        cursor.execute(query, (perfil,))
+        filtro_perfil = cursor.fetchall()
+    except Exception as e:
+        print("Erro ao buscar usuários:", e)
+        filtro_perfil = []
+    finally:
+        conn.close()
+
     return filtro_perfil
-
-
-
 
 
 #  conn = conectar_db()
