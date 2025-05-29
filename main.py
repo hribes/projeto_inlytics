@@ -24,5 +24,6 @@ def load_user(user_id):
         )
     return None
 
+
 if __name__ == "__main__":
     app.run(debug=True)

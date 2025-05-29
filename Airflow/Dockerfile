@@ -11,4 +11,5 @@ RUN apt-get update && \
 #Voltando para o airflow
 USER airflow
 
-RUN pip install "apache-airflow[mysql]==2.8.1"
+RUN pip install "apache-airflow[mysql]==2.8.1" \
+    && pip install pymysql

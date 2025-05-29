@@ -1,5 +1,6 @@
 /ambiente_inlytics/
 /.env
+/Database/.env
 /dados_temporarios_rfm_csv
 __pycache__/
 *.py[cod]

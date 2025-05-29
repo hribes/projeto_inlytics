@@ -13,7 +13,6 @@ CREATE TABLE `plan_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-
 CREATE TABLE `enterprise` (
   `id_enterprise` int(11) NOT NULL AUTO_INCREMENT,
   `enterprise_name` varchar(32) DEFAULT NULL,
@@ -28,13 +27,12 @@ CREATE TABLE `enterprise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   `churn` decimal(5,2) DEFAULT NULL,
   `gender` char(6) DEFAULT NULL,
-  `tenure` decimal(3,1) DEFAULT NULL,
+  `tenure` decimal(10,4) DEFAULT NULL,
   `preferred_payment_type` varchar(30) DEFAULT NULL,
   `frequent_dispositive` varchar(32) DEFAULT NULL,
   `satisfaction_score` decimal(5,2) DEFAULT NULL,
@@ -49,7 +47,6 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-
 CREATE TABLE `churn` (
   `id_customer` int(11) NOT NULL,
   `id_enterprise` int(11) NOT NULL,
@@ -59,7 +56,6 @@ CREATE TABLE `churn` (
   CONSTRAINT `churn_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`customer_id`),
   CONSTRAINT `churn_ibfk_2` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 
 CREATE TABLE `inlytic_user` (
@@ -95,10 +91,6 @@ CREATE TABLE `rfm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-
-
-
-
 CREATE TABLE `seasonality` (
   `id_seasonality` int(11) NOT NULL AUTO_INCREMENT,
   `id_enterprise` int(11) NOT NULL,
@@ -126,8 +118,3 @@ CREATE TABLE `sold_products` (
   KEY `id_enterprise` (`id_enterprise`),
   CONSTRAINT `sold_products_ibfk_1` FOREIGN KEY (`id_enterprise`) REFERENCES `enterprise` (`id_enterprise`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-
-

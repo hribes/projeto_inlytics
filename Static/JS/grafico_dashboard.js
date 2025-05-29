@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
           scales: {
             y: {
               beginAtZero: true,
-              max: 5000,
+              max: 250000,
               ticks: {
-                stepSize: 1000,
+                stepSize: 10000,
                 maxTicksLimit: 6,
                 font: {
                   family: 'Poppins, sans-serif',

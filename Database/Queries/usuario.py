@@ -4,17 +4,21 @@ from Database.conexao_bd import conectar_db
 def get_user_info():
     conn = conectar_db()
     cursor = conn.cursor()
+
     query_name = """ SELECT worker_name FROM inlytic_user WHERE id_inlytic_user = 1; """
     cursor.execute(query_name)
+
     nome_usuario_consulta = cursor.fetchone()
     
-    nome_usuario = nome_usuario_consulta[0] if nome_usuario_consulta else ""
+    nome_usuario = nome_usuario_consulta['worker_name'] if nome_usuario_consulta else ""
     
     
     query_sector = """ SELECT sector FROM inlytic_user WHERE id_inlytic_user = 1 """
     cursor.execute(query_sector)
+
     setor_usuario_consulta = cursor.fetchone()
-    setor_usuario = setor_usuario_consulta[0] if setor_usuario_consulta else ""
+    
+    setor_usuario = setor_usuario_consulta['sector'] if setor_usuario_consulta else ""
 
 
     conn.close()
@@ -23,7 +27,7 @@ def get_user_info():
 
 def get_all_customers():
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor()
 
     query = "SELECT * FROM customer"
     cursor.execute(query)
@@ -32,26 +36,27 @@ def get_all_customers():
     return results
     
     
-
 def search_user_profile(perfil):
     conn = conectar_db()
-    cursor = conn.cursor(dictionary=True)
-    
+    cursor = conn.cursor()
+
     query = """
-    SELECT c.*, r.customer_classification
-    FROM customer c
-    JOIN rfm r ON c.customer_id = r.customer_id
-    WHERE r.customer_classification = %s
+        SELECT c.*, r.customer_classification
+        FROM customer c
+        JOIN rfm r ON c.customer_id = r.customer_id
+        WHERE r.customer_classification = %s
     """
-    
-    cursor.execute(query, (perfil,))
-    filtro_perfil = cursor.fetchall()
-    
-    conn.close()
+
+    try:
+        cursor.execute(query, (perfil,))
+        filtro_perfil = cursor.fetchall()
+    except Exception as e:
+        print("Erro ao buscar usuários:", e)
+        filtro_perfil = []
+    finally:
+        conn.close()
+
     return filtro_perfil
-
-
-
 
 
 #  conn = conectar_db()

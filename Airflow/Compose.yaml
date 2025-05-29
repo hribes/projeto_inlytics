@@ -8,8 +8,10 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://root:airfwDB9090@db/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=airfwWEBSERVER
     volumes:
       - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
     ports:
       - '9090:9090'
     command: webserver --port 9090
@@ -26,8 +28,10 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://root:airfwDB9090@db/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=airfwWEBSERVER
     volumes:
       - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
     command: scheduler
     depends_on:
       - airflow-init
@@ -48,8 +52,10 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://root:airfwDB9090@db/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=airfwWEBSERVER
     volumes:
       - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
     depends_on:
       - db
 
