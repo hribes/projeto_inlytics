@@ -195,7 +195,7 @@ def total_profit():
 
     cursor.execute(query)
     profit = cursor.fetchone()['total_profit']
-    form = lambda num: f"{num:,.0f}".replace(",", "v").replace(".", ",").replace("v", ".")
+    form = lambda num: f"{num:,.2f}".replace(",", "v").replace(".", ",").replace("v", ".")
 
     return f'R$ {form(profit)}'
 
