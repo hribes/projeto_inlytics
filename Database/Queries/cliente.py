@@ -30,22 +30,19 @@ def qnt_all_clients():
 def clients_increase():
     conn = conectar_db()
     cursor = conn.cursor()
-    # query = """ SELECT customer_id, COUNT(*) AS novos_clientes
-    # FROM customer
-    # WHERE time_as_client >= CURDATE() - INTERVAL 15 DAY
-    # GROUP BY customer_id
-    # """
-    
-    query = """SELECT customer_id, COUNT(*) AS novos_clientes
-    FROM customer
-    WHERE tenure >= 1 
-    GROUP BY customer_id
+
+    query = """
+        SELECT customer_id
+        FROM customer
+        WHERE tenure <= 0
     """
+
     cursor.execute(query)
     aumento_clientes = cursor.fetchall()
     conn.close()
     
     return aumento_clientes
+
     
 #  query = """SELECT product_name, COUNT(*) AS produto_destaque
 #                FROM sold_products 
