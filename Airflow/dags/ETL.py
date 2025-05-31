@@ -4,6 +4,7 @@ from sqlalchemy import text, MetaData, Table
 from sqlalchemy import create_engine as eng
 from sqlalchemy.dialects.mysql import insert
 from datetime import datetime, timedelta
+from pathlib import Path
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
@@ -16,10 +17,12 @@ port = 3306
 db_name = 'Inlytics'
 
 #Conexão com os bancos de dados e arquivos JSON
-sqlite_eng = eng('sqlite:////opt/airflow/data/empresa_cliente_db.db')
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+sqlite_eng = eng(f'sqlite:///{BASE_DIR}/data/empresa_cliente_db.db')
 mysql_eng = eng(f'mysql+pymysql://{sql_user}:{sql_pass}@{sql_host}:{port}/{db_name}')
 
-json_archive = '/opt/airflow/data/data.json'
+json_archive = f'{BASE_DIR}/data/data.json'
 
 #Tabelas alvo
 metadata = MetaData()
