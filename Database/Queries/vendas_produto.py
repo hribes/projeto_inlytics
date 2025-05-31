@@ -133,9 +133,6 @@ def monthly_sales_volume():
     
     return dados_completos
 
-
-
-
 def qnt_products_month():
     conn = conectar_db()
     cursor = conn.cursor()

@@ -77,22 +77,32 @@ def dashboard():
     empresa = company_data()
     dados_faturamento = monthly_sales_data()
     qnt_produtos = qnt_products_month()
-    pais_destaque = most_frequent_country()
-    lucro_total = total_profit()
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
     else:
         porcentagem_clientes_novos = (clientes_novos / (clientes_totais - clientes_novos)) * 100
     
-    return render_template("dashboard.html", produto_destaque=produto_destaque, clientes_novos=clientes_novos, 
-        porcentagem_clientes_novos=porcentagem_clientes_novos, nome_usuario=nome_usuario,
-        setor_usuario=setor_usuario, empresa=empresa, dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos,pais_destaque=pais_destaque, lucro_total=lucro_total)
+    return render_template("dashboard.html", 
+    produto_destaque=produto_destaque[0], 
+    clientes_novos=clientes_novos, 
+    porcentagem_clientes_novos=porcentagem_clientes_novos,
+    nome_usuario=nome_usuario, 
+    setor_usuario=setor_usuario, 
+    empresa=empresa, 
+    dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos)
+    #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
 @home.route("/api/faturamento_mensal")
 def faturamento_mensal():
     dados = monthly_sales_data()
     return jsonify(dados)
+
+@home.route("/api/produtos_vendidos")
+def volumes_vendas_mensal():
+    grafico_volume = monthly_sales_volume()
+    return jsonify(grafico_volume)
+
 
 
 @home.route("/churn")
@@ -145,7 +155,6 @@ def usuario():
         
     
     return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes, empresa=empresa)
-
 
 @home.route("/teste")
 def grafico():
