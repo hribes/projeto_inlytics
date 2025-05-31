@@ -59,7 +59,6 @@ def get_all_customers_with_lucro_rfm_churn():
         r.recency, r.frequencey, r.monetary, r.customer_classification,
         ch.loss_probabilty
     ORDER BY c.customer_id
-    LIMIT 50;
     """
 
     cursor.execute(query)
@@ -68,29 +67,50 @@ def get_all_customers_with_lucro_rfm_churn():
     conn.close()
 
     return results
-
-    
-def search_user_profile(perfil):
+def search_user_profile(perfil=None):
     conn = conectar_db()
     cursor = conn.cursor()
 
     query = """
-        SELECT c.*, r.customer_classification
-        FROM customer c
-        JOIN rfm r ON c.customer_id = r.customer_id
-        WHERE r.customer_classification = %s
+    SELECT 
+        c.customer_id,c.name,c.gender,c.tenure,c.preferred_payment_type,
+        c.frequent_dispositive,c.satisfaction_score,c.marital_status,c.cupom_used,
+        c.complained,c.dispositives_num,
+        r.recency,r.frequencey,r.monetary,
+        r.customer_classification,
+        ch.loss_probabilty AS churn,
+        COALESCE(SUM(sp.product_price * sp.quantity), 0) AS lucro
+    FROM customer c
+    LEFT JOIN rfm r ON c.customer_id = r.customer_id
+    LEFT JOIN churn ch ON c.customer_id = ch.id_customer
+    LEFT JOIN sold_products sp ON c.customer_id = sp.id_customer
     """
 
-    try:
-        cursor.execute(query, (perfil,))
-        filtro_perfil = cursor.fetchall()
-    except Exception as e:
-        print("Erro ao buscar usuários:", e)
-        filtro_perfil = []
-    finally:
-        conn.close()
+    params = []
+    if perfil:
+        query += " WHERE r.customer_classification = %s "
 
-    return filtro_perfil
+        params.append(perfil)
+
+    query += """
+    GROUP BY 
+        c.customer_id, c.name, c.gender, c.tenure, c.preferred_payment_type,
+        c.frequent_dispositive, c.satisfaction_score, c.marital_status,
+        c.cupom_used, c.complained, c.dispositives_num,
+        r.recency, r.frequencey, r.monetary, r.customer_classification,
+        ch.loss_probabilty
+    ORDER BY c.customer_id
+    LIMIT 50;
+    """
+
+    cursor.execute(query, params)
+    results = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    return results
+
+
 
 
 #  conn = conectar_db()
