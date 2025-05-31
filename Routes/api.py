@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients, increase_simbol
-from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month, most_frequent_country, total_profit
+from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month, most_frequent_country, total_profit, top3_monthly_sales
 from Database.Queries.usuario import get_user_info, get_all_customers, search_user_profile
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
@@ -147,7 +147,11 @@ def usuario():
 
 @home.route("/teste")
 def grafico():
-    grafico_volume = monthly_sales_volume()
+    grafico_volume = top3_monthly_sales()
+    #resultado_final = format_data_for_chart(grafico_volume)
     grafico_faturamento = monthly_sales_data()
-    return [grafico_volume, grafico_faturamento]
+    return [grafico_volume]
+
+
+
         

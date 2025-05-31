@@ -199,6 +199,65 @@ def total_profit():
 
     return f'R$ {form(profit)}'
 
+
+def top3_monthly_sales():
+    conn = conectar_db()
+    cursor = conn.cursor()
+
+    year = 2011
+
+    query = f"""
+        WITH RECURSIVE months AS (
+            SELECT DATE('{year}-01-01') AS first_day
+            UNION ALL
+            SELECT DATE_ADD(first_day, INTERVAL 1 MONTH)
+            FROM months
+            WHERE first_day < DATE('{year}-12-01')
+        ),
+        Top3Products AS (
+            SELECT stock_code, product_desc
+            FROM sold_products
+            WHERE YEAR(invoice_date) = {year}
+            GROUP BY stock_code, product_desc
+            ORDER BY SUM(quantity) DESC
+            LIMIT 3
+        ),
+        AllCombinations AS (
+            SELECT 
+                DATE_FORMAT(m.first_day, '%Y-%m') AS sale_month,
+                p.stock_code,
+                p.product_desc
+            FROM months m
+            CROSS JOIN Top3Products p
+        ),
+        MonthlySales AS (
+            SELECT
+                DATE_FORMAT(invoice_date, '%Y-%m') AS sale_month,
+                stock_code,
+                SUM(quantity) AS total_quantity
+            FROM sold_products
+            WHERE YEAR(invoice_date) = {year}
+            GROUP BY sale_month, stock_code
+        )
+        SELECT
+            ac.sale_month,
+            ac.product_desc,
+            ac.stock_code AS `codigo_de_estoque`,
+            COALESCE(ms.total_quantity, 0) AS quantidade_total
+        FROM AllCombinations ac
+        LEFT JOIN MonthlySales ms
+            ON ac.sale_month = ms.sale_month AND ac.stock_code = ms.stock_code
+        ORDER BY ac.sale_month, ac.stock_code;
+        """
+
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return results
+
 # def qnt_products_month():
 #     conn = conectar_db()
 #     cursor = conn.cursor()
