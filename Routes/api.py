@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients, increase_simbol
 from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month, most_frequent_country, total_profit, top3_monthly_sales
-from Database.Queries.usuario import get_user_info, get_all_customers, search_user_profile
+from Database.Queries.usuario import get_user_info, get_all_customers, search_user_profile, get_all_customers_with_lucro_rfm_churn
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
 from Database.Queries.rfm import type_and_qnt_perfil
@@ -139,7 +139,7 @@ def usuario():
     if perfil:
         clientes = search_user_profile(perfil)
     else:
-        clientes = get_all_customers()
+        clientes = get_all_customers_with_lucro_rfm_churn()
         
     
     return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes, empresa=empresa)

@@ -34,7 +34,51 @@ def get_all_customers():
     results = cursor.fetchall()
     conn.close()
     return results
-    
+
+def get_all_customers_with_lucro_rfm_churn():
+    conn = conectar_db()
+    cursor = conn.cursor()
+
+    query = """
+    SELECT 
+        c.customer_id,
+        c.name,
+        c.gender,
+        c.tenure,
+        c.preferred_payment_type,
+        c.frequent_dispositive,
+        c.satisfaction_score,
+        c.marital_status,
+        c.cupom_used,
+        c.complained,
+        c.dispositives_num,
+        r.recency,
+        r.frequencey,
+        r.monetary,
+        r.customer_classification,
+        ch.loss_probabilty AS churn,
+        COALESCE(SUM(sp.product_price * sp.quantity), 0) AS lucro
+    FROM customer c
+    LEFT JOIN rfm r ON c.customer_id = r.customer_id
+    LEFT JOIN churn ch ON c.customer_id = ch.id_customer
+    LEFT JOIN sold_products sp ON c.customer_id = sp.id_customer
+    GROUP BY 
+        c.customer_id, c.name, c.gender, c.tenure, c.preferred_payment_type,
+        c.frequent_dispositive, c.satisfaction_score, c.marital_status,
+        c.cupom_used, c.complained, c.dispositives_num,
+        r.recency, r.frequencey, r.monetary, r.customer_classification,
+        ch.loss_probabilty
+    ORDER BY c.customer_id
+    LIMIT 50;
+    """
+
+    cursor.execute(query)
+    results = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    return results
+
     
 def search_user_profile(perfil):
     conn = conectar_db()
