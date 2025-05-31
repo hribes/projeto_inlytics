@@ -101,8 +101,10 @@ def churn():
     nome_usuario, setor_usuario = get_user_info()
     empresa = company_data()
     empresa = company_data()
+
+    clientes = get_all_customers_with_lucro_rfm_churn() 
     
-    return render_template("churn.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
+    return render_template("churn.html",clientes = clientes,nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
 
 
 @home.route("/rfm")

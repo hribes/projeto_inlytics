@@ -41,20 +41,10 @@ def get_all_customers_with_lucro_rfm_churn():
 
     query = """
     SELECT 
-        c.customer_id,
-        c.name,
-        c.gender,
-        c.tenure,
-        c.preferred_payment_type,
-        c.frequent_dispositive,
-        c.satisfaction_score,
-        c.marital_status,
-        c.cupom_used,
-        c.complained,
-        c.dispositives_num,
-        r.recency,
-        r.frequencey,
-        r.monetary,
+        c.customer_id,c.name,c.gender,c.tenure,c.preferred_payment_type,
+        c.frequent_dispositive,c.satisfaction_score,c.marital_status,c.cupom_used,
+        c.complained,c.dispositives_num,
+        r.recency,r.frequencey,r.monetary,
         r.customer_classification,
         ch.loss_probabilty AS churn,
         COALESCE(SUM(sp.product_price * sp.quantity), 0) AS lucro
