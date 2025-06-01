@@ -163,7 +163,19 @@
     </div>
     <!-- {% endif %} -->
      {% else %}
-        <h2 style="color: gray; text-align: center">Não foram encontrados usuários com esse tipo de perfil</h2>
+     <div class="nao-encontrado">
+        <img src="/static/Imagens/nao-encontrado.png">
+        <h2>Não foram encontrados usuários com esse tipo de perfil.</h2>
+    </div>
+    <div class="botoes-retornar">
+
+        <a href="{{ url_for('home.usuario') }}">
+            <button class="btn-usuario slide_left" type="submit">Listar todos os usuários</button>
+        </a>
+        <a href="{{ url_for('home.rfm') }}">
+            <button class="btn-rfm slide_right" type="submit">Retornar ao RFM</button>
+        </a>
+    </div>
     {% endfor %}
 </div>
 
