@@ -1,0 +1,88 @@
+services:
+  airflow-webserver:
+    platform: linux/amd64
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow-webserver
+    restart: always
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://root:airfwDB9090@db/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=airfwWEBSERVER
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    ports:
+      - '9090:9090'
+    command: webserver --port 9090
+    depends_on:
+      db:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-scheduler:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow-scheduler
+    restart: always
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://root:airfwDB9090@db/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=airfwWEBSERVER
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    command: scheduler
+    depends_on:
+      db:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-init:
+    platform: linux/amd64
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow-init
+    entrypoint: /bin/bash
+    command: >
+               -c " 
+                    airflow db init &&
+
+                    airflow users create --username gabz --firstname Gabriel --lastname Ferreira --role Admin --email gabs.ferr08@gmail.com --password GA96biel
+                  "
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://root:airfwDB9090@db/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=airfwWEBSERVER
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    depends_on:
+      - db
+
+  db:
+    platform: linux/amd64
+    image: mysql
+    restart: always
+    container_name: airflow-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=airfwDB9090
+      - MYSQL_DATABASE=airflow
+    ports:
+      - '9191:3306' # <-- Para se precisarmos acessar o banco do airflow mais tarde
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pairfwDB9090"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
