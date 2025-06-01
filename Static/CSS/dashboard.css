@@ -236,14 +236,14 @@ header .image-text .header-text {
 }
 
 .user-info .name {
-    font-size: 11pt;
+    font-size: clamp(14px, 8vw, 18px);
     font-weight: bold;
     color: #2c3e50;
     white-space: nowrap;
 }
 
 .user-info .role {
-    font-size: 12px;
+    font-size: clamp(12px, 6vw, 5px);
     color: #555;
     white-space: nowrap;
 }
@@ -253,7 +253,8 @@ header .image-text .header-text {
     color: #08416f;
     cursor: pointer;
     transition: 0.3s;
-    padding-left: 50px;
+    padding-left: 85px;
+    padding-top: 5px;
 }
 
 .logout-icon:hover {
@@ -344,7 +345,7 @@ header .image-text .header-text {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    line-height: 45px;
+    line-height: 40px;
     color: #0e0132;
     padding: 20px;
 }
@@ -355,8 +356,8 @@ header .image-text .header-text {
     align-items: center;
 }
 .lucro-valor h1{
-    font-size: 47pt;
-    margin-bottom: 20px;
+    font-size: clamp(7px, 8vw, 45px);
+    margin-bottom: 25px;
 }
 .lucro-valor h3{
     font-weight: 600;
@@ -392,11 +393,11 @@ header .image-text .header-text {
     padding-top: 30px;
 }
 .cliente-novos-numero h1{
-    font-size: 70pt;
+    font-size: clamp(40px,8vw,75px);
     font-weight: 600;
 }
 .cliente-novos-numero h3{
-    font-size: 16pt;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -435,7 +436,7 @@ header .image-text .header-text {
     color: #ffff;   
 }
 .pais-mais-vendido-img{
-    margin-right: 10px;
+    margin-left: 20px;
 }
 .pais-mais-vendido-img img{
     width: 40px;
@@ -448,11 +449,18 @@ header .image-text .header-text {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    margin-right: 10px;
+    margin-right: 30px;
+    
 }
 .pais-mais-vendido-nome h1{
-    font-size: 45pt;
+    font-size: clamp(10px,8vw,35px);
+    text-align: center;
+    line-height: 30px;
     font-weight: 800;
+}
+.pais-mais-vendido-nome h3{
+    font-size: clamp(10px,8vw,18px);
+    font-weight: 400;
 }
 
 .rendimento-compras-vendas{
@@ -503,7 +511,8 @@ header .image-text .header-text {
 }
 .produto-mais-vendido h1{
     margin-top: 15px;
-    font-size: 25pt;
+    font-size: clamp(12px,8vw,28px);
+
 }
 .produto-mais-vendido h3{
     font-weight: 400;
@@ -524,7 +533,7 @@ header .image-text .header-text {
 }
 
 .qtd-vendas h1 {
-    font-size: 19pt;
+    font-size: 18pt;
     font-weight: 800; /* deixa a fonte mais grossa */
     text-align: center;
     margin: 0;
@@ -539,7 +548,7 @@ header .image-text .header-text {
 }
 
 .qtd-vendas h1.valor {
-    font-size: 90pt;
+    font-size: clamp(75px,100px - 10vw,10px);
     color: #073763; /* azul escuro parecido com o da imagem */
     text-align: center;
     margin: 0;
@@ -547,14 +556,14 @@ header .image-text .header-text {
 }
 .produtos-mais-vendidos {
     width: 100%;
-    background-color: #ffffff; /* Fundo branco para um visual mais limpo */
-    border: 1px solid #e5e5e5; /* Borda mais fina e suave */
-    border-radius: 10px; /* Arredondamento mais sutil */
-    height: 45vh; /* Reduzido ligeiramente para um layout mais compacto */
-    padding: 20px 30px; /* Padding simplificado, mais uniforme */
-    margin-top: 15px; /* Aumentado para melhor separação */
-    color: #0e0132; /* Mantida a cor do texto */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidade */
+    background-color: #ffffff; 
+    border: 1px solid #e5e5e5; 
+    border-radius: 10px; 
+    height: 45vh; 
+    padding: 20px 30px;
+    margin-top: 15px;
+    color: #0e0132; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); 
 }
 
 .produtos-mais-vendidos h1{

@@ -344,19 +344,26 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 70px;
+    line-height: 60px;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding-top: 10px;
 }
 .nao-pode-perder h3{
     font-weight: 400;
     font-size: 16pt;
+    padding-bottom: 5px;
 }
 .nao-pode-perder h1{
     font-size: 80pt;
-    margin-bottom: 20px;
     font-weight: 600;
 }
+.nao-pode-perder h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
 .nao-pode-perder:hover {
   background-color: #a9d4f7;
   transform: scale(1.02);
@@ -374,20 +381,27 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 70px;
+    line-height: 60px;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding-top: 10px;
 }
 
 .prestes-partir h3{
     font-weight: 400;
     font-size: 16pt;
+    padding-bottom: 5px;
 }
 .prestes-partir h1{
     font-size: 80pt;
-    margin-bottom: 20px;
     font-weight: 600;
 }
+.prestes-partir h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
 .prestes-partir:hover {
     background-color: #92a1e1;
     transform: scale(1.02);
@@ -404,20 +418,27 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 70px;
+    line-height: 60px;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding-top: 10px;
 }
 
 .hibernando h3{
     font-weight: 400;
     font-size: 16pt;
+    padding-bottom: 5px;
 }
 
 .hibernando h1{
     font-size: 80pt;
-    margin-bottom: 20px;
     font-weight: 600;
+}
+
+.hibernando h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .hibernando:hover {
     background-color: #0c5896;
@@ -448,7 +469,7 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 100px;
+    line-height: 85px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -460,8 +481,12 @@ header .image-text .header-text {
 
 .campeoes h1{
     font-size: 100pt;
-    margin-bottom: 40px;
     font-weight: 600;
+}
+.campeoes h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .campeoes:hover {
     background-color: #7caff8;
@@ -484,7 +509,7 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 50px;
+    line-height: 40px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -492,6 +517,7 @@ header .image-text .header-text {
 .perdidos h3{
     font-weight: 400;
     font-size: 14pt;
+    margin-top: 10px;
     
 }
 
@@ -499,6 +525,11 @@ header .image-text .header-text {
     font-size: 50pt;
     font-weight: 600;
     margin-bottom: 10px;
+}
+.perdidos h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-top: -10px;
 }
 .perdidos:hover {
     background-color: #bfbfbf;
@@ -514,18 +545,23 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 80px;
+    line-height: 60px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .atencao h3{
     font-weight: 400;
     font-size: 16pt; 
+    margin-bottom: 10px;
 }
 .atencao h1{
     font-size: 80pt;
     font-weight: 600;
-    margin-bottom: 25px;
+}
+.atencao h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .atencao:hover {
     background-color: #a4b3f5;
@@ -549,7 +585,7 @@ header .image-text .header-text {
     justify-content: center;
     align-items: center;
     color: #ffff;
-    line-height: 65px;
+    line-height: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -557,11 +593,16 @@ header .image-text .header-text {
 .promissores h3{
     font-weight: 400;
     font-size: 14pt; 
+    margin-top: 5px;
 }
 .promissores h1{
     font-size: 65pt;
     font-weight: 600;
-    margin-bottom: 20px;
+}
+.promissores h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .promissores:hover {
     background-color: #3796e4;
@@ -579,7 +620,7 @@ header .image-text .header-text {
     justify-content: center;
     align-items: center;
     color: #ffff;
-    line-height: 65px;
+    line-height: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -587,11 +628,16 @@ header .image-text .header-text {
 .em-risco h3{
     font-weight: 400;
     font-size: 14pt; 
+    margin-top: 5px;
 }
 .em-risco h1{
     font-size: 65pt;
     font-weight: 600;
-    margin-bottom: 20px;
+}
+.em-risco h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .em-risco:hover {
     background-color: #4459bb;
@@ -615,18 +661,23 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 90px;
+    line-height: 70px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .clientes-fieis h3{
     font-weight: 400;
     font-size: 19pt; 
+    padding-bottom: 15px;
 }
 .clientes-fieis h1{
     font-size: 100pt;
     font-weight: 600;
-    margin-bottom: 30px;
+}
+.clientes-fieis h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .clientes-fieis:hover {
     background-color: #acd2f2;
@@ -651,16 +702,22 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 60px;
+    line-height: 40px;
 }
 .potenciais-fieis h3{
     font-weight: 400;
     font-size: 16pt; 
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 .potenciais-fieis h1{
     font-size: 55pt;
     font-weight: 600;
-    margin-bottom: 20px;
+}
+.potenciais-fieis h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .potenciais-fieis:hover {
     background-color: #989993;
@@ -675,16 +732,23 @@ header .image-text .header-text {
     flex-direction: column;
     justify-content: center;
     align-items: center; /* cor diferente */
-    line-height: 60px;
+    line-height: 40px;
 }
 .recentes h3{
     font-weight: 400;
     font-size: 16pt; 
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 .recentes h1{
     font-size: 55pt;
     font-weight: 600;
-    margin-bottom: 15px;
+
+}
+.recentes h4{
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .recentes:hover {

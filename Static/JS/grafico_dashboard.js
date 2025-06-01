@@ -98,3 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erro ao carregar os dados:", error);
     });
 });
+
+
+// GRAFICO DE VENDAS MENSAL
