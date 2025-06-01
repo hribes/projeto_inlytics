@@ -324,6 +324,9 @@ header .image-text .header-text {
 .titulos-tabela{
     display: flex;
     margin-top: 40px;
+    justify-content: space-between;
+    padding: 25px 170px 0 162px;
+    position: sticky;
 }
 
 .titulos-tabela h3{
@@ -340,6 +343,7 @@ header .image-text .header-text {
     border-radius: 15px;
     padding-bottom: 15px;
     color: #0e0132;
+    position: sticky;
     }
 
 .conteudo {
@@ -347,10 +351,11 @@ header .image-text .header-text {
     overflow: hidden;
     transition: max-height 0.4s ease;
     margin-top: 10px;
+    padding: 0 100px;
     }
 
     .div-clique.ativo {
-      background-color: #c8d2ff;
+    background-color: #c8d2ff;
     }
     .div-clique.ativo .conteudo {
       max-height: 700px; /* o suficiente para mostrar o conteúdo */
@@ -373,11 +378,11 @@ header .image-text .header-text {
 
 .coluna h2{
     font-size: 14pt;
-    font-weight: 800;
+    font-weight: 600;
 }
 .coluna h3{
     font-size: 11pt;
-    font-weight: 600;
+    font-weight: 400;
     margin-top: -30px;
 }
 
@@ -385,8 +390,11 @@ header .image-text .header-text {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 25px;
+    padding: 25px 215px 0 170px;
     font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
+    position: sticky;
+
 }
 
 
@@ -394,10 +402,11 @@ header .image-text .header-text {
     font-weight: 400;
     font-size: 14pt;
 }
-.usuario-informacoes h4.id{
-    margin-left: 50px;
+
+.titulos-tabela .nome{
+    margin-left: 55px;
 }
-.titulos-tabela h3.id{
+.titulos-tabela .lucro{
     margin-left: 60px;
 }
 

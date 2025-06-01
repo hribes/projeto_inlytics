@@ -99,26 +99,24 @@
                         <h3 class="possibilidade">Possibilidade</h3>
                         <h3 class="probabilidade">Probabilidade</h3>
                     </div>
-                    <div class="churn-informacoes">
-                        <h4 class="id">1235</h4>
-                        <h4 class="nome">Giulianny Junqueira Agnes</h4>
-                        <h4 class="possibilidade">Sim</h4>
-                        <h4 class="probabilidade">70%</h4>
-                    </div>
-
-                    <div class="churn-informacoes">
-                        <h4 class="id">1235</h4>
-                        <h4 class="nome">Giulianny Junqueira Agnes</h4>
-                        <h4 class="possibilidade">Sim</h4>
-                        <h4 class="probabilidade">70%</h4>
-                    </div>
-
-                    <div class="churn-informacoes">
-                        <h4 class="id">1235</h4>
-                        <h4 class="nome">Giulianny Junqueira Agnes</h4>
-                        <h4 class="possibilidade">Sim</h4>
-                        <h4 class="probabilidade">70%</h4>
-                    </div>
+                        {% for cliente in clientes %}
+                        <div class="churn-informacoes">
+                            <h4 class="id">{{ cliente.customer_id }}</h4>
+                            <h4 class="nome">{{ cliente.name }}</h4>
+                            <h4 class="possibilidade">
+                                {% if cliente.churn and cliente.churn > 0.5 %}
+                                    Sim
+                                {% else %}
+                                    Não
+                                {% endif %}
+                            </h4>
+                            <h4 class="probabilidade">
+                                {{ '%.0f'|format(cliente.churn * 100) if cliente.churn is not none else '0' }}%
+                            </h4>
+                        </div>
+                        {% else %}
+                            <h2 style="color: gray; text-align: center;">Nenhum cliente encontrado.</h2>
+                        {% endfor %}
                 </div>
             </div>
         </section>

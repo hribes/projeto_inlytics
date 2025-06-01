@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 from Database.Queries.cliente import list_all_clients,clients_increase, qnt_all_clients, increase_simbol
-from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month, most_frequent_country, total_profit
-from Database.Queries.usuario import get_user_info, get_all_customers, search_user_profile
+from Database.Queries.vendas_produto import show_highlight_products, monthly_sales_data, monthly_sales_volume, qnt_products_month, most_frequent_country, total_profit, top3_monthly_sales
+from Database.Queries.usuario import get_user_info, get_all_customers, search_user_profile, get_all_customers_with_lucro_rfm_churn
 from Database.Queries.empresa import company_data
 from Database.Queries.login import find_by_email_password, User, load_user
 from Database.Queries.rfm import type_and_qnt_perfil
@@ -77,8 +77,9 @@ def dashboard():
     empresa = company_data()
     dados_faturamento = monthly_sales_data()
     qnt_produtos = qnt_products_month()
-    pais_destaque = most_frequent_country()
     lucro_total = total_profit()
+    pais_destaque =most_frequent_country()
+    
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
@@ -86,13 +87,20 @@ def dashboard():
         porcentagem_clientes_novos = (clientes_novos / (clientes_totais - clientes_novos)) * 100
     
     return render_template("dashboard.html", produto_destaque=produto_destaque, clientes_novos=clientes_novos, 
-        porcentagem_clientes_novos=porcentagem_clientes_novos, nome_usuario=nome_usuario,
-        setor_usuario=setor_usuario, empresa=empresa, dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos,pais_destaque=pais_destaque, lucro_total=lucro_total)
+    porcentagem_clientes_novos=porcentagem_clientes_novos,nome_usuario=nome_usuario, setor_usuario=setor_usuario, 
+    empresa=empresa, dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos, lucro_total=lucro_total, pais_destaque=pais_destaque)
+    #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
 @home.route("/api/faturamento_mensal")
 def faturamento_mensal():
     dados = monthly_sales_data()
     return jsonify(dados)
+
+@home.route("/api/produtos_vendidos")
+def volumes_vendas_mensal():
+    grafico_volume = monthly_sales_volume()
+    return jsonify(grafico_volume)
+
 
 
 @home.route("/churn")
@@ -101,8 +109,10 @@ def churn():
     nome_usuario, setor_usuario = get_user_info()
     empresa = company_data()
     empresa = company_data()
+
+    clientes = get_all_customers_with_lucro_rfm_churn() 
     
-    return render_template("churn.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
+    return render_template("churn.html",clientes = clientes,nome_usuario=nome_usuario, setor_usuario=setor_usuario, empresa=empresa)
 
 
 @home.route("/rfm")
@@ -139,15 +149,18 @@ def usuario():
     if perfil:
         clientes = search_user_profile(perfil)
     else:
-        clientes = get_all_customers()
+        clientes = get_all_customers_with_lucro_rfm_churn()
         
     
     return render_template("usuario.html", nome_usuario=nome_usuario, setor_usuario=setor_usuario, clientes = clientes, empresa=empresa)
 
-
 @home.route("/teste")
 def grafico():
-    grafico_volume = monthly_sales_volume()
+    grafico_volume = top3_monthly_sales()
+    #resultado_final = format_data_for_chart(grafico_volume)
     grafico_faturamento = monthly_sales_data()
-    return [grafico_volume, grafico_faturamento]
+    return [grafico_volume]
+
+
+
         

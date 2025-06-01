@@ -93,80 +93,77 @@
                     </div>
                 </div>
 
-<div class="usuario">
-    <div class="titulos-tabela">
-        <h3 class="id">Id</h3>
-        <h3 class="nome">Nome</h3>
-        <h3 class="lucro">Lucro</h3>
-        <h3 class="conversao">Conversão</h3>
-    </div>
+                <div class="usuario">
+                    <div class="titulos-tabela">
+                        <h3 class="id">Id</h3>
+                        <h3 class="nome">Nome</h3>
+                        <h3 class="lucro">Lucro</h3>
+                        <h3 class="conversao">Churn (%)</h3>
+                    </div>
 
-    <!-- Início do looping -->
-    {% for cliente in clientes %}
-    <!-- {% if not request.args.get('perfil') or cliente.customer_classification == request.args.get('perfil') %} -->
+                    <!-- Início do looping -->
+                    {% for cliente in clientes %}
+                    <div class="div-clique" onclick="toggleConteudo(this)">
+                        <div class="usuario-informacoes">
+                            <h4 class="id">{{ cliente.customer_id }}</h4>
+                            <h4 class="nome">{{ cliente.name }}</h4>
+                            <h4 class="lucro">R${{ '%.2f'|format(cliente.lucro) }}</h4>
+                            <h4 class="conversao">{{ '%.2f'|format(cliente.churn * 100) if cliente.churn else '0.00' }}%</h4>
+                        </div>
 
-    <div class="div-clique" onclick="toggleConteudo(this)">
-        <div class="usuario-informacoes">
-            <h4 class="id">{{ cliente.customer_id }}</h4>
-            <h4 class="nome">{{ cliente.name }}</h4>
-            <h4 class="lucro">R${{ cliente.satisfaction_score }}</h4>
-            <h4 class="conversao">{{ cliente.churn }}%</h4>
-        </div>
+                        <div class="conteudo">
+                            <div class="bloco-info">
+                                <div class="coluna">
+                                    <h2>Gênero</h2>
+                                    <h3>{{ cliente.gender }}</h3>
 
-        <div class="conteudo">
-            <div class="bloco-info">
-                <div class="coluna">
-                    <h2>Gênero</h2>
-                    <h3>{{ cliente.gender }}</h3>
+                                    <h2>Dispositivo Usado</h2>
+                                    <h3>{{ cliente.frequent_dispositive }}</h3>
 
-                    <h2>Dispositivo Usado</h2>
-                    <h3>{{ cliente.frequent_dispositive }}</h3>
+                                    <h2>Recência</h2>
+                                    <h3>{{ cliente.recency if cliente.recency is not none else '—' }}</h3>
+                                </div>
 
-                    <h2>Recência</h2>
-                    <h3>{{ cliente.tenure }}</h3>
-                </div>
+                                <div class="coluna">
+                                    <h2>Estado Civil</h2>
+                                    <h3>{{ cliente.marital_status }}</h3>
 
-                <div class="coluna">
-                    <h2>Estado Civil</h2>
-                    <h3>{{ cliente.marital_status }}</h3>
+                                    <h2>Dispositivos</h2>
+                                    <h3>{{ cliente.dispositives_num }}</h3>
 
-                    <h2>Dispositivos</h2>
-                    <h3>{{ cliente.dispositives_num }}</h3>
+                                    <h2>Frequência</h2>
+                                    <h3>{{ cliente.frequencey if cliente.frequencey is not none else '—' }}</h3>
+                                </div>
 
-                    <h2>Frequência</h2>
-                    <h3>—</h3> <!-- Substitua se houver dado correspondente -->
-                </div>
+                                <div class="coluna">
+                                    <h2>Tempo como cliente</h2>
+                                    <h3>{{ cliente.tenure }} meses</h3>
 
-                <div class="coluna">
-                    <h2>Tempo como cliente</h2>
-                    <h3>5 meses</h3> <!-- Calcule se desejar mostrar em anos e meses -->
+                                    <h2>Score de Satisfação</h2>
+                                    <h3>{{ cliente.satisfaction_score }}%</h3>
 
-                    <h2>Score de Satisfação</h2>
-                    <h3>{{ cliente.satisfaction_score }}%</h3>
+                                    <h2>Monetário</h2>
+                                    <h3>{{ cliente.monetary if cliente.monetary is not none else '—' }}</h3>
+                                </div>
 
-                    <h2>Monetário</h2>
-                    <h3>—</h3> <!-- Substitua se houver dado correspondente -->
-                </div>
+                                <div class="coluna">
+                                    <h2>Método de Pagamento</h2>
+                                    <h3>{{ cliente.preferred_payment_type }}</h3>
 
-                <div class="coluna">
-                    <h2>Método de Pagamento</h2>
-                    <h3>{{ cliente.preferred_payment_type }}</h3>
+                                    <h2>Usa cupom?</h2>
+                                    <h3>{% if cliente.cupom_used %}Sim{% else %}Não{% endif %}</h3>
 
-                    <h2>Usa cupom?</h2>
-                    <h3>{% if cliente.cupom_used %}Sim{% else %}Não{% endif %}</h3>
-
-                    <h2>Segmentação</h2>
-                    <h3>—</h3> <!-- Substitua se houver dado correspondente -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- {% endif %} -->
-     {% else %}
-     <div class="nao-encontrado">
+                                    <h2>Segmentação</h2>
+                                    <h3>{{ cliente.customer_classification if cliente.customer_classification is not none else '—' }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                     <div class="nao-encontrado">
         <img src="/static/Imagens/nao-encontrado.png">
-        <h2>Não foram encontrados usuários com esse tipo de perfil.</h2>
-    </div>
+        <h2>Não foram encontrados usuários.</h2>
+                    </div>
     <div class="botoes-retornar">
 
         <a href="{{ url_for('home.usuario') }}">
@@ -177,7 +174,9 @@
         </a>
     </div>
     {% endfor %}
-</div>
+                </div>
+
+
 
             </div>
         </div>
