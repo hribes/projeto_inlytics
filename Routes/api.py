@@ -79,27 +79,23 @@ def dashboard():
     qnt_produtos = qnt_products_month()
     lucro_total = total_profit()
     pais_destaque =most_frequent_country()
+    produtos_vendidos = top3_monthly_sales()
     
     
     if ((clientes_totais - clientes_novos) == 0):
         porcentagem_clientes_novos = 100
     else:
         porcentagem_clientes_novos = (clientes_novos / (clientes_totais - clientes_novos)) * 100
-    
-    return render_template("dashboard.html", produto_destaque=produto_destaque, clientes_novos=clientes_novos, 
-    porcentagem_clientes_novos=porcentagem_clientes_novos,nome_usuario=nome_usuario, setor_usuario=setor_usuario, 
-    empresa=empresa, dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos, lucro_total=lucro_total, pais_destaque=pais_destaque)
+
+    return render_template("dashboard.html", produto_destaque=produto_destaque, clientes_novos=clientes_novos,
+    porcentagem_clientes_novos=porcentagem_clientes_novos,nome_usuario=nome_usuario, setor_usuario=setor_usuario,
+    empresa=empresa, dados_faturamento=dados_faturamento, qnt_produtos=qnt_produtos, lucro_total=lucro_total, pais_destaque=pais_destaque, produtos_vendidos=produtos_vendidos)
     #return str([clientes[0], customers,clientes_totais, porcentagem_clientes_novos ])
 
 @home.route("/api/faturamento_mensal")
 def faturamento_mensal():
     dados = monthly_sales_data()
     return jsonify(dados)
-
-@home.route("/api/produtos_vendidos")
-def volumes_vendas_mensal():
-    grafico_volume = monthly_sales_volume()
-    return jsonify(grafico_volume)
 
 
 
@@ -162,5 +158,16 @@ def grafico():
     return [grafico_volume]
 
 
-
-        
+@home.route("/api/top3-monthly")
+def top3_monthly():
+    data = top3_monthly_sales()
+    json_data = [
+        {
+            "sale_month": row["sale_month"],
+            "product_desc": row["product_desc"],
+            "codigo_de_estoque": row["codigo_de_estoque"],
+            "quantidade_total": row["quantidade_total"]
+        }
+        for row in data
+    ]
+    return jsonify(json_data)

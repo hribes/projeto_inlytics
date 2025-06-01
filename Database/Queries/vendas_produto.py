@@ -239,13 +239,13 @@ def top3_monthly_sales():
         SELECT
             ac.sale_month,
             ac.product_desc,
-            ac.stock_code AS `codigo_de_estoque`,
+            ac.stock_code AS codigo_de_estoque,
             COALESCE(ms.total_quantity, 0) AS quantidade_total
         FROM AllCombinations ac
         LEFT JOIN MonthlySales ms
             ON ac.sale_month = ms.sale_month AND ac.stock_code = ms.stock_code
         ORDER BY ac.sale_month, ac.stock_code;
-        """
+    """
 
     cursor.execute(query)
     results = cursor.fetchall()
@@ -253,7 +253,19 @@ def top3_monthly_sales():
     cursor.close()
     conn.close()
 
+    # Converter 'YYYY-MM' para 'Mes AAAA' (por exemplo, 'Mai 2011')
+    meses = {
+        '01': 'Jan', '02': 'Fev', '03': 'Mar', '04': 'Abr',
+        '05': 'Mai', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+        '09': 'Set', '10': 'Out', '11': 'Nov', '12': 'Dez'
+    }
+
+    for row in results:
+        ano, mes = row['sale_month'].split('-')
+        row['sale_month'] = f"{meses[mes]} {ano}"
+
     return results
+
 
 # def qnt_products_month():
 #     conn = conectar_db()

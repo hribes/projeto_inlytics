@@ -396,8 +396,6 @@ header .image-text .header-text {
     position: sticky;
 
 }
-
-
 .usuario-informacoes h4{
     font-weight: 400;
     font-size: 14pt;
@@ -408,33 +406,6 @@ header .image-text .header-text {
 }
 .titulos-tabela .lucro{
     margin-left: 60px;
-}
-
-.usuario-informacoes h4.nome{
-    margin-left: 80px;
-}
-
-.titulos-tabela h3.nome{
-    margin-left: 90px;
-}
-
-.usuario-informacoes h4.lucro{
-    margin-left: 190px;
-}
-
-.titulos-tabela h3.lucro{
-    margin-left: 370px;
-}
-
-.usuario-informacoes h4.conversao{
-    margin-left: 280px;
-    font-weight: 600;
-    font-size: 16pt;
-    
-}
-
-.titulos-tabela h3.conversao{
-    margin-left: 240px;
 }
 
 .nao-encontrado {

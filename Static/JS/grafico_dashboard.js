@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
           responsive: true,
+          devicePixelRatio: 2,
           scales: {
             y: {
               beginAtZero: true,
@@ -100,4 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// GRAFICO DE VENDAS MENSAL
+
