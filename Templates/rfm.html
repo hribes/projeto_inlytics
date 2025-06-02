@@ -102,8 +102,8 @@
                     </div>
                     <div class="prestes-partir"  onclick="window.location.href='{{ url_for('home.usuario', perfil='About to Sleep') }}'">
                         <h3>Prestes a partir</h3>
-                        <h1>{{ quantidades_rfm.get('About to Sleep', 0) }}</h1>
-                        <h4>{{ ('%.2f' % ((quantidades_rfm.get('About to Sleep', 0) / qnt_total_clientes) * 100)).replace('.', ',') }}%</h4>
+                        <h1>{{ quantidades_rfm.get('About To Sleep', 0) }}</h1>
+                        <h4>{{ ('%.2f' % ((quantidades_rfm.get('About To Sleep', 0) / qnt_total_clientes) * 100)).replace('.', ',') }}%</h4>
                     </div>
                     <div class="hibernando"  onclick="window.location.href='{{ url_for('home.usuario', perfil='Hibernating') }}'">
                         <h3>Hibernando</h3>
