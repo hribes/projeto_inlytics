@@ -95,20 +95,20 @@
 
                 <div class="usuario">
                     <div class="titulos-tabela">
-                        <h3 class="id">Id</h3>
-                        <h3 class="nome">Nome</h3>
-                        <h3 class="lucro">Lucro</h3>
-                        <h3 class="conversao">Churn (%)</h3>
+                        <h3 class="coluna-id">Id</h3>
+                        <h3 class="coluna-nome">Nome</h3>
+                        <h3 class="coluna-lucro">Lucro</h3>
+                        <h3 class="coluna-churn">Churn</h3>
                     </div>
 
                     <!-- Início do looping -->
                     {% for cliente in clientes %}
                     <div class="div-clique" onclick="toggleConteudo(this)">
                         <div class="usuario-informacoes">
-                            <h4 class="id">{{ cliente.customer_id }}</h4>
-                            <h4 class="nome">{{ cliente.name }}</h4>
-                            <h4 class="lucro">R${{ '%.2f'|format(cliente.lucro) }}</h4>
-                            <h4 class="conversao">{{ '%.2f'|format(cliente.churn * 100) if cliente.churn else '0.00' }}%</h4>
+                            <h4 class="coluna-id">{{ cliente.customer_id }}</h4>
+                            <h4 class="coluna-nome">{{ cliente.name }}</h4>
+                            <h4 class="coluna-lucro">R${{ '%.2f'|format(cliente.lucro) }}</h4>
+                            <h4 class="coluna-churn">{{ '%.2f'|format(cliente.churn * 100) if cliente.churn else '0.00' }}%</h4>
                         </div>
 
                         <div class="conteudo">

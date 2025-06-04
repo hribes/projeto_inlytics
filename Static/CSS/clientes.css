@@ -252,7 +252,8 @@ header .image-text .header-text {
     color: #08416f;
     cursor: pointer;
     transition: 0.3s;
-    padding-left: 50px;
+    padding-left: 85px;
+    padding-top: 5px;
 }
 
 .logout-icon:hover {
@@ -294,7 +295,7 @@ header .image-text .header-text {
 .search{
     display: flex;
     align-items: center;
-    background-color: #dfdede;
+    border: 2px solid #dfdede;
     justify-content: center;
     width: 400px;
     margin: 20px auto;
@@ -321,13 +322,42 @@ header .image-text .header-text {
     font-family: 'Poppins', sans-serif;
 }
 
-.titulos-tabela{
+/* .titulos-tabela{
     display: flex;
     margin-top: 40px;
     justify-content: space-between;
     padding: 25px 170px 0 162px;
     position: sticky;
+} */
+ .titulos-tabela, .usuario-informacoes {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 180px 0 130px;
 }
+
+
+.coluna-id {
+    flex-basis: 15%;
+}
+
+.coluna-nome {
+    flex-basis: 35%;
+}
+
+.coluna-lucro {
+    flex-basis: 25%;
+    text-align: right; /* ajuda na leitura de valores monetários */
+}
+
+.coluna-churn {
+    flex-basis: 20%;
+    text-align: right;
+}
+
+.titulos-tabela .coluna-lucro{
+    margin-right: 30px;
+}
+
 
 .titulos-tabela h3{
     font-size: 18pt;
@@ -336,11 +366,12 @@ header .image-text .header-text {
 
 .div-clique {
     cursor: pointer;
-    background-color: #dfdede;
+    border: 2px solid #dfdede;
+    /* background-color:  #dfdede; */
     user-select: none;
     transition: all 0.3s ease;
     margin-top: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     padding-bottom: 15px;
     color: #0e0132;
     position: sticky;
@@ -386,7 +417,7 @@ header .image-text .header-text {
     margin-top: -30px;
 }
 
-.usuario-informacoes{
+/* .usuario-informacoes{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -395,18 +426,18 @@ header .image-text .header-text {
     justify-content: space-between;
     position: sticky;
 
-}
+} */
 .usuario-informacoes h4{
     font-weight: 400;
     font-size: 14pt;
 }
 
-.titulos-tabela .nome{
+/* .titulos-tabela .nome{
     margin-left: 55px;
 }
 .titulos-tabela .lucro{
     margin-left: 60px;
-}
+} */
 
 .nao-encontrado {
     display: flex;

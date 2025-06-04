@@ -252,7 +252,8 @@ header .image-text .header-text {
     color: #08416f;
     cursor: pointer;
     transition: 0.3s;
-    padding-left: 50px;
+    padding-left: 85px;
+    padding-top: 5px;
 }
 
 .logout-icon:hover {
@@ -295,7 +296,7 @@ header .image-text .header-text {
 .search{
     display: flex;
     align-items: center;
-    background-color: #dfdede;
+    border: 2px solid #dfdede;
     justify-content: center;
     width: 400px;
     margin: 20px auto;
@@ -376,4 +377,22 @@ table td{
     padding-right: 40px;
     color: #0e0132;
     width: 100%;
+}
+
+
+
+.meio-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+.meio-img img{
+    width: 200px;
+}
+.meio-img h1{
+    margin-top: 10px;
+    font-size: 25pt;
+    color: #6c6868;
 }

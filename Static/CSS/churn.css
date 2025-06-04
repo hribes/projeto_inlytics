@@ -252,7 +252,8 @@ header .image-text .header-text {
     color: #08416f;
     cursor: pointer;
     transition: 0.3s;
-    padding-left: 50px;
+    padding-left: 85px;
+    padding-top: 5px;
 }
 
 .logout-icon:hover {
@@ -295,7 +296,7 @@ header .image-text .header-text {
 .search{
     display: flex;
     align-items: center;
-    background-color: #dfdede;
+    border: 2px solid #dfdede;
     justify-content: center;
     width: 400px;
     margin: 20px auto;
@@ -322,10 +323,7 @@ header .image-text .header-text {
     font-family: 'Poppins', sans-serif;
 }
 
-.titulos-tabela{
-    display: flex;
-    margin-top: 40px;
-}
+
 
 .titulos-tabela h3{
     font-size: 18pt;
@@ -337,9 +335,9 @@ header .image-text .header-text {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #dfdede;
+    border: 2px solid #dfdede;
     height: 80px;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-top: 10px;
     color: #0e0132;
 }
@@ -348,34 +346,36 @@ header .image-text .header-text {
     font-weight: 400;
     font-size: 14pt;
 }
-.churn-informacoes h4.id{
+
+ .titulos-tabela, .churn-informacoes {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 180px 0 130px;
+}
+
+
+.coluna-id {
+    flex-basis: 15%;
+}
+
+.coluna-nome {
+    flex-basis: 35%;
+}
+
+.coluna-possibilidade {
+    flex-basis: 25%;
+    text-align: center; /* ajuda na leitura de valores monetários */
+}
+
+.coluna-probabilidade {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.titulos-tabela .coluna-possibilidade{
     margin-left: 50px;
 }
-.titulos-tabela h3.id{
-    margin-left: 60px;
-}
 
-.churn-informacoes h4.nome{
-    margin-left: 80px;
-}
-
-.titulos-tabela h3.nome{
-    margin-left: 90px;
-}
-
-.churn-informacoes h4.possibilidade{
-    margin-left: 260px;
-}
-
-.titulos-tabela h3.possibilidade{
-    margin-left: 370px;
-}
-
-.churn-informacoes h4.probabilidade{
-    margin-left: 370px;
-    font-weight: 600;
-}
-
-.titulos-tabela h3.probabilidade{
-    margin-left: 240px;
+.titulos-tabela{
+    margin-top: 40px;
 }

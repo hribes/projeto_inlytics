@@ -24,7 +24,7 @@ body{
 .search{
     display: flex;
     align-items: center;
-    background-color: #dfdede;
+    border: 2px solid #dfdede;
     justify-content: center;
     width: 400px;
     margin: 20px auto;
@@ -282,7 +282,8 @@ header .image-text .header-text {
     color: #08416f;
     cursor: pointer;
     transition: 0.3s;
-    padding-left: 50px;
+    padding-left: 85px;
+    padding-top: 5px;
 }
 
 .logout-icon:hover {
@@ -755,4 +756,9 @@ header .image-text .header-text {
     background-color: #3f5994;
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.rfm h2{
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 15pt;
 }
