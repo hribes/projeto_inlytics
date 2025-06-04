@@ -10,3 +10,4 @@ teste_dados.py
 teste.py
 TODO.md
 Airflow/dags/__pycache__/ETL.cpython-310.pyc
+*.pyc
